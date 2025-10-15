@@ -1,6 +1,6 @@
 {% if cart.item_count == 0 %}
   <div class="mini-cart__empty" data-item-count="{{ cart.item_count }}">
-    <h4 class="mini-cart__empty-title">{{ 'cart.mini_cart.empty_title' | t }}</h4>
+    <div class="mini-cart__empty-title">{{ 'cart.mini_cart.empty_title' | t }}</div>
     <p class="mini-cart__empty-subtitle">{{ 'cart.mini_cart.empty_subtitle' | t }}</p>
 
     <a href="#" class="button button--primary" data-action="close-mini-cart">{{ 'cart.mini_cart.empty_button' | t }}</a>

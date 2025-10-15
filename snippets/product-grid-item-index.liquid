@@ -65,9 +65,9 @@
         </h3>
       {% endif %}
 
-      <h2 class="product-item__title">
+      <div class="product-item__title">
         <a href="{{ shop.url }}{{ product.url }}">{{ product.title }}</a>
-      </h2>
+      </div>
 
       {% if product_on_sale %}
         <span class="product-item__price product-item__price--new" data-money-convertible>{{ product.price | money }}</span>

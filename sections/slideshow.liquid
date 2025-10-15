@@ -38,11 +38,11 @@
             <div class="container">
               {% if block.settings.heading != blank %}
                 {% if block.settings.content_position == 'right' %}
-                  <h1 class="slideshow__heading" style="margin-left: auto">{{ block.settings.heading }}</h1>
+                  <header class="slideshow__heading" style="margin-left: auto">{{ block.settings.heading }}</header>
                   {% elsif block.settings.content_position == 'left' %}
-                  <h1 class="slideshow__heading" style="margin-right: auto">{{ block.settings.heading }}</h1>
+                  <header class="slideshow__heading" style="margin-right: auto">{{ block.settings.heading }}</header>
                 {% else %}
-                  <h1 class="slideshow__heading" style="margin-left: auto; margin-right: auto">{{ block.settings.heading }}</h1>
+                  <h2 class="slideshow__heading" style="margin-left: auto; margin-right: auto">{{ block.settings.heading }}</h2>
                 {% endif %}
               {% endif %}
 

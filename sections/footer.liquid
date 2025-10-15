@@ -5,7 +5,7 @@
         {% case block.type %}
           {% when 'contact' %}
             <section class="footer__module footer__contact" {{ block.shopify_attributes }}>
-              <h3 class="footer__title">{{ block.settings.title | escape }}</h3>
+              <header class="footer__title">{{ block.settings.title | escape }}</header>
 
               {% if block.settings.contact_phone != blank %}
                 <p class="footer__phone">{{ block.settings.contact_phone | escape }}</p>
@@ -25,7 +25,7 @@
 
             {% if footer_social_media != blank %}
               <section class="footer__module footer__social" {{ block.shopify_attributes }}>
-                <h3 class="footer__title">{{ block.settings.title | escape }}</h3>
+                <header class="footer__title">{{ block.settings.title | escape }}</header>
                 {{ footer_social_media }}
               </section>
             {% endif %}
@@ -35,7 +35,7 @@
 
             {% unless linklist.empty? %}
               <section class="footer__module footer__links" {{ block.shopify_attributes }}>
-                <h3 class="footer__title">{{ linklist.title }}</h3>
+                <header class="footer__title">{{ linklist.title }}</header>
 
                 <ul class="footer__linklist">
                   {% for link in linklist.links %}
@@ -49,7 +49,7 @@
 
           {% when 'newsletter' %}
             <section class="footer__module footer__newsletter" {{ block.shopify_attributes }}>
-              <h3 class="footer__title">{{ block.settings.title | escape }}</h3>
+              <header class="footer__title">{{ block.settings.title | escape }}</header>
 
               {%- if block.settings.content != blank -%}
                 <div class="footer__content rte">

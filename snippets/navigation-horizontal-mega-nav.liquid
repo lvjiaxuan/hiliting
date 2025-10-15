@@ -17,7 +17,7 @@ Mega nav uses nested linklists to build multi-column layouts
 
   {% for link in mega_nav.links %}
     <li class="navigation-horizontal__dropdown-column dropdown-column">
-      <h2 class="dropdown-column__title"><a href="{{ link.url }}">{{ link.title | escape }}</a></h2>
+      <header class="dropdown-column__title"><a href="{{ link.url }}">{{ link.title | escape }}</a></header>
 
       <ul class="dropdown-column__list">
         {% for sub_link in link.links %}
