@@ -34,9 +34,20 @@
             <meta itemprop="position" content="3">
           </li>
         {% else %}
+          {% assign main_collection_title = product.metafields.custom.main_collection_title | strip %}
+          {% assign main_collection = collections | find: 'title', main_collection_title %}
+
+          {% if main_collection %}
+            {% capture url %}{{ shop.url }}/collections/{{ main_collection.handle }}{% endcapture %}
+            <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <span class="breadcrumb__title" itemprop="name">{{ main_collection.title | link_to: url }}</span>
+              <meta itemprop="position" content="2">
+            </li>
+          {% endif %}
+
           <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <span class="breadcrumb__title" itemprop="name">{{ product.title }}</span>
-            <meta itemprop="position" content="2">
+            <meta itemprop="position" content="3">
           </li>
         {% endif %}
       {% elsif template == 'customers/addresses' or template == 'customers/order' %}
