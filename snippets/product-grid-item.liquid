@@ -35,7 +35,7 @@
       {% endif %}
     </div>
 
-    <a href="{{ product.url | within: collection }}" class="product-item__image">
+    <a href="{{ shop.url }}{{ product.url }}" class="product-item__image">
       <div class="product-item__image-wrapper">
         {% for image in product.images limit:1 offset:1 %}
 
@@ -61,7 +61,7 @@
       {% endif %}
 
       <h2 class="product-item__title">
-        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+        <a href="{{ shop.url }}{{ product.url }}">{{ product.title }}</a>
       </h2>
 
       {% if product_on_sale %}

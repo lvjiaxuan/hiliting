@@ -1,5 +1,5 @@
 <div class="collection__item product-tile tile">
-  <a href="{{ product.url | within: collection }}" class="product-tile__link">
+  <a href="{{ shop.url }}{{ product.url }}" class="product-tile__link">
     <img class="product-tile__image item"
          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
          data-src="{{ product.featured_image | img_url: '500x', scale: 2 }}"

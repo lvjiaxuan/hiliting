@@ -34,7 +34,7 @@ If there is no active collection, we choose the "all" collection so that we stil
 
             {% unless related_product.empty? %}
               <div class="related-products__item grid__cell 1/2 1/{{ settings.tablet_grid_items_per_row }}--handheld 1/{{ grid_items_per_row }}--lap-and-up">
-                <a href="{{ related_product.url | within: collection }}">
+                <a href="{{ shop.url }}{{ related_product.url }}">
                   {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: related_product.featured_image %}
                   {% assign image_url = related_product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
@@ -57,7 +57,7 @@ If there is no active collection, we choose the "all" collection so that we stil
             {% endcomment %}
 
             <div class="related-products__item grid__cell 1/2 1/{{ settings.tablet_grid_items_per_row }}--handheld 1/{{ grid_items_per_row }}--lap-and-up">
-              <a href="{{ related_product.url | within: collection }}">
+              <a href="{{ shop.url }}{{ related_product.url }}">
                 {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: related_product.featured_image %}
                 {% assign image_url = related_product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
