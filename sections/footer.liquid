@@ -1,0 +1,238 @@
+<footer class="footer" role="contentinfo">
+  <div class="inner">
+    <div class="footer__wrapper">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'contact' %}
+            <section class="footer__module footer__contact" {{ block.shopify_attributes }}>
+              <h3 class="footer__title">{{ block.settings.title | escape }}</h3>
+
+              {% if block.settings.contact_phone != blank %}
+                <p class="footer__phone">{{ block.settings.contact_phone | escape }}</p>
+              {% endif %}
+
+              {% if block.settings.contact_email != blank %}
+                <p class="footer__email">
+                  <a href="mailto:{{ block.settings.contact_email }}">{{ block.settings.contact_email | escape }}</a>
+                </p>
+              {% endif %}
+            </section>
+
+          {% when 'social' %}
+            {% capture footer_social_media %}
+              {% include 'social-networks', show_social_name: true %}
+            {% endcapture %}
+
+            {% if footer_social_media != blank %}
+              <section class="footer__module footer__social" {{ block.shopify_attributes }}>
+                <h3 class="footer__title">{{ block.settings.title | escape }}</h3>
+                {{ footer_social_media }}
+              </section>
+            {% endif %}
+
+          {% when 'links' %}
+            {% assign linklist = linklists[block.settings.menu_linklist] %}
+
+            {% unless linklist.empty? %}
+              <section class="footer__module footer__links" {{ block.shopify_attributes }}>
+                <h3 class="footer__title">{{ linklist.title }}</h3>
+
+                <ul class="footer__linklist">
+                  {% for link in linklist.links %}
+                    <li class="footer__linklist-item">
+                      <a href="{{ link.url }}" class="footer__linklist-link">{{ link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </section>
+            {% endunless %}
+
+          {% when 'newsletter' %}
+            <section class="footer__module footer__newsletter" {{ block.shopify_attributes }}>
+              <h3 class="footer__title">{{ block.settings.title | escape }}</h3>
+
+              {%- if block.settings.content != blank -%}
+                <div class="footer__content rte">
+                  {{ block.settings.content }}
+                </div>
+              {%- endif -%}
+
+              {% assign footer_form_posted_successfully = false %}
+              {% capture footer_form_action %}/contact#shopify-section-{{ section.id }}{% endcapture %}
+
+              {%- capture footer_newsletter_form -%}
+                {%- form 'customer', action: footer_form_action, class: 'footer__newsletter-form' -%}
+                  {% if form.posted_successfully? %}
+                    {% assign footer_form_posted_successfully = true %}
+                  {% endif %}
+
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <input class="footer__newsletter-input footer__newsletter-input--email" type="email" name="contact[email]" aria-label="{{ 'layout.footer.newsletter_placeholder' | t }}" placeholder="{{ 'layout.footer.newsletter_placeholder' | t }}">
+                  <button class="footer__newsletter-submit button" type="submit">{{ 'layout.footer.newsletter_submit' | t }}</button>
+                {%- endform -%}
+              {%- endcapture -%}
+
+              {%- if footer_form_posted_successfully -%}
+                <p>{{ 'layout.footer.newsletter_success' | t }}</p>
+              {%- else -%}
+                {{ footer_newsletter_form }}
+              {%- endif -%}
+            </section>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="footer__misc">
+    <div class="inner">
+      <p class="footer__copyright">
+        {% capture shop_copyright %}<a href="/">{{ shop.name }}</a>{% endcapture %}
+        {{ 'layout.footer.copyright_html' | t: shop_copyright: shop_copyright }} 
+      </p>
+
+      {% if section.settings.show_payment_methods %}
+        <ul class="footer__payment-methods">
+          {% for type in shop.enabled_payment_types %}
+            <li class="footer__payment-method">
+              {{ type | payment_type_svg_tag }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+</footer>
+
+{% if section.settings.show_back_to_top %}
+  <a href="#" class="back-to-top" title="Back to the top">
+    {% include 'icon' with 'back-to-top-arrow' %}
+  </a>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "shopify-section__footer",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_payment_methods",
+      "label": "Show payment methods",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_back_to_top",
+      "label": "Show back to top button",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact",
+      "name": "Contact info",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Get in touch"
+        },
+        {
+          "type": "text",
+          "id": "contact_phone",
+          "label": "Phone number"
+        },
+        {
+          "type": "text",
+          "id": "contact_email",
+          "label": "Email"
+        }
+      ]
+    },
+    {
+      "type": "social",
+      "name": "Social media",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Make sure to have properly configured your social networks in the theme settings"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Follow Us"
+        }
+      ]
+    },
+    {
+      "type": "links",
+      "name": "Links",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu_linklist",
+          "label": "Menu",
+          "info": "This menu won't show dropdown items."
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Any customers who sign up will have an account created for them in Shopify. [View customers](/admin/customers?query=&accepts_marketing=1)."
+        },
+        {
+          "type": "paragraph",
+          "content": "You can sync your customers with a newsletter service by installing their app."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Sign up for news"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>A short sentence describing what someone will receive by subscribing</p>"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "contact",
+        "settings": {
+          "contact_phone": "(333) 123 456",
+          "contact_email": "john@doe.com"
+        }
+      },
+      {
+        "type": "social",
+        "settings": {}
+      },
+      {
+        "type": "links",
+        "settings": {
+          "menu_linklist": "footer"
+        }
+      },
+      {
+        "type": "newsletter",
+        "settings": {}
+      }
+    ]
+  }
+}
+{% endschema %}

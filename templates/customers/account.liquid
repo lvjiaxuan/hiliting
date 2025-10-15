@@ -1,0 +1,80 @@
+<header class="page__header">
+  {% include 'breadcrumb' %}
+
+  <div class="page__header-wrapper">
+    <div class="container">
+      <h1 class="page__title">{{ 'customer.account.title' | t }}</h1>
+
+      <div class="page__action">
+        <a href="/account/logout" class="button button--secondary">{{ 'customer.account.logout' | t }}</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="page__content">
+  <div class="inner">
+    <div class="grid grid--large">
+      <section class="account__orders grid__cell 2/3--handheld-and-up">
+        {% if customer.orders.size == 0 %}
+          <div class="alert alert--error">
+            <h3 class="alert__title">{{ 'customer.orders.none' | t }}</h3>
+          </div>
+        {% else %}
+          {% paginate customer.orders by 50 %}
+            <table class="table table--responsive">
+              <thead>
+                <tr>
+                  <th>{{ 'customer.orders.order_number' | t }}</th>
+                  <th>{{ 'customer.orders.date' | t }}</th>
+                  <th>{{ 'customer.orders.payment_status' | t }}</th>
+                  <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                  <th>{{ 'customer.orders.total' | t }}</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {% for order in customer.orders %}
+                  <tr>
+                    <td data-label="{{ 'customer.orders.order_number' | t }}"><a href="{{ order.customer_url }}" class="link link--primary">{{ order.name }}</a></td>
+                    <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</td>
+                    <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+                    <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                    <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+            {% if paginate.pages > 1 %}
+              <div class="pagination pagination--minimal">
+                <div class="pagination__wrapper">
+                  {% if paginate.previous %}
+                    <a class="pagination__prev" rel="prev" href="{{ paginate.previous.url }}">
+                      {% include 'icon' with 'arrow-left' %}
+                      {{ 'customer.orders.previous' | t }}
+                    </a>
+                  {% endif %}
+
+                  {% if paginate.next %}
+                    <a class="pagination__next" rel="next" href="{{ paginate.next.url }}">
+                      {{ 'customer.orders.next' | t }}
+                      {% include 'icon' with 'arrow-right' %}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          {% endpaginate %}
+        {% endif %}
+      </section>
+
+      <div class="grid__cell 1/3--handheld-and-up">
+        <section class="account__address account__address--main">
+          {{ customer.default_address | format_address }}
+          <a href="/account/addresses" class="link link--primary">{{ 'customer.account.manage_addresses' | t }} ({{ customer.addresses_count }})</a>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

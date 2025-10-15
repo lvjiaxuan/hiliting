@@ -1,0 +1,21 @@
+{% if collection.image %}
+  {% assign collection_image = collection.image %}
+{% else %}
+  {% assign collection_image = collection.products.first.featured_image %}
+{% endif %}
+
+<div class="list-collections__item collection grid__cell 1/2 1/3--handheld 1/{{ grid_items_per_row }}--lap-and-up" {{ block.shopify_attributes }}>
+  <a href="{{ collection.url }}" class="collection__link" style="background: url({{ collection_image | img_url: '1x1', format: 'jpg' }})">
+    <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: collection_image.aspect_ratio }}%">
+      <div class="collection__image-background lazyload image--fade-in" data-optimumx="1.4" data-bgset="{{ collection_image | img_url: '400x' }} 400w, {{ collection_image | img_url: '600x' }} 600w, {{ collection_image | img_url: '800x' }} 800w, {{ collection_image | img_url: '1000x' }} 1000w"></div>
+
+      <noscript>
+        <div class="collection__image-background" style="background-image: url({{ collection_image | img_url: '800x' }})"></div>
+      </noscript>
+    </div>
+
+    <div class="collection__overlay">
+      <h3 class="collection__title">{{ collection.title }}</h3>
+    </div>
+  </a>
+</div>

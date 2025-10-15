@@ -1,0 +1,44 @@
+<header class="page__header">
+  {% include 'breadcrumb' %}
+
+  <div class="page__header-wrapper">
+    <div class="container">
+      <h1 class="page__title">{{ 'customer.activate_account.title' | t }}</h1>
+    </div>
+  </div>
+</header>
+
+<div class="page__content">
+  <section class="activate-account-form">
+    <div class="container container--shrink">
+      {% form 'activate_customer_password' %}
+        {% if form.errors %}
+          <div class="alert alert--error">
+            <span class="alert__title">{{ 'general.forms.errors' | t }}</span>
+            {% include 'form-errors' %}
+          </div>
+        {% endif %}
+
+        <div class="form__control {% if form.errors.message.password %}form__control--error{% endif %}">
+          <label class="form__label" for="customer__password">{{ 'customer.activate_account.password' | t }}</label>
+          <input type="password" id="customer__password" name="customer[password]" required="required">
+        </div>
+
+        <div class="form__control {% if form.errors.message.password_confirmation %}form__control--error{% endif %}">
+          <label class="form__label" for="customer__password-confirmation">{{ 'customer.activate_account.password_confirmation' | t }}</label>
+          <input type="password" id="customer__password-confirmation" name="customer[password_confirmation]" required="required">
+        </div>
+
+        <div class="button-group">
+          <div class="button-group__item">
+            <input type="submit" class="button button--primary" value="{{ 'customer.activate_account.submit' | t }}">
+          </div>
+
+          <div class="button-group__item">
+            <input type="submit" class="button button--secondary" name="decline" value="{{ 'customer.activate_account.cancel' | t }}">
+          </div>
+        </div>
+      {% endform %}
+    </div>
+  </section>
+</div>

@@ -1,0 +1,182 @@
+{% comment %}The header on password is minimal, and does not contain all the elements as on the other pages{% endcomment %}
+
+{% if template contains 'password' %}
+  <header class="header">
+    <div class="header__wrapper">
+      <div class="header__item header__item-logo">
+        <div class="header__logo header__logo--centered">
+          <a href="{{ shop.url }}" class="header__link">
+            {% if section.settings.logo %}
+              {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+
+              <img class="header__logo-image"
+                   src="{{ section.settings.logo | img_url: image_size }}"
+                   srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                   alt="{{ section.settings.logo.alt | default: shop.name }}">
+            {% else %}
+              <span class="header__logo-text">{{ shop.name }}</span>
+            {% endif %}
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+{% else %}
+  <header class="header {% if settings.navigation_mode == 'horizontal' %}header--with-horizontal-nav{% endif %}" role="banner">
+    <div class="header__wrapper">
+      <div class="header__item header__item-toggle">
+        <a href="#" class="header__link" data-action="open-navigation-sidebar">
+          {% include 'icon' with 'hamburger' %}
+        </a>
+      </div>
+
+      <div class="header__item header__item-logo">
+        <div class="header__logo">
+          <a href="{{ shop.url }}" class="header__link">
+            {% if section.settings.logo %}
+              {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+
+              <img class="header__logo-image"
+                   src="{{ section.settings.logo | img_url: image_size }}"
+                   srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                   alt="{{ section.settings.logo.alt | default: shop.name }}">
+            {% else %}
+              <span class="header__logo-text">{{ shop.name }}</span>
+            {% endif %}
+          </a>
+        </div>
+      </div>
+
+      {% if section.settings.show_social_media %}
+        {% capture social_media %}
+          {% include 'social-networks', show_social_name: false %}
+        {% endcapture %}
+
+        {% if social_media != blank %}
+          <div class="header__item header__item-social">
+            {{ social_media }}
+          </div>
+        {% endif %}
+      {% endif %}
+
+      {% if settings.currency_conversion_enabled %}
+        <div class="header__item header__item-currency">
+          <div class="styled-select currency-selector">
+            {% include 'icon' with 'dropdown-arrow' %}
+
+            <select class="currency-selector__select">
+              {% capture codes %}USD,EUR,GBP,CAD,ARS,AUD,BBD,BDT,BSD,BHD,BRL,BOB,BND,BGN,MMK,KYD,CLP,CNY,COP,CRC,HRK,CZK,DKK,DOP,XCD,EGP,XPF,FJD,GHS,GTQ,GYD,GEL,HKD,HUF,ISK,INR,IDR,NIS,JMD,JPY,JOD,KZT,KES,KWD,LVL,LTL,MXN,MYR,MUR,MDL,MAD,MNT,MZN,ANG,NZD,NGN,NOK,OMR,PKR,PYG,PEN,PHP,PLN,QAR,RON,RUB,SAR,RSD,SCR,SGD,SYP,ZAR,KRW,LKR,SEK,CHF,TWD,THB,TZS,TTD,TRY,UAH,AED,UYU,VEB,VND,ZMK{% endcapture %}
+              {% assign supported_codes = settings.currency_conversion_supported_currencies | append: ' ' | append: settings.currency_conversion_default_currency | upcase | split: ' ' | uniq %}
+
+              <option value="{{ shop.currency }}" selected="selected">{{ shop.currency }}</option>
+
+              {% for code in supported_codes %}
+                {% if code != shop.currency and codes contains code %}
+                  <option value="{{ code }}">{{ code }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if shop.customer_accounts_enabled %}
+        <div class="header__item header__item-account">
+          <a href="/account{% unless customer %}/login{% endunless %}" class="header__link">
+            {% include 'icon' with 'profile' %}
+          </a>
+        </div>
+      {% endif %}
+
+      <div class="header__item header__item-search">
+        <a href="/search" class="header__link" data-action="open-search">
+          {% include 'icon' with 'search' %}
+        </a>
+
+        <div class="header__search-wrapper">
+          <a href="#" class="header__link">
+            {% include 'icon' with 'search' %}
+          </a>
+
+          <form class="header__search-form" action="/search" method="GET" role="search">
+            <input type="hidden" name="type" value="{{ settings.search_mode }}">
+            <input type="search" name="q" class="search__input" autocomplete="off" autocorrect="off" aria-label="{{ 'search.autocomplete.input_placeholder' | t }}" placeholder="{{ 'search.autocomplete.input_placeholder' | t }}" value="{{ search.terms | escape }}">
+          </form>
+
+          <a href="#" class="header__link header__search-close" data-action="close-search">
+            {% include 'icon' with 'close-thin' %}
+          </a>
+
+          <div class="autocomplete">
+            <span class="autocomplete__spinner" style="display: none">
+              <svg width="50" height="50" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="{{ settings.header_color }}">
+                <g fill="none" fill-rule="evenodd">
+                  <g transform="translate(1 1)" stroke-width="2">
+                    <circle stroke-opacity=".5" cx="18" cy="18" r="18"></circle>
+                    <path d="M36 18c0-9.94-8.06-18-18-18"></path>
+                  </g>
+                </g>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header__item header__item-cart">
+        <a href="/cart" class="header__link" {% if settings.cart_page == 'drawer' and template != 'cart' %}data-action="open-mini-cart"{% endif %}>
+          <div class="cart-icon-wrapper cart-icon-wrapper--has-items" {% if cart.item_count == 0 %}style="display: none"{% endif %}>
+            <span class="cart-icon-wrapper__count">{{ cart.item_count }}</span>
+            {% include 'icon' with 'cart-full' %}
+          </div>
+
+          <div class="cart-icon-wrapper cart-icon-wrapper--empty" {% unless cart.item_count == 0 %}style="display: none"{% endunless %}>
+            {% include 'icon' with 'cart-empty' %}
+          </div>
+        </a>
+      </div>
+    </div>
+
+    {% if settings.navigation_mode == 'horizontal' %}
+      <nav class="navigation-horizontal" role="navigation">
+        {% include 'navigation-horizontal-lists', level: 0 %}
+      </nav>
+    {% endif %}
+  </header>
+{% endif %}
+
+<style>
+  .header__logo-image {
+    max-width: {{ section.settings.logo_max_width }}px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "shopify-section__header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image",
+      "info": "200 x 60px .png recommended"
+    },
+    {
+      "type": "range",
+      "id": "logo_max_width",
+      "min": 50,
+      "max": 350,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo image width",
+      "default": 200
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_media",
+      "label": "Show social media",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,234 @@
+<!doctype html>
+
+<!--[if IE 9 ]><html class="no-js csscalc no-flexbox ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js"><!--<![endif]-->
+  <head>{% include 'ymq-option-initializer' %}
+
+    <meta name="google-site-verification" content="G53fMm5fahVFQnrGdCmxGkbnr6eJOA8ueUsmVqz2kGY" />
+    <script>var shareasaleShopifySSCID=shareasaleShopifyGetParameterByName("sscid");function shareasaleShopifySetCookie(e,a,o,i,r){if(e&&a){var s,S=i?"; path="+i:"",h=r?"; domain="+r:"",t="";o&&((s=new Date).setTime(s.getTime()+o),t="; expires="+s.toUTCString()),document.cookie=e+"="+a+t+S+h}}function shareasaleShopifyGetParameterByName(e,a){a||(a=window.location.href),e=e.replace(/[\[\]]/g,"\\$&");var o=new RegExp("[?&]"+e+"(=([^&#]*)|&|#|$)").exec(a);return o?o[2]?decodeURIComponent(o[2].replace(/\+/g," ")):"":null}shareasaleShopifySSCID&&shareasaleShopifySetCookie("shareasaleShopifySSCID",shareasaleShopifySSCID,94670778e4,"/");</script>
+    <meta charset="utf-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T4LRBFL');</script>
+<!-- End Google Tag Manager -->
+    <title>
+      {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+    
+    <meta name="keywords" content="gobo projector,custom gobo">
+
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {% if settings.favicon %}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+    {% endif %}
+
+    {% include 'social-meta-tags' %}
+
+    {{ content_for_header }}
+
+    <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
+    {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+
+    <script>
+      // This allows to expose several variables to the global scope, to be used in scripts
+      window.shop = {
+        template: {{ template | json }},
+        currentPage: {{ current_page }},
+        shopCurrency: {{ shop.currency | json }},
+        moneyFormat: {{ shop.money_format | json }},
+        moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+        collectionSortBy: {{ collection.sort_by | default: collection.default_sort_by | json }}
+      };
+
+      window.languages = {
+        autocompleteNoResults: {{ 'search.autocomplete.no_results' | t | json }},
+        autocompleteSeeAll: {{ 'search.autocomplete.see_all' | t | json }},
+        closeReview: {{ 'product.reviews.close' | t | json }},
+        passwordRecoverTitle: {{ 'customer.recover.title' | t | json }},
+        shippingEstimatorSubmitting: {{ 'cart.shipping_estimator.submitting' | t | json }},
+        shippingEstimatorSubmit: {{ 'cart.shipping_estimator.submit' | t | json }},
+        shippingEstimatorError: {{ 'cart.shipping_estimator.error' | t | json }},
+        shippingEstimatorRates: {{ 'cart.shipping_estimator.rates' | t | json }},
+        shippingEstimatorNoRates: {{ 'cart.shipping_estimator.no_rates' | t | json }},
+        cartEstimatedShipping: {{ 'cart.general.estimated_shipping' | t | json }},
+        addToCartLabel: {{ 'product.general.add_to_cart' | t | json }},
+        soldOutLabel: {{ 'product.labels.sold_out' | t | json }},
+        onSaleLabel: {{ 'product.labels.on_sale' | t | json }},
+        unavailableLabel: {{ 'product.labels.unavailable' | t | json }},
+        addToCartButton: {{ 'product.general.add_to_cart' | t | json }},
+        addingToCartButton: {{ 'product.general.adding_to_cart' | t | json }},
+        addedToCartButton: {{ 'product.general.added_to_cart' | t | json }}
+      }
+    </script>
+
+    {% include 'microdata-schema' %}
+    {% include 'judgeme_core' %}
+
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      <!--StartCartCartCustomCode-->
+                      
+                      <!-- Abandoned Cart Information -->
+                      <div id="care-cart-customer-information" style="display:none">
+                        {"id":"{{customer.id}}", "email":"{{ customer.email }}","default_address":{{ customer.default_address | json }},"first_name":"{{ customer.first_name }}","last_name":"{{ customer.last_name }}","name":"{{ customer.name }}" }
+                      </div>
+                      <!-- Abandoned Cart Information -->
+                      
+                      <!--  ShopInformation -->
+                      <div id="care-cart-shop-information" style="display:none">
+                        {"domain":"{{shop.permanent_domain}}" }
+                      </div>
+                      <!--  ShopInformation -->
+                      
+                      <!--EndCareCartCustomCode-->
+                      </head>
+
+  {% assign template_handle = template | replace: '.', ' ' | truncatewords: 1, '' | handle %}
+
+  <body class="kagami--v6 template-{{ template_handle }} {% if page.template_suffix != blank %}template-{{ template_handle }}-{{page.template_suffix}}{% endif %}">  
+   <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4LRBFL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    {% include 'svg-icons' %}
+
+    <div class="page__overlay"></div>
+
+    <div class="drawers">
+      {% include 'mini-cart' %}
+      {% include 'navigation-sidebar' %}
+    </div>
+
+    {% section 'popup' %}
+
+    <div class="page__container {% if use_secondary_background %}page__container--secondary{% endif %}">
+      {% section 'announcement' %}
+      {% section 'header' %}
+
+      <main id="main" class="main" role="main">
+        {{ content_for_layout }}
+      </main>
+
+      {% section 'newsletter' %}
+      {% section 'footer' %}
+    </div>
+
+    {% comment %}This is an empty modal this is used to display the quick shop{% endcomment %}
+    <div class="quick-shop modal modal--large remodal">
+      <div class="quick-shop__spinner spinner-container spinner-container--large">
+        <div class="spinner spinner--circle"></div>
+      </div>
+    </div>
+
+    {{ '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' | script_tag }}
+    {{ 'modernizr.min.js' | asset_url | script_tag }}
+
+    {% if settings.currency_conversion_enabled %}
+      {{ '//cdn.shopify.com/s/javascripts/currencies.js' | script_tag }}
+    {% endif %}
+
+    {% if template contains 'customers' %}
+      {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+      {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
+    {% endif %}
+
+    {% if template contains 'cart' %}
+      {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+    {% endif %}
+
+    {{ '//cdn.polyfill.io/v2/polyfill.min.js?features=String.prototype.trim,Object.keys,Array.prototype.map,Array.prototype.forEach,Array.prototype.find' | script_tag }}
+    {{ 'libs.js' | asset_url | script_tag }}
+    {{ 'script.js' | asset_url | script_tag }}
+  </body>
+</html>

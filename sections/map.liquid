@@ -1,0 +1,73 @@
+{%- include 'map' -%}
+
+{% schema %}
+{
+  "name": "Map",
+  "class": "shopify-section__featured-map",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Our store"
+    },
+    {
+      "type": "richtext",
+      "id": "address",
+      "label": "Address",
+      "default": "<p>123 Fake St. Toronto, Canada</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "hours",
+      "label": "Hours",
+      "default": "<p>Mon - Fri, 10am - 9pm<br>Saturday, 11am - 9pm<br>Sunday, 11am - 5pm</p>"
+    },
+    {
+      "type": "text",
+      "id": "map_address",
+      "label": "Map address",
+      "info": "Google Maps will find the exact location",
+      "default": "80 Spadina Ave, Toronto"
+    },
+    {
+      "type": "text",
+      "id": "map_link_label",
+      "label": "Map link label",
+      "default": "Get directions"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "text",
+      "id": "api_key",
+      "label": "Google Maps API key",
+      "info": "You’ll need to register a [Google Maps API Key](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) to display the map."
+    },
+    {
+      "type": "range",
+      "id": "zoom",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "label": "Map zoom",
+      "default": 14
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Displayed if the map isn’t loaded"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Store information",
+      "name": "Map",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

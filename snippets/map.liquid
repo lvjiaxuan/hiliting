@@ -1,0 +1,49 @@
+{% capture section_settings %}
+  {
+  "apiKey": {{ section.settings.api_key | json }},
+  "mapAddress": {{ section.settings.map_address | json }},
+  "zoom": {{ section.settings.zoom }}
+  }
+{% endcapture %}
+
+<section class="section">
+  <div class="featured-map lazyload" {% if section.settings.image %}data-bg="{{ section.settings.image | img_url: '1500x' }}"{% endif %} data-section-settings='{{ section_settings | escape }}'>
+    {% unless section.settings.image %}
+      <div class="placeholder-background">
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+    {% endunless %}
+
+    <div class="container">
+      <div class="featured-map__info">
+        {% if section.settings.title != blank %}
+          <p class="featured-map__store">{{ section.settings.title | escape }}</p>
+        {% endif %}
+
+        {% if section.settings.address != blank %}
+          <div class="featured-map__address rte">
+            {{ section.settings.address }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.hours != blank %}
+          <div class="featured-map__hours rte">
+            {{ section.settings.hours }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.map_link_label != blank and section.settings.map_address != blank %}
+          <a href="https://maps.google.com?daddr={{ section.settings.map_address | escape }}" target="_blank" rel="nofollow" class="featured-map__location button button--primary button--full">
+            {{- section.settings.map_link_label | escape -}}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="featured-map__gmap"></div>
+  </div>
+</section>
+
+{% if section.settings.api_key %}
+  <script src="//maps.googleapis.com/maps/api/js?key={{ section.settings.api_key }}"></script>
+{% endif %}

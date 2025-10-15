@@ -1,0 +1,48 @@
+{% if horizontal_nav_linklist == blank %}
+  {% assign base_menu_handle = settings.navigation_menu | default: 'main-menu' %}
+  {% assign horizontal_nav_linklist = linklists[base_menu_handle] %}
+{% endif %}
+
+{% assign mega_nav_name = settings.navigation_horizontal_mega_nav | downcase %}
+
+<ul class="navigation-horizontal__list">
+  {% for link in horizontal_nav_linklist.links %}
+    {% if link.links != blank %}
+      {% assign downcased_link_title = link.title | downcase %}
+
+      <li class="navigation-horizontal__list-item navigation-horizontal__list-item--expandable {% if mega_nav_name == downcased_link_title %}navigation-horizontal__list-item--static{% endif %}" aria-haspopup="true" aria-expanded="false">
+        <a href="{{ link.url }}" class="navigation-horizontal__list-link">{{ link.title | escape }} {% include 'icon' with 'dropdown-arrow' %}</a>
+
+        {% if mega_nav_name == downcased_link_title %}
+          {% include 'navigation-horizontal-mega-nav', mega_nav: link %}
+        {% else %}
+          <ul class="navigation-horizontal__dropdown">
+            {% for sub_link in link.links %}
+              {% if sub_link.links != blank %}
+                <li class="navigation-horizontal__dropdown-item navigation-horizontal__dropdown-item--expandable" aria-haspopup="true" aria-expanded="false">
+                  <a href="{{ sub_link.url }}" class="navigation-horizontal__dropdown-link">{{ sub_link.title | escape }} {% include 'icon' with 'dropdown-arrow-right' %}</a>
+
+                  <ul class="navigation-horizontal__dropdown">
+                    {% for sub_sub_link in sub_link.links %}
+                      <li class="navigation-horizontal__dropdown-item">
+                        <a href="{{ sub_sub_link.url }}" class="navigation-horizontal__dropdown-link">{{ sub_sub_link.title | escape }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% else %}
+                <li class="navigation-horizontal__dropdown-item">
+                  <a href="{{ sub_link.url }}" class="navigation-horizontal__dropdown-link">{{ sub_link.title | escape }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% else %}
+      <li class="navigation-horizontal__list-item">
+        <a href="{{ link.url }}" class="navigation-horizontal__list-link">{{ link.title | escape }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

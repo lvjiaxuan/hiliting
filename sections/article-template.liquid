@@ -1,0 +1,205 @@
+<div class="article__top">
+  {% include 'breadcrumb' %}
+
+  {% if section.settings.show_rss %}
+    <div class="blog__rss">
+      <div class="inner">
+        <a href="{{ blog.url }}.atom">
+          {{ 'blog.general.rss' | t }} {% include 'icon' with 'rss' %}
+        </a>
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<article class="article article--full">
+  {% if article.image %}
+    <img class="article__image" alt="{{ article.title | escape }}" src="{{ article.image | img_url: '1200x' }}">
+  {% endif %}
+
+  <div class="article__body">
+    <div class="container {% if section.settings.reduce_content %}container--shrink{% endif %}">
+      <header class="article__header">
+        <div class="article__meta">
+          <time datetime="{{ article.published_at | date: '%Y-%m-%dT%T' }}" class="article__date">{{ article.published_at | date: format: 'month_day_year' }}</time>
+
+          {% if section.settings.show_author %}
+            <span class="article__separator">•</span>
+            <span class="article__author">{{ article.author }}</span>
+          {% endif %}
+        </div>
+
+        <h1 class="article__title">{{ article.title }}</h1>
+      </header>
+
+      <section class="article__content rte">
+        {{ article.content }}
+      </section>
+
+      <section class="article__misc">
+        <div class="share-buttons">
+          <span class="share-buttons__label">{{ 'general.social.share' | t }}</span>
+
+          <ul class="share-buttons__list">
+            {% assign share_url = shop.url | append: article.url %}
+            {% assign twitter_text = article.title %}
+            {% assign pinterest_description = article.excerpt_or_content | strip_html | truncatewords: 15 | url_param_escape %}
+            {% assign pinterest_image = article.image | img_url: 'large' | prepend: 'https:' %}
+
+            <li class="share-buttons__item">
+              <a href="https://www.facebook.com/sharer.php?u={{ share_url }}" target="_blank">{% include 'icon' with 'facebook' %}</a>
+            </li>
+
+            <li class="share-buttons__item">
+              <a href="https://twitter.com/share?{% if twitter_text != blank %}text={{twitter_text}}&{% endif %}url={{ share_url }}" target="_blank">{% include 'icon' with 'twitter' %}</a>
+            </li>
+
+            <li class="share-buttons__item">
+              <a href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}" target="_blank">{% include 'icon' with 'pinterest' %}</a>
+            </li>
+          </ul>
+        </div>
+
+        {% if article.tags.size > 0 %}
+          <div class="article__tags">
+            <span class="article__tags-label">{{ 'general.social.tags' | t }}</span>
+
+            <ul class="article__tags-list">
+              {% for tag in article.tags %}
+                <li class="article__tags-item">{{ tag | link_to_tag: tag }}{% unless forloop.last %}, {% endunless %}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </section>
+    </div>
+  </div>
+</article>
+
+{% if blog.comments_enabled? %}
+  <span class="anchor" id="comments-list"></span>
+  <section class="comments">
+    <div class="container container--shrink">
+      <header class="comments__header">
+        <h3 class="comments__count">{{ 'blog.comments.comments_count' | t: count: article.comments_count }}</h3>
+
+        {% if article.comments_count > 0 %}
+          <a href="#comments" class="comments__write" data-smooth-scroll>{{ 'blog.comments.write' | t }}</a>
+        {% endif %}
+      </header>
+
+      {% paginate article.comments by 25 %}
+        {% for comment in article.comments %}
+          <article class="comment">
+            <header class="comment__header">
+              <img class="comment__gravatar" alt="{{ comment.author }}" src="//www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}?d=https:{{ 'gravatar-user-default-retina.png' | asset_url }}">
+              <p class="comment__author">{{ comment.author }}</p>
+              <time class="comment__date" datetime="{{ comment.created_at | date: '%Y-%m-%dT%T' }}">{{ comment.created_at | date: format: 'month_day_year_time' }}</time>
+            </header>
+
+            <div class="comment__content rte">
+              {{ comment.content }}
+            </div>
+          </article>
+        {% endfor %}
+
+        {% if paginate.pages > 1 %}
+          <div class="pagination pagination--minimal">
+            <div class="pagination__wrapper">
+              {% if paginate.previous %}
+                <a class="pagination__prev" rel="prev" href="{{ paginate.previous.url }}#comments-list">
+                  {% include 'icon' with 'arrow-left' %}
+                  {{ 'blog.comments.previous_comments' | t }}
+                </a>
+              {% endif %}
+
+              {% if paginate.next %}
+                <a class="pagination__next" rel="next" href="{{ paginate.next.url }}#comments-list">
+                  {{ 'blog.comments.next_comments' | t }}
+                  {% include 'icon' with 'arrow-right' %}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endpaginate %}
+    </div>
+  </section>
+
+  <span class="anchor" id="comments"></span>
+  <section class="comment-form">
+    <div class="container container--shrink">
+      <header class="comment-form__header">
+        <h3 class="comment-form__heading">{{ 'blog.comments.write' | t }}</h3>
+      </header>
+
+      {% form 'new_comment', article, class: 'comment__form' %}
+        {% if form.posted_successfully? %}
+          <div class="alert alert--success">
+            {% if blog.moderated? %}
+              <p class="alert__content">{{ 'blog.comments.success_moderated' | t }}</p>
+            {% else %}
+              <p class="alert__content">{{ 'blog.comments.success' | t }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if form.errors %}
+          <div class="alert alert--error">
+            <h4 class="alert__title">{{ 'general.forms.errors' | t }}</h4>
+            {% include 'form-errors' %}
+          </div>
+        {% endif %}
+
+        <div class="form__control {% if form.errors.message.author %}form__control--error{% endif %}">
+          <label class="form__label" for="comment__author">{{ 'blog.comments.name' | t }}</label>
+          <input type="text" id="comment__author" name="comment[author]" value="{{ form.name | escape }}" required="required">
+        </div>
+
+        <div class="form__control {% if form.errors.message.email %}form__control--error{% endif %}">
+          <label class="form__label" for="comment__email">{{ 'blog.comments.email' | t }}</label>
+          <input type="email" id="comment__email" name="comment[email]" value="{{ form.email | escape }}" required="required">
+        </div>
+
+        <div class="form__control {% if form.errors.message.body %}form__control--error{% endif %}">
+          <label class="form__label" for="comment__body">{{ 'blog.comments.comment' | t }}</label>
+          <textarea id="comment__body" rows="7" name="comment[body]" required="required">{{ form.body }}</textarea>
+        </div>
+
+        {% if blog.moderated? %}
+          <small class="comment-form__approval">{{ 'blog.comments.approval' | t }}</small>
+        {% endif %}
+
+        <div class="button-wrapper comment-form__submit">
+          <button type="submit" class="button button--primary">{{ 'blog.comments.submit' | t }}</button>
+        </div>
+      {% endform %}
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Article page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "reduce_content",
+      "label": "Reduce content size",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show author name",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rss",
+      "label": "Show RSS feed",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

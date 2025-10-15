@@ -1,0 +1,53 @@
+<header class="page__header">
+  {% include 'breadcrumb' %}
+
+  <div class="page__header-wrapper">
+    <div class="container">
+      <h1 class="page__title">{{ 'customer.register.title' | t }}</h1>
+    </div>
+  </div>
+</header>
+
+<div class="page__content">
+  <section class="register-form">
+    <div class="container container--shrink">
+      {% form 'create_customer', class: 'form--shrinked' %}
+        {% if form.errors %}
+          <div class="alert alert--error">
+            <span class="alert__title">{{ 'general.forms.errors' | t }}</span>
+            {% include 'form-errors' %}
+          </div>
+        {% endif %}
+
+        <div class="form__control {% if form.errors.message.email %}form__control--error{% endif %}">
+          <label class="form__label" for="customer__first-name">{{ 'customer.register.first_name' | t }}</label>
+          <input type="text" id="customer__first-name" name="customer[first_name]">
+        </div>
+
+        <div class="form__control {% if form.errors.message.email %}form__control--error{% endif %}">
+          <label class="form__label" for="customer__last-name">{{ 'customer.register.last_name' | t }}</label>
+          <input type="text" id="customer__last-name" name="customer[last_name]">
+        </div>
+
+        <div class="form__control {% if form.errors.message.email %}form__control--error{% endif %}">
+          <label class="form__label" for="customer__email">{{ 'customer.register.email' | t }}</label>
+          <input type="email" id="customer__email" name="customer[email]" required="required">
+        </div>
+
+        <div class="form__control {% if form.errors.message.password %}form__control--error{% endif %}">
+          <label class="form__label" for="customer__password">{{ 'customer.register.password' | t }}</label>
+          <input type="password" id="customer__password" name="customer[password]" required="required">
+        </div>
+
+        <div class="button-wrapper">
+          <button type="submit" class="button button--primary">{{ 'customer.register.submit' | t }}</button>
+        </div>
+      {% endform %}
+    </div>
+  </section>
+</div>
+
+<footer class="page__footer">
+  <h4 class="page__footer-text">{{ 'customer.register.already_member' | t }}</h4>
+  <a href="/account/login" class="button button--secondary">{{ 'customer.register.login' | t }}</a>
+</footer>

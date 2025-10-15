@@ -1,0 +1,17 @@
+<header class="page__header">
+  {% include 'breadcrumb' %}
+
+  <div class="page__header-wrapper">
+    <div class="container">
+      <h1 class="page__title">{{ 'general.404.title' | t }}</h1>
+
+      <div class="page__description page__description--centered">
+        <p class="rte">{{ 'general.404.subtitle' | t }}</p>
+
+        <div class="page__header-actions">
+          <a href="{{ shop.url }}" class="button button--primary">{{ 'general.404.go_back' | t }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

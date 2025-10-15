@@ -1,0 +1,111 @@
+{% comment %}
+If there is no active collection, we choose the "all" collection so that we still display related products
+{% endcomment %}
+
+{% if section.settings.show_related_products %}
+  {% unless collection %}
+    {% assign collection = collections.all %}
+  {% endunless %}
+
+  {% comment %}
+  All our themes come with a native integration with our SuperFields metafield app. If the product has the hand-picked choosen, then we display the
+  hand-picked products instead
+  {% endcomment %}
+
+  {% if product.metafields.sf_related_products.enabled == 1 %}
+    {% assign grid_items_per_row = 4 %}
+    {% assign grid_number_of_rows = 1 %}
+    {% assign total_number_of_related_products = grid_items_per_row | times: grid_number_of_rows %}
+  {% else %}
+    {% assign grid_items_per_row = section.settings.grid_items_per_row %}
+    {% assign grid_number_of_rows = section.settings.number_of_rows %}
+    {% assign total_number_of_related_products = grid_items_per_row | times: grid_number_of_rows %}
+  {% endif %}
+
+  <aside class="section section--padded related-products" data-products-count="{{ total_number_of_related_products }}">
+    <div class="inner">
+      <h3 class="section__title">{{ 'product.general.related_products' | t }}</h3>
+
+      <div class="grid grid--gallery grid--center grid--middle">
+        {% if product.metafields.sf_related_products.enabled == 1 %}
+          {% for i in (1..4) %}
+            {% capture related_product_option %}product_{{ i }}{% endcapture %}
+            {% assign related_product = all_products[product.metafields.sf_related_products[related_product_option]] %}
+
+            {% unless related_product.empty? %}
+              <div class="related-products__item grid__cell 1/2 1/{{ settings.tablet_grid_items_per_row }}--handheld 1/{{ grid_items_per_row }}--lap-and-up">
+                <a href="{{ related_product.url | within: collection }}">
+                  {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: related_product.featured_image %}
+                  {% assign image_url = related_product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+
+                  <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: related_product.featured_image.aspect_ratio }}%">
+                    <img class="lazyload image--fade-in" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ related_product.featured_image.alt }}">
+                  </div>
+                </a>
+              </div>
+            {% endunless %}
+          {% endfor %}
+        {% else %}
+          {% for related_product in collection.products limit: 25 %}
+            {% if related_product.id == product.id %}
+              {% continue %}
+            {% endif %}
+
+            {% comment %}
+            Performance note: we set the src in the data attribute, to prevent loading of all images, as some items will be removed by the related product
+            JavaScript picker
+            {% endcomment %}
+
+            <div class="related-products__item grid__cell 1/2 1/{{ settings.tablet_grid_items_per_row }}--handheld 1/{{ grid_items_per_row }}--lap-and-up">
+              <a href="{{ related_product.url | within: collection }}">
+                {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: related_product.featured_image %}
+                {% assign image_url = related_product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+
+                <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: related_product.featured_image.aspect_ratio }}%">
+                  <img class="lazyload image--fade-in" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ related_product.featured_image.alt }}">
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </aside>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Related products",
+  "class": "shopify-section__related-products",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Are you looking for hand-picked related products? You can do it now with our app SuperFields. [Learn more here](http://support.maestrooo.com/article/117-product-choosing-hand-picked-related-products)."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_related_products",
+      "label": "Show section",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "grid_items_per_row",
+      "min": 3,
+      "max": 6,
+      "step": 1,
+      "label": "Products per row",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "number_of_rows",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "Rows",
+      "default": 1
+    }
+  ]
+}
+{% endschema %}

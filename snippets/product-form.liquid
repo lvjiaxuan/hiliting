@@ -1,0 +1,72 @@
+{%- assign product_form_id = 'product' | append: product.id | append: '__form' -%}
+
+{%- form 'product', product, id: product_form_id, class: 'product__form' -%}
+  <div class="product__variants">
+    {%- if product.variants.size > 1 -%}
+      {%- assign show_variants_selectors = true -%}
+    {% elsif product.has_only_default_variant == false and section.settings.hide_variants_if_only_one == false %}
+      {%- assign show_variants_selectors = true -%}
+    {%- else -%}
+      {%- assign show_variants_selectors = false -%}
+    {%- endif -%}
+
+    {%- if show_variants_selectors -%}
+      {%- for option in product.options_with_values -%}
+        <div class="form__control">
+          <div class="styled-select">
+            <select class="single-option-selector" id="single-option-selector-{{ forloop.index0 }}" data-option-index="option{{ forloop.index }}" data-selector-type="select">
+              {%- for value in option.values -%}
+                <option value="{{ value | escape }}" {% if option.selected_value == value %}selected="selected"{% endif %}>{{ value }}</option>
+              {%- endfor -%}
+            </select>
+
+            <span class="option-selector__label">{{ option.name }}:</span>
+            {% include 'icon' with 'dropdown-arrow' %}
+          </div>
+        </div>
+      {%- endfor -%}
+
+      <div class="no-js form__control">
+        <div class="styled-select" style="padding-left: 88px">
+          <select id="product-select-{{ product.id }}" name="id">
+            {%- for variant in product.variants -%}
+              <option {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %} {% unless variant.available %}disabled="disabled"{% endunless %} value="{{ variant.id }}" data-sku="{{ variant.sku }}">{{ variant.title }} - {{ variant.price | money }}</option>
+            {%- endfor -%}
+          </select>
+
+          <span class="option-selector__label">{{ 'product.form.variant_label' | t }}:</span>
+          {% include 'icon' with 'dropdown-arrow' %}
+        </div>
+      </div>
+    {%- else -%}
+      <input type="hidden" name="id" data-sku="{{ product.selected_or_first_available_variant.sku }}" value="{{ product.selected_or_first_available_variant.id }}">
+    {%- endif -%}
+  </div>
+
+  <div class="product__buy">
+    <div class="form__control product__quantity">
+      <label class="form__label" for="quantity">{{ 'product.general.quantity' | t }}</label>
+      <input type="number" pattern="[0-9]*" name="quantity" min="1" step="1" value="1" required="required">
+    </div>
+
+    <div class="product__payment-container">
+      {% if product.selected_or_first_available_variant.available %}
+        <button type="submit" class="button {% if section.settings.show_payment_button %}button--secondary{% else %}button--primary{% endif %} button--full button--no-disabled-opacity product__add-to-cart" {% if settings.cart_page != 'page' %}data-action="add-to-cart"{% endif %}>{{ 'product.general.add_to_cart' | t }}</button>
+      {% else %}
+        <button type="submit" class="button button--secondary button--full button--no-disabled-opacity product__add-to-cart" disabled="disabled">{{ 'product.labels.sold_out' | t }}</button>
+      {% endif %}
+
+      {%- if section.settings.show_payment_button -%}
+        {{- form | payment_button -}}
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- if section.settings.show_payment_button and product.selected_or_first_available_variant.available == false -%}
+    <style>
+      #shopify-section-{{ section.id }} .shopify-payment-button {
+        display: none;
+      }
+    </style>
+  {%- endif -%}
+{%- endform -%}

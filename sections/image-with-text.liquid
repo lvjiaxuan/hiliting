@@ -1,0 +1,98 @@
+<section class="index-module section section--padded {% if section.settings.use_secondary_background %}section--secondary{% endif %} index-module__image-with-text">
+  <div class="container">
+    {%- capture image -%}
+      <a href="{{section.settings.link}}" class="image-with-text__image-wrapper" {% if section.settings.image %}style="background-image: url({{ section.settings.image | img_url: '1x1' }})"{% endif %}>
+        {%- if section.settings.image -%}
+          <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: section.settings.image.aspect_ratio }}%">
+            {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: ssection.settings.image %}
+            {% assign image_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+
+            <img class="image--fade-in lazyload" data-sizes="auto" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" alt="{{ section.settings.image.alt | escape }}">
+          </div>
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag }}
+        {%- endif -%}
+      </a>
+    {%- endcapture -%}
+
+    {%- capture content -%}
+      <div class="image-with-text__content rte">
+        {%- if section.settings.title != blank -%}
+          <p class="section__title">{{ section.settings.title }}</p>
+        {%- endif -%}
+
+        {{ section.settings.content }}
+      </div>
+    {%- endcapture -%}
+
+    <div class="image-with-text">
+      {% if section.settings.image_position == 'left' %}
+        {{ image }}
+        {{ content }}
+      {% else %}
+        {{ content }}
+        {{ image }}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image with text",
+  "class": "shopify-section__image-with-text",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "use_secondary_background",
+      "label": "Use secondary background",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Your title"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Text",
+      "default": "<p>Add your own custom content to give more information about your store, availability details...</p>"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+	{
+	  "type": "url",
+      "id": "link",
+      "label": "Image link"
+	}
+  ],
+  "presets": [
+    {
+      "category": "Image",
+      "name": "Image with text",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
