@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  {% if section.settings.show_tags and blog.all_tags.size > 0 %}
+  {% comment %} {% if section.settings.show_tags and blog.all_tags.size > 0 %}
     <div class="blog__tags">
       <div class="container">
         {% for tag in blog.all_tags %}
@@ -38,10 +38,32 @@
         {% endfor %}
       </div>
     </div>
-  {% endif %}
+  {% endif %} {% endcomment %}
 </header>
 
-{% paginate blog.articles by 9 %}
+{% for block in section.blocks %}
+  {% if block.type == 'blog_category' %}
+    {% assign current_blog = blogs[block.settings.blog] %}
+    {% if current_blog %}
+        {% paginate current_blog.articles by block.settings.article_limit %}
+        <div class="page__content">
+          <div class="inner">
+            <h2 class="article__title">{{ current_blog.title | link_to: current_blog.url }}</h2>
+            <div class="grid grid--large grid--gallery grid--gallery-large">
+              {% for article in current_blog.articles %}
+                {% include 'article-preview', show_author: section.settings.show_author %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        {% include 'pagination' %}
+      {% endpaginate %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% comment %} {% paginate blog.articles by 9 %}
   <div class="page__content">
     <div class="inner">
       <div class="grid grid--large grid--gallery grid--gallery-large">
@@ -53,11 +75,11 @@
   </div>
 
   {% include 'pagination' %}
-{% endpaginate %}
+{% endpaginate %} {% endcomment %}
 
 {% schema %}
 {
-  "name": "Blog page",
+  "name": "All Blog page",
   "settings": [
     {
       "type": "checkbox",
@@ -77,6 +99,42 @@
       "label": "Show blog filter",
       "default": true
     }
-  ]
+  ],
+  "blocks": [
+      {
+        "type": "blog_category",
+        "name": "Blog Category",
+        "settings": [
+          {
+            "type": "blog",
+            "id": "blog",
+            "label": "Select Blog"
+          },
+          {
+            "type": "range",
+            "id": "article_limit",
+            "label": "Number of articles to show",
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "default": 3
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Multi-blog Homepage",
+        "category": "Blog",
+        "blocks": [
+          {
+            "type": "blog_category",
+          },
+          {
+            "type": "blog_category",
+          }
+        ]
+      }
+    ]
 }
 {% endschema %}
