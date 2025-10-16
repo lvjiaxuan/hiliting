@@ -559,7 +559,7 @@
         ],
         "settings": {
           "show_author": true,
-          "show_rss": true,
+          "show_rss": false,
           "show_tags": true
         }
       }
