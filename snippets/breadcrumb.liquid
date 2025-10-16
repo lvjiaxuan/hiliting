@@ -4,6 +4,7 @@
       <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
         <span class="breadcrumb__title" itemprop="name"><a href="{{ shop.url }}">{{ 'general.breadcrumb.home' | t }}</a></span>
         <meta itemprop="position" content="1">
+        <meta itemprop="item" content="{{ shop.url }}">
       </li>
 
       {% if template == 'search' and search.performed %}
@@ -15,6 +16,7 @@
         <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
           <span class="breadcrumb__title" itemprop="name">{{ blog.title | link_to: blog.url }}</span>
           <meta itemprop="position" content="2">
+          <meta itemprop="item" content="{{ blog.url }}">
         </li>
 
         <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
@@ -27,6 +29,7 @@
           <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <span class="breadcrumb__title" itemprop="name">{{ collection.title | link_to: url }}</span>
             <meta itemprop="position" content="2">
+            <meta itemprop="item" content="{{ url }}">
           </li>
 
           <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
@@ -42,6 +45,7 @@
             <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
               <span class="breadcrumb__title" itemprop="name">{{ main_collection.title | link_to: url }}</span>
               <meta itemprop="position" content="2">
+              <meta itemprop="item" content="{{ url }}">
             </li>
           {% endif %}
 
@@ -54,6 +58,7 @@
         <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
           <span class="breadcrumb__title" itemprop="name"><a href="/account">{{ 'general.breadcrumb.account' | t }}</a></span>
           <meta itemprop="position" content="2">
+          <meta itemprop="item" content="/account">
         </li>
 
         <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
@@ -64,6 +69,7 @@
         <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
           <span class="breadcrumb__title" itemprop="name"><a href="{{collection.url}}">{{ collection.title }}</a></span>
           <meta itemprop="position" content="2">
+          <meta itemprop="item" content="{{ collection.url }}">
         </li>
 
         <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
