@@ -10,10 +10,21 @@
 
       {% if template contains 'blog' or template contains 'article' %}
         <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span class="breadcrumb__title" itemprop="name">{{ 'all blog' | link_to: '/blogs/all' }}</span>
+          <span class="breadcrumb__title" itemprop="name">{{ 'All Blog' | link_to: '/blogs/all' }}</span>
           {% assign position = position | plus: 1 %}
           <meta itemprop="position" content="{{ position }}">
           <meta itemprop="item" content="{{ shop.url }}/blogs/all">
+        </li>
+      {% endif %}
+
+      {% assign safety_handles  = 'caution-forklift-traffic-sign,go-straight-sign,stop-sign' | split: ',' %}
+      {% if template == 'collection' and safety_handles contains collection.handle %}
+        <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          {% assign url = routes.collections_url | append: '/safety-sign-projector' %}
+          <span class="breadcrumb__title" itemprop="name">{{ 'Safety Sign Projector' | link_to: url }}</span>
+          {% assign position = position | plus: 1 %}
+          <meta itemprop="position" content="{{ position }}">
+          <meta itemprop="item" content="{{ url }}">
         </li>
       {% endif %}
 
@@ -56,9 +67,12 @@
               <meta itemprop="item" content="{{ canonical_url }}">
             </li>
           {% else %}
-            {% assign main_collection_title = product.metafields.custom.main_collection_title | strip %}
-            {% assign main_collection = collections | find: 'title', main_collection_title %}
-  
+            {% assign main_collection  = product.metafields.custom.main_collection  %}
+
+            <script>
+              console.log(456, {{ product | json }})
+            </script>
+
             {% if main_collection %}
               {% capture url %}{{ shop.url }}/collections/{{ main_collection.handle }}{% endcapture %}
               <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
