@@ -1,0 +1,21 @@
+{% assign page_size = page_size | default: 2 %}
+{% assign page_no = request.params.page | default: 1 %}
+{% assign page_total = page_total | default: 0 %}
+
+
+{% assign has_previous = false %}
+{% if page_no > 1 and page_total > 0 %}
+  {% assign has_previous = true %}
+{% endif %}
+
+
+{% assign size_times_no = page_size | times: page_no %}
+{% assign has_next = false %}
+{% if size_times_no < page_total %}
+  {% assign has_next = true %}
+{% endif %}
+
+<script>
+  const aa = 11
+  {% assign variable_name = 11 %}
+</script>

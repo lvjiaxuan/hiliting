@@ -1,0 +1,28 @@
+{% if page_total > 1 %}
+  <div class="pagination">
+    <div class="inner">
+      <div class="pagination__wrapper">
+{{variable_name}}
+        <script>
+          console.log(123, {{ request.page | json }})
+        </script>
+
+        {% if has_previous %}
+          <a class="button button--secondary pagination__nav pagination__nav--prev" rel="prev" href="{{ canonical_url }}?page={{ page_no | minus: 1 }}">
+            {% include 'icon' with 'arrow-left' %}
+            <span class="pagination__label">{{ 'general.pagination.previous_page' | t }}</span>
+          </a>
+        {% endif %}
+
+        <span class="pagination__current">{{ 'general.pagination.page_count' | t: current_page: page_no, total_pages: page_total }}</span>
+
+        {% if has_next  %}
+          <a class="button button--secondary pagination__nav pagination__nav--next" rel="next" href="{{ canonical_url }}?page={{ page_no | plus: 1 }}">
+            <span class="pagination__label">{{ 'general.pagination.next_page' | t }}</span>
+            {% include 'icon' with 'arrow-right' %}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
