@@ -11,6 +11,7 @@
         <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
           <span class="breadcrumb__title" itemprop="name">{{ search.terms | remove: '*' }}</span>
           <meta itemprop="position" content="2">
+          <meta itemprop="item" content="{{ canonical_url }}">
         </li>
       {% elsif template == 'article' %}
         <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
@@ -22,6 +23,7 @@
         <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
           <span class="breadcrumb__title" itemprop="name">{{ article.title }}</span>
           <meta itemprop="position" content="3">
+          <meta itemprop="item" content="{{ canonical_url }}">
         </li>
       {% elsif template contains 'product' %}
         {% if collection and collection.handle %}
@@ -35,6 +37,7 @@
           <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <span class="breadcrumb__title" itemprop="name">{{ product.title }}</span>
             <meta itemprop="position" content="3">
+            <meta itemprop="item" content="{{ canonical_url }}">
           </li>
         {% else %}
           {% assign main_collection_title = product.metafields.custom.main_collection_title | strip %}
@@ -52,6 +55,7 @@
           <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
             <span class="breadcrumb__title" itemprop="name">{{ product.title }}</span>
             <meta itemprop="position" content="3">
+            <meta itemprop="item" content="{{ canonical_url }}">
           </li>
         {% endif %}
       {% elsif template == 'customers/addresses' or template == 'customers/order' %}
@@ -64,6 +68,7 @@
         <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
           <span class="breadcrumb__title" itemprop="name">{{ page_title }}</span>
           <meta itemprop="position" content="3">
+          <meta itemprop="item" content="{{ canonical_url }}">
         </li>
       {% elsif template == 'collection' and current_tags %}
         <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
@@ -75,6 +80,7 @@
         <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
           <span class="breadcrumb__title" itemprop="name">{{ current_tags | first }}</span>
           <meta itemprop="position" content="3">
+          <meta itemprop="item" content="{{ canonical_url }}">
         </li>
       {% else %}
         <li data-breadcrumb-separator="/" class="breadcrumb__item breadcrumb__item--active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
@@ -89,6 +95,7 @@
           {% endif %}
 
           <meta itemprop="position" content="2">
+          <meta itemprop="item" content="{{ canonical_url }}">
         </li>
       {% endif %}
     </ul>
