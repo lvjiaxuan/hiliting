@@ -3,101 +3,126 @@
     <ul class="breadcrumb__list" itemscope itemtype="http://schema.org/BreadcrumbList">
       <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
         <span class="breadcrumb__title" itemprop="name"><a href="{{ shop.url }}">{{ 'general.breadcrumb.home' | t }}</a></span>
-        <meta itemprop="position" content="1">
+        {% assign position = 1 %}
+        <meta itemprop="position" content="{{ position }}">
         <meta itemprop="item" content="{{ shop.url }}">
       </li>
 
-      {% if template == 'search' and search.performed %}
-        <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span class="breadcrumb__title" itemprop="name">{{ search.terms | remove: '*' }}</span>
-          <meta itemprop="position" content="2">
-          <meta itemprop="item" content="{{ canonical_url }}">
-        </li>
-      {% elsif template == 'article' %}
+      {% if template contains 'blog' or template contains 'article' %}
         <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span class="breadcrumb__title" itemprop="name">{{ blog.title | link_to: blog.url }}</span>
-          <meta itemprop="position" content="2">
-          <meta itemprop="item" content="{{ blog.url }}">
+          <span class="breadcrumb__title" itemprop="name">{{ 'all blog' | link_to: '/blogs/all' }}</span>
+          {% assign position = position | plus: 1 %}
+          <meta itemprop="position" content="{{ position }}">
+          <meta itemprop="item" content="{{ shop.url }}/blogs/all">
         </li>
+      {% endif %}
 
-        <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span class="breadcrumb__title" itemprop="name">{{ article.title }}</span>
-          <meta itemprop="position" content="3">
-          <meta itemprop="item" content="{{ canonical_url }}">
-        </li>
-      {% elsif template contains 'product' %}
-        {% if collection and collection.handle %}
-          {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
-          <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <span class="breadcrumb__title" itemprop="name">{{ collection.title | link_to: url }}</span>
-            <meta itemprop="position" content="2">
-            <meta itemprop="item" content="{{ url }}">
-          </li>
-
+      {% unless template == 'blog.all' %}
+        {% if template == 'search' and search.performed %}
           <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <span class="breadcrumb__title" itemprop="name">{{ product.title }}</span>
-            <meta itemprop="position" content="3">
+            <span class="breadcrumb__title" itemprop="name">{{ search.terms | remove: '*' }}</span>
+            {% assign position = position | plus: 1 %}
+            <meta itemprop="position" content="{{ position }}">
+            <meta itemprop="item" content="{{ canonical_url }}">
+          </li>
+        {% elsif template == 'article' %}
+          <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="breadcrumb__title" itemprop="name">{{ blog.title | link_to: blog.url }}</span>
+            {% assign position = position | plus: 1 %}
+            <meta itemprop="position" content="{{ position }}">
+            <meta itemprop="item" content="{{ blog.url }}">
+          </li>
+  
+          <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="breadcrumb__title" itemprop="name">{{ article.title }}</span>
+            {% assign position = position | plus: 1 %}
+            <meta itemprop="position" content="{{ position }}">
+            <meta itemprop="item" content="{{ canonical_url }}">
+          </li>
+        {% elsif template contains 'product' %}
+          {% if collection and collection.handle %}
+            {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+            <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <span class="breadcrumb__title" itemprop="name">{{ collection.title | link_to: url }}</span>
+              {% assign position = position | plus: 1 %}
+              <meta itemprop="position" content="{{ position }}">
+              <meta itemprop="item" content="{{ url }}">
+            </li>
+  
+            <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <span class="breadcrumb__title" itemprop="name">{{ product.title }}</span>
+              {% assign position = position | plus: 1 %}
+              <meta itemprop="position" content="{{ position }}">
+              <meta itemprop="item" content="{{ canonical_url }}">
+            </li>
+          {% else %}
+            {% assign main_collection_title = product.metafields.custom.main_collection_title | strip %}
+            {% assign main_collection = collections | find: 'title', main_collection_title %}
+  
+            {% if main_collection %}
+              {% capture url %}{{ shop.url }}/collections/{{ main_collection.handle }}{% endcapture %}
+              <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <span class="breadcrumb__title" itemprop="name">{{ main_collection.title | link_to: url }}</span>
+                {% assign position = position | plus: 1 %}
+                <meta itemprop="position" content="{{ position }}">
+                <meta itemprop="item" content="{{ url }}">
+              </li>
+            {% endif %}
+  
+            <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <span class="breadcrumb__title" itemprop="name">{{ product.title }}</span>
+              {% assign position = position | plus: 1 %}
+              <meta itemprop="position" content="{{ position }}">
+              <meta itemprop="item" content="{{ canonical_url }}">
+            </li>
+          {% endif %}
+        {% elsif template == 'customers/addresses' or template == 'customers/order' %}
+          <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="breadcrumb__title" itemprop="name"><a href="/account">{{ 'general.breadcrumb.account' | t }}</a></span>
+            {% assign position = position | plus: 1 %}
+            <meta itemprop="position" content="{{ position }}">
+            <meta itemprop="item" content="/account">
+          </li>
+  
+          <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="breadcrumb__title" itemprop="name">{{ page_title }}</span>
+            {% assign position = position | plus: 1 %}
+            <meta itemprop="position" content="{{ position }}">
+            <meta itemprop="item" content="{{ canonical_url }}">
+          </li>
+        {% elsif template == 'collection' and current_tags %}
+          <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="breadcrumb__title" itemprop="name"><a href="{{collection.url}}">{{ collection.title }}</a></span>
+            {% assign position = position | plus: 1 %}
+            <meta itemprop="position" content="{{ position }}">
+            <meta itemprop="item" content="{{ collection.url }}">
+          </li>
+  
+          <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="breadcrumb__title" itemprop="name">{{ current_tags | first }}</span>
+            {% assign position = position | plus: 1 %}
+            <meta itemprop="position" content="{{ position }}">
             <meta itemprop="item" content="{{ canonical_url }}">
           </li>
         {% else %}
-          {% assign main_collection_title = product.metafields.custom.main_collection_title | strip %}
-          {% assign main_collection = collections | find: 'title', main_collection_title %}
-
-          {% if main_collection %}
-            {% capture url %}{{ shop.url }}/collections/{{ main_collection.handle }}{% endcapture %}
-            <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <span class="breadcrumb__title" itemprop="name">{{ main_collection.title | link_to: url }}</span>
-              <meta itemprop="position" content="2">
-              <meta itemprop="item" content="{{ url }}">
-            </li>
-          {% endif %}
-
-          <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-            <span class="breadcrumb__title" itemprop="name">{{ product.title }}</span>
-            <meta itemprop="position" content="3">
+          <li data-breadcrumb-separator="/" class="breadcrumb__item breadcrumb__item--active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            {% if template contains 'collection' and collection.handle %}
+              <span class="breadcrumb__title" itemprop="name">{{ collection.title }}</span>
+            {% elsif template == 'blog' %}
+              <span class="breadcrumb__title" itemprop="name">{{ blog.title }}</span>
+            {% elsif template contains 'page' %}
+              <span class="breadcrumb__title" itemprop="name">{{ page.title }}</span>
+            {% else %}
+              <span class="breadcrumb__title" itemprop="name">{{ page_title }}</span>
+            {% endif %}
+  
+            {% assign position = position | plus: 1 %}
+            <meta itemprop="position" content="{{ position }}">
             <meta itemprop="item" content="{{ canonical_url }}">
           </li>
         {% endif %}
-      {% elsif template == 'customers/addresses' or template == 'customers/order' %}
-        <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span class="breadcrumb__title" itemprop="name"><a href="/account">{{ 'general.breadcrumb.account' | t }}</a></span>
-          <meta itemprop="position" content="2">
-          <meta itemprop="item" content="/account">
-        </li>
+      {% endunless %}
 
-        <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span class="breadcrumb__title" itemprop="name">{{ page_title }}</span>
-          <meta itemprop="position" content="3">
-          <meta itemprop="item" content="{{ canonical_url }}">
-        </li>
-      {% elsif template == 'collection' and current_tags %}
-        <li class="breadcrumb__item" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span class="breadcrumb__title" itemprop="name"><a href="{{collection.url}}">{{ collection.title }}</a></span>
-          <meta itemprop="position" content="2">
-          <meta itemprop="item" content="{{ collection.url }}">
-        </li>
-
-        <li class="breadcrumb__item breadcrumb__item--active" data-breadcrumb-separator="/" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span class="breadcrumb__title" itemprop="name">{{ current_tags | first }}</span>
-          <meta itemprop="position" content="3">
-          <meta itemprop="item" content="{{ canonical_url }}">
-        </li>
-      {% else %}
-        <li data-breadcrumb-separator="/" class="breadcrumb__item breadcrumb__item--active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          {% if template contains 'collection' and collection.handle %}
-            <span class="breadcrumb__title" itemprop="name">{{ collection.title }}</span>
-          {% elsif template == 'blog' %}
-            <span class="breadcrumb__title" itemprop="name">{{ blog.title }}</span>
-          {% elsif template contains 'page' %}
-            <span class="breadcrumb__title" itemprop="name">{{ page.title }}</span>
-          {% else %}
-            <span class="breadcrumb__title" itemprop="name">{{ page_title }}</span>
-          {% endif %}
-
-          <meta itemprop="position" content="2">
-          <meta itemprop="item" content="{{ canonical_url }}">
-        </li>
-      {% endif %}
     </ul>
   </div>
 </nav>{% comment %}<!-- ymq option done -->{% endcomment %}
