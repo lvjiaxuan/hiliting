@@ -67,11 +67,7 @@
               <meta itemprop="item" content="{{ canonical_url }}">
             </li>
           {% else %}
-            {% assign main_collection  = product.metafields.custom.main_collection  %}
-
-            <script>
-              console.log(456, {{ product | json }})
-            </script>
+            {% assign main_collection  = product.metafields.custom.main_collection.value  %}
 
             {% if main_collection %}
               {% capture url %}{{ shop.url }}/collections/{{ main_collection.handle }}{% endcapture %}
