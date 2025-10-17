@@ -18,9 +18,9 @@
   </div>
 </header>
 
-{% comment %} {% assign blocks = section.blocks | concat: section.blocks | concat: section.blocks| concat: section.blocks| concat: section.blocks %} {% endcomment %}
-{% comment %} {% include 'pagination.vars.arr', page_size: block.settings.blog_limit, page_total: blocks.size %} {% endcomment %}
-{% for block in section.blocks %}
+{% include 'pagination.vars.arr', page_size: section.settings.blog_limit, total: section.blocks.size %}
+
+{% for block in section.blocks limit: page_size %}
   {% if block.type == 'blog_category' %}
     {% assign current_blog = blogs[block.settings.blog] %}
     {% if current_blog %}
@@ -38,7 +38,7 @@
   {% endif %}
 {% endfor %}
 
-{% comment %} {% include 'pagination.arr' %} {% endcomment %}
+{% include 'pagination.arr' %}
 
 {% schema %}
 {
@@ -54,12 +54,6 @@
       "type": "checkbox",
       "id": "show_rss",
       "label": "Show RSS feed",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_tags",
-      "label": "Show blog filter",
       "default": true
     },
     {

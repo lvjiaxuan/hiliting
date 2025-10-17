@@ -1,21 +1,22 @@
 {% assign page_size = page_size | default: 2 %}
-{% assign page_no = request.params.page | default: 1 %}
-{% assign page_total = page_total | default: 0 %}
+{% assign page = current_page | default: 1 %}
+{% assign total = total | default: 0 %}
+{% assign page_count = total | divided_by: page_size %}
+
+{% assign page_count_modulo = total | modulo: page_size %}
+{% if page_count_modulo > 0 %}
+  {% assign page_count = page_count | plus: 1 %}
+{% endif %}
 
 
 {% assign has_previous = false %}
-{% if page_no > 1 and page_total > 0 %}
+{% if page > 1 and total > 0 %}
   {% assign has_previous = true %}
 {% endif %}
 
 
-{% assign size_times_no = page_size | times: page_no %}
+{% assign size_times_no = page_size | times: page %}
 {% assign has_next = false %}
-{% if size_times_no < page_total %}
+{% if size_times_no < total %}
   {% assign has_next = true %}
 {% endif %}
-
-<script>
-  const aa = 11
-  {% assign variable_name = 11 %}
-</script>
