@@ -4,12 +4,13 @@
       {% include 'image-size', sizes: '200,300,400,600,800', image: article.image %}
       {% assign image_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
-      <div class="aspect-ratio" style="max-width: {{ article.image.width }}px; padding-bottom: {{ 100.0 | divided_by: article.image.aspect_ratio }}%">
+      <div class="aspect-ratio" style="max-width: {{ article.image.width }}px; padding-bottom: 70%;">
         <img class="article__image lazyload image--fade-in"
-             data-widths="[{{ supported_sizes }}]"
-             data-sizes="auto"
-             data-src="{{ image_url }}"
-             alt="{{ article.title | escape }}">
+          loading="lazy"
+          data-widths="[{{ supported_sizes }}]"
+          data-sizes="auto"
+          data-src="{{ image_url }}"
+          alt="{{ article.title | escape }}" />
       </div>
     </a>
   {% endif %}
