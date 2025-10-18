@@ -1,7 +1,7 @@
 <section class="index-module section section--padded {% if section.settings.use_secondary_background %}section--secondary{% endif %} index-module__featured-text">
   <div class="container">
     {% if section.settings.title != blank %}
-      <h1 class="section__title">aa{{ section.settings.title | escape }}bb</h1>
+      <h1 class="section__title">{{ section.settings.title | escape }}</h1>
     {% endif %}
 
     {% assign section_buttons_accumulator = '' %}
