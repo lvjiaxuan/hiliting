@@ -21,16 +21,17 @@
       {% assign formatted_initial_value_stripped = formatted_initial_value | strip_html %}
 
       <span class="gift-card__amount">
-                {% if gift_card.balance != gift_card.initial_value %}
-                  {{ gift_card.balance | money }} {{ 'gift_cards.issued.left_balance' }}
-                {% else %}
-                  {{ formatted_initial_value }}
-                {% endif %}
-              </span>
+        {% if gift_card.balance != gift_card.initial_value %}
+          {{ gift_card.balance | money }}
+          {{ 'gift_cards.issued.left_balance' }}
+        {% else %}
+          {{ formatted_initial_value }}
+        {% endif %}
+      </span>
 
       <p class="gift-card__instructions">
         {% unless gift_card.enabled %}
-        {{ 'gift_cards.issued.disabled' | t }}
+          {{ 'gift_cards.issued.disabled' | t }}
         {% endunless %}
 
         {{ 'gift_cards.issued.redeem' | t }}
@@ -41,13 +42,20 @@
         {% endif %}
       </p>
 
-      <span class="gift-card__code" id="gift-card-digits" onclick="selectText('gift-card-digits');">{{ gift_card.code }}</span>
+      <span class="gift-card__code" id="gift-card-digits" onclick="selectText('gift-card-digits');">
+        {{- gift_card.code -}}
+      </span>
 
       <div id="qr-code" class="gift-card__qr-code"></div>
 
       {% if gift_card.pass_url %}
         <a class="gift-card__apple-wallet" href="{{ gift_card.pass_url }}">
-          <img src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}" width="120" height="40" alt="{{ 'gift_cards.alt.add_to_apple_wallet' | t }}">
+          <img
+            src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}"
+            width="120"
+            height="40"
+            alt="{{ 'gift_cards.alt.add_to_apple_wallet' | t }}"
+          >
         </a>
       {% endif %}
 

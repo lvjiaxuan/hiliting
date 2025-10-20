@@ -1,5 +1,5 @@
 {% comment %}
-Mega nav uses nested linklists to build multi-column layouts
+  Mega nav uses nested linklists to build multi-column layouts
 {% endcomment %}
 
 {% if settings.navigation_horizontal_image %}
@@ -11,13 +11,20 @@ Mega nav uses nested linklists to build multi-column layouts
 <ul class="navigation-horizontal__dropdown navigation-horizontal__dropdown--mega {% if mega_nav_has_image %}navigation-horizontal__dropdown--mega-with-image{% endif %}">
   {% if mega_nav_has_image %}
     <li class="navigation-horizontal__image-container">
-      <img class="navigation-horizontal__image" src="{{ settings.navigation_horizontal_image | img_url: '175x175', scale: 2, crop: 'center' }}" width="175" height="175">
+      <img
+        class="navigation-horizontal__image"
+        src="{{ settings.navigation_horizontal_image | img_url: '175x175', scale: 2, crop: 'center' }}"
+        width="175"
+        height="175"
+      >
     </li>
   {% endif %}
 
   {% for link in mega_nav.links %}
     <li class="navigation-horizontal__dropdown-column dropdown-column">
-      <header class="dropdown-column__title"><a href="{{ link.url }}">{{ link.title | escape }}</a></header>
+      <header class="dropdown-column__title">
+        <a href="{{ link.url }}">{{ link.title | escape }}</a>
+      </header>
 
       <ul class="dropdown-column__list">
         {% for sub_link in link.links %}
@@ -32,7 +39,15 @@ Mega nav uses nested linklists to build multi-column layouts
           {% endif %}
 
           <li class="dropdown-column__list-item">
-            <a href="{{ sub_link.url }}" class="dropdown-column__list-link" {% if sub_link_image != blank %}data-src="{{ sub_link_image | img_url: '175x175', scale: 2, crop: 'center' }}"{% endif %}>{{ sub_link.title | escape }}</a>
+            <a
+              href="{{ sub_link.url }}"
+              class="dropdown-column__list-link"
+              {% if sub_link_image != blank %}
+                data-src="{{ sub_link_image | img_url: '175x175', scale: 2, crop: 'center' }}"
+              {% endif %}
+            >
+              {{- sub_link.title | escape -}}
+            </a>
           </li>
         {% endfor %}
       </ul>

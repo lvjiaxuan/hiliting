@@ -76,9 +76,9 @@
 
 {% if main_entity_microdata != blank %}
   <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    {{ main_entity_microdata }}
-  }
+    {
+      "@context": "http://schema.org",
+      {{ main_entity_microdata }}
+    }
   </script>
 {% endif %}

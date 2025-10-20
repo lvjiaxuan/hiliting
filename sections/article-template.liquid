@@ -5,7 +5,8 @@
     <div class="blog__rss">
       <div class="inner">
         <a href="{{ blog.url }}.atom">
-          {{ 'blog.general.rss' | t }} {% include 'icon' with 'rss' %}
+          {{ 'blog.general.rss' | t }}
+          {% include 'icon' with 'rss' %}
         </a>
       </div>
     </div>
@@ -21,7 +22,9 @@
     <div class="container {% if section.settings.reduce_content %}container--shrink{% endif %}">
       <header class="article__header">
         <div class="article__meta">
-          <time datetime="{{ article.published_at | date: '%Y-%m-%dT%T' }}" class="article__date">{{ article.published_at | date: format: 'month_day_year' }}</time>
+          <time datetime="{{ article.published_at | date: '%Y-%m-%dT%T' }}" class="article__date">
+            {{- article.published_at | date: format: 'month_day_year' -}}
+          </time>
 
           {% if section.settings.show_author %}
             <span class="article__separator">•</span>
@@ -43,19 +46,35 @@
           <ul class="share-buttons__list">
             {% assign share_url = shop.url | append: article.url %}
             {% assign twitter_text = article.title %}
-            {% assign pinterest_description = article.excerpt_or_content | strip_html | truncatewords: 15 | url_param_escape %}
+            {% assign pinterest_description = article.excerpt_or_content
+              | strip_html
+              | truncatewords: 15
+              | url_param_escape
+            %}
             {% assign pinterest_image = article.image | img_url: 'large' | prepend: 'https:' %}
 
             <li class="share-buttons__item">
-              <a href="https://www.facebook.com/sharer.php?u={{ share_url }}" target="_blank">{% include 'icon' with 'facebook' %}</a>
+              <a href="https://www.facebook.com/sharer.php?u={{ share_url }}" target="_blank">
+                {%- include 'icon' with 'facebook' -%}
+              </a>
             </li>
 
             <li class="share-buttons__item">
-              <a href="https://twitter.com/share?{% if twitter_text != blank %}text={{twitter_text}}&{% endif %}url={{ share_url }}" target="_blank">{% include 'icon' with 'twitter' %}</a>
+              <a
+                href="https://twitter.com/share?{% if twitter_text != blank %}text={{twitter_text}}&{% endif %}url={{ share_url }}"
+                target="_blank"
+              >
+                {%- include 'icon' with 'twitter' -%}
+              </a>
             </li>
 
             <li class="share-buttons__item">
-              <a href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}" target="_blank">{% include 'icon' with 'pinterest' %}</a>
+              <a
+                href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}"
+                target="_blank"
+              >
+                {%- include 'icon' with 'pinterest' -%}
+              </a>
             </li>
           </ul>
         </div>
@@ -66,7 +85,10 @@
 
             <ul class="article__tags-list">
               {% for tag in article.tags %}
-                <li class="article__tags-item">{{ tag | link_to_tag: tag }}{% unless forloop.last %}, {% endunless %}</li>
+                <li class="article__tags-item">
+                  {{ tag | link_to_tag: tag -}}
+                  {%- unless forloop.last %}, {% endunless %}
+                </li>
               {% endfor %}
             </ul>
           </div>
@@ -92,9 +114,15 @@
         {% for comment in article.comments %}
           <article class="comment">
             <header class="comment__header">
-              <img class="comment__gravatar" alt="{{ comment.author }}" src="//www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}?d=https:{{ 'gravatar-user-default-retina.png' | asset_url }}">
+              <img
+                class="comment__gravatar"
+                alt="{{ comment.author }}"
+                src="//www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}?d=https:{{ 'gravatar-user-default-retina.png' | asset_url }}"
+              >
               <p class="comment__author">{{ comment.author }}</p>
-              <time class="comment__date" datetime="{{ comment.created_at | date: '%Y-%m-%dT%T' }}">{{ comment.created_at | date: format: 'month_day_year_time' }}</time>
+              <time class="comment__date" datetime="{{ comment.created_at | date: '%Y-%m-%dT%T' }}">
+                {{- comment.created_at | date: format: 'month_day_year_time' -}}
+              </time>
             </header>
 
             <div class="comment__content rte">
@@ -153,12 +181,24 @@
 
         <div class="form__control {% if form.errors.message.author %}form__control--error{% endif %}">
           <label class="form__label" for="comment__author">{{ 'blog.comments.name' | t }}</label>
-          <input type="text" id="comment__author" name="comment[author]" value="{{ form.name | escape }}" required="required">
+          <input
+            type="text"
+            id="comment__author"
+            name="comment[author]"
+            value="{{ form.name | escape }}"
+            required="required"
+          >
         </div>
 
         <div class="form__control {% if form.errors.message.email %}form__control--error{% endif %}">
           <label class="form__label" for="comment__email">{{ 'blog.comments.email' | t }}</label>
-          <input type="email" id="comment__email" name="comment[email]" value="{{ form.email | escape }}" required="required">
+          <input
+            type="email"
+            id="comment__email"
+            name="comment[email]"
+            value="{{ form.email | escape }}"
+            required="required"
+          >
         </div>
 
         <div class="form__control {% if form.errors.message.body %}form__control--error{% endif %}">

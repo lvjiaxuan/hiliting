@@ -36,10 +36,16 @@
               <tbody>
                 {% for order in customer.orders %}
                   <tr>
-                    <td data-label="{{ 'customer.orders.order_number' | t }}"><a href="{{ order.customer_url }}" class="link link--primary">{{ order.name }}</a></td>
-                    <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</td>
+                    <td data-label="{{ 'customer.orders.order_number' | t }}">
+                      <a href="{{ order.customer_url }}" class="link link--primary">{{ order.name }}</a>
+                    </td>
+                    <td data-label="{{ 'customer.orders.date' | t }}">
+                      {{ order.created_at | date: format: 'month_day_year' }}
+                    </td>
                     <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
-                    <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                    <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">
+                      {{ order.fulfillment_status_label }}
+                    </td>
                     <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
                   </tr>
                 {% endfor %}
@@ -72,7 +78,9 @@
       <div class="grid__cell 1/3--handheld-and-up">
         <section class="account__address account__address--main">
           {{ customer.default_address | format_address }}
-          <a href="/account/addresses" class="link link--primary">{{ 'customer.account.manage_addresses' | t }} ({{ customer.addresses_count }})</a>
+          <a href="/account/addresses" class="link link--primary">
+            {{- 'customer.account.manage_addresses' | t }} ({{ customer.addresses_count }})</a
+          >
         </section>
       </div>
     </div>

@@ -9,7 +9,11 @@
 {% endif %}
 
 <section class="index-module section {{ section_classes }} {% if section.settings.use_secondary_background %}section--secondary{% endif %}">
-  <div {% unless section.settings.grid_remove_spacing %}class="container"{% endunless %}>
+  <div
+    {% unless section.settings.grid_remove_spacing %}
+      class="container"
+    {% endunless %}
+  >
     {% if section.settings.title != blank %}
       <h2 class="section__title">{{ section.settings.title | escape }}</h2>
     {% endif %}
@@ -20,18 +24,26 @@
           {% assign collection = collections[section.settings.collection] %}
 
           {% for product in collection.products limit: section.settings.products_count %}
-            {% include 'product-collage-item', show_vendor: section.settings.show_vendor, show_quick_shop: section.settings.show_quick_shop %}
+            {% include 'product-collage-item',
+              show_vendor: section.settings.show_vendor,
+              show_quick_shop: section.settings.show_quick_shop
+            %}
           {% else %}
             {% for i in (1..section.settings.products_count) %}
               <div class="collection__item product-tile tile">
                 <a href="#" class="product-tile__link">
                   {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-                  {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg product-tile__image item' | replace: '<svg', '<svg width="500" height="500"' }}
+                  {{
+                    'product-'
+                    | append: current
+                    | placeholder_svg_tag: 'placeholder-svg product-tile__image item'
+                    | replace: '<svg', '<svg width="500" height="500"'
+                  }}
 
                   <div class="product-tile__overlay">
                     <div class="product-meta product-meta--desktop">
                       {% if section.settings.show_vendor %}
-                        <h2 class="product-meta__vendor" >{{ 'home_page.onboarding.brand_title' | t }}</h2>
+                        <h2 class="product-meta__vendor">{{ 'home_page.onboarding.brand_title' | t }}</h2>
                       {% endif %}
 
                       <h1 class="product-meta__title">{{ 'home_page.onboarding.product_title' | t }}</h1>
@@ -53,7 +65,10 @@
         {% assign collection = collections[section.settings.collection] %}
 
         {% for product in collection.products limit: section.settings.products_count %}
-          {% include 'product-grid-item-index', show_vendor: section.settings.show_vendor, show_quick_shop: section.settings.show_quick_shop %}
+          {% include 'product-grid-item-index',
+            show_vendor: section.settings.show_vendor,
+            show_quick_shop: section.settings.show_quick_shop
+          %}
         {% else %}
           {% for i in (1..section.settings.products_count) %}
             <div class="collection__item product-item grid__cell 1/{{ settings.mobile_grid_items_per_row }} 1/{{ settings.tablet_grid_items_per_row }}--handheld 1/{{ grid_items_per_row }}--lap-and-up">

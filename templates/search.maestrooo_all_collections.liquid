@@ -1,8 +1,8 @@
 {%- comment -%}
-This template has been created automatically by one of the Maestrooo's application (for instance: SuperFields...).
+  This template has been created automatically by one of the Maestrooo's application (for instance: SuperFields...).
 
-We use those templates to provide additional features to our apps, and you SHOULD NOT delete this template if you
-are still using our apps. Otherwise, the apps may not work as expected.
+  We use those templates to provide additional features to our apps, and you SHOULD NOT delete this template if you
+  are still using our apps. Otherwise, the apps may not work as expected.
 {%- endcomment -%}
 
 {%- layout none -%}
@@ -35,11 +35,5 @@ are still using our apps. Otherwise, the apps may not work as expected.
   ]
 {%- endcapture -%}
 
-callback_maestrooo_all_collections_{{ search.terms | md5 }}({
-  "object": "list",
-  "data": {{ all_collections }},
-  "meta": {
-    "total_count": {{ collections.size }},
-    "has_more": false
-  }
-})
+callback_maestrooo_all_collections_{{ search.terms | md5 }}({ "object": "list", "data": {{ all_collections }}, "meta": {
+"total_count": {{ collections.size }}, "has_more": false } })

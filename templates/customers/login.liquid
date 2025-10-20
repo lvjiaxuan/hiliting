@@ -27,7 +27,9 @@
         <div class="form__control {% if form.errors.message.password %}form__control--error{% endif %}">
           <label class="form__label" for="customer__password">
             {{ 'customer.login.password' | t }}
-            <a href="#" class="login-form__forgot link link--primary" data-action="display-recover-form">{{ 'customer.login.forgot' | t }}</a>
+            <a href="#" class="login-form__forgot link link--primary" data-action="display-recover-form">
+              {{- 'customer.login.forgot' | t -}}
+            </a>
           </label>
 
           <input type="password" id="customer__password" name="customer[password]" required="required" tabindex="2">
@@ -51,7 +53,9 @@
         {% endif %}
 
         {% if form.posted_successfully? %}
-          <script>window.recoverPassword = true;</script>
+          <script>
+            window.recoverPassword = true;
+          </script>
 
           <div class="alert alert--success">
             <span class="alert__title">{{ 'customer.recover.sent' | t }}</span>

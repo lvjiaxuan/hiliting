@@ -3,7 +3,9 @@
 <section class="index-module section section--padded index-module__blog {% if section.settings.use_secondary_background %}section--secondary{% endif %}">
   <div class="container">
     {% if section.settings.title != blank %}
-      <h2 class="section__title"><a href="{{blog.url}}">{{ section.settings.title | escape }}</a></h2>
+      <h2 class="section__title">
+        <a href="{{blog.url}}">{{ section.settings.title | escape }}</a>
+      </h2>
     {% endif %}
 
     <div class="grid grid--large grid--gallery grid--gallery-large">
@@ -15,7 +17,9 @@
             <div class="article__inner">
               <header class="article__header">
                 <div class="article__meta">
-                  <time datetime="2016-09-08T11:31:00" class="article__date">{{ 'now' | date: format: 'month_day_year' }}</time>
+                  <time datetime="2016-09-08T11:31:00" class="article__date">
+                    {{- 'now' | date: format: 'month_day_year' -}}
+                  </time>
 
                   {% if section.settings.show_author %}
                     <span class="article__separator">•</span>

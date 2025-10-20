@@ -7,14 +7,18 @@
 
       {% if customer.addresses.size > 0 %}
         <div class="page__action">
-          <a href="#" data-action="open-new-address-modal" class="button button--primary">{{ 'customer.addresses.add_new' | t }}</a>
+          <a href="#" data-action="open-new-address-modal" class="button button--primary">
+            {{- 'customer.addresses.add_new' | t -}}
+          </a>
         </div>
       {% else %}
         <div class="page__description page__description--centered">
           <p class="rte">{{ 'customer.addresses.empty' | t }}</p>
 
           <div class="page__header-actions">
-            <a href="#" data-action="open-new-address-modal" class="button button--primary">{{ 'customer.addresses.add_new' | t }}</a>
+            <a href="#" data-action="open-new-address-modal" class="button button--primary">
+              {{- 'customer.addresses.add_new' | t -}}
+            </a>
           </div>
         </div>
       {% endif %}
@@ -33,11 +37,20 @@
                 {{ address | format_address }}
 
                 <div class="address__actions button-group">
-                  <a href="#" data-action="open-edit-address-modal" data-address="{{ address.id }}" class="button button--primary">
+                  <a
+                    href="#"
+                    data-action="open-edit-address-modal"
+                    data-address="{{ address.id }}"
+                    class="button button--primary"
+                  >
                     {{ 'customer.addresses.edit' | t }}
                   </a>
 
-                  <a href="#" onclick="Shopify.CustomerAddress.destroy({{ address.id }}); return false;" class="button button--secondary">
+                  <a
+                    href="#"
+                    onclick="Shopify.CustomerAddress.destroy({{ address.id }}); return false;"
+                    class="button button--secondary"
+                  >
                     {{ 'customer.addresses.delete' | t }}
                   </a>
                 </div>
@@ -58,7 +71,9 @@
   <div class="modal__body">
     {% form 'customer_address', customer.new_address %}
       <div class="form__control">
-        <label class="form__label" for="address_first_name_{{form.id}}">{{ 'customer.addresses.first_name' | t }}</label>
+        <label class="form__label" for="address_first_name_{{form.id}}">
+          {{- 'customer.addresses.first_name' | t -}}
+        </label>
         <input type="text" id="address_first_name_{{form.id}}" name="address[first_name]" value="{{ form.first_name }}">
       </div>
 
@@ -92,7 +107,9 @@
 
         <div class="styled-select">
           {% include 'icon' with 'dropdown-arrow' %}
-          <select id="address_country_new" name="address[country]" data-default="{{form.country}}">{{ country_option_tags }}</select>
+          <select id="address_country_new" name="address[country]" data-default="{{form.country}}">
+            {{ country_option_tags }}
+          </select>
         </div>
       </div>
 
@@ -101,7 +118,12 @@
 
         <div class="styled-select">
           {% include 'icon' with 'dropdown-arrow' %}
-          <select id="address_province_new" class="address_form" name="address[province]" data-default="{{form.province}}"></select>
+          <select
+            id="address_province_new"
+            class="address_form"
+            name="address[province]"
+            data-default="{{form.province}}"
+          ></select>
         </div>
       </div>
 
@@ -117,13 +139,16 @@
 
       <div class="form__control">
         <label class="form__label">
-          {{ form.set_as_default_checkbox }} {{ 'customer.addresses.set_default' | t }}
+          {{ form.set_as_default_checkbox }}
+          {{ 'customer.addresses.set_default' | t }}
         </label>
       </div>
 
       <div class="button-group button-wrapper">
         <div class="button-group__item">
-          <button class="button button--secondary" data-remodal-action="close">{{ 'customer.addresses.cancel' | t }}</button>
+          <button class="button button--secondary" data-remodal-action="close">
+            {{ 'customer.addresses.cancel' | t }}
+          </button>
         </div>
 
         <div class="button-group__item">
@@ -141,12 +166,21 @@
     <div class="modal__body">
       {% form 'customer_address', address %}
         <div class="form__control">
-          <label class="form__label" for="address_first_name_{{form.id}}">{{ 'customer.addresses.first_name' | t }}</label>
-          <input type="text" id="address_first_name_{{form.id}}" name="address[first_name]" value="{{ form.first_name }}">
+          <label class="form__label" for="address_first_name_{{form.id}}">
+            {{- 'customer.addresses.first_name' | t -}}
+          </label>
+          <input
+            type="text"
+            id="address_first_name_{{form.id}}"
+            name="address[first_name]"
+            value="{{ form.first_name }}"
+          >
         </div>
 
         <div class="form__control">
-          <label class="form__label" for="address_last_name_{{form.id}}">{{ 'customer.addresses.last_name' | t }}</label>
+          <label class="form__label" for="address_last_name_{{form.id}}">
+            {{- 'customer.addresses.last_name' | t -}}
+          </label>
           <input type="text" id="address_last_name_{{form.id}}" name="address[last_name]" value="{{ form.last_name }}">
         </div>
 
@@ -175,16 +209,29 @@
 
           <div class="styled-select">
             {% include 'icon' with 'dropdown-arrow' %}
-            <select id="address_country_{{ form.id }}" name="address[country]" data-default="{{form.country}}">{{ country_option_tags }}</select>
+            <select id="address_country_{{ form.id }}" name="address[country]" data-default="{{form.country}}">
+              {{ country_option_tags }}
+            </select>
           </div>
         </div>
 
-        <div id="address-province-container-{{ form.id }}" class="form__control address-province-container" style="display: none">
-          <label class="form__label" for="address_province_{{ form.id }}">{{ 'customer.addresses.province' | t }}</label>
+        <div
+          id="address-province-container-{{ form.id }}"
+          class="form__control address-province-container"
+          style="display: none"
+        >
+          <label class="form__label" for="address_province_{{ form.id }}">
+            {{- 'customer.addresses.province' | t -}}
+          </label>
 
           <div class="styled-select">
             {% include 'icon' with 'dropdown-arrow' %}
-            <select id="address_province_{{ form.id }}" class="address_form" name="address[province]" data-default="{{form.province}}"></select>
+            <select
+              id="address_province_{{ form.id }}"
+              class="address_form"
+              name="address[province]"
+              data-default="{{form.province}}"
+            ></select>
           </div>
         </div>
 
@@ -200,13 +247,16 @@
 
         <div class="form__control">
           <label class="form__label">
-            {{ form.set_as_default_checkbox }} {{ 'customer.addresses.set_default' | t }}
+            {{ form.set_as_default_checkbox }}
+            {{ 'customer.addresses.set_default' | t }}
           </label>
         </div>
 
         <div class="button-group button-wrapper">
           <div class="button-group__item">
-            <button class="button button--secondary" data-remodal-action="close">{{ 'customer.addresses.cancel' | t }}</button>
+            <button class="button button--secondary" data-remodal-action="close">
+              {{ 'customer.addresses.cancel' | t }}
+            </button>
           </div>
 
           <div class="button-group__item">

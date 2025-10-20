@@ -1,66 +1,74 @@
 {% comment %}
-    Ymq app initialization file.
-    Warn! ! ! Do not write your code in this file as we will update this file regularly.
+  Ymq app initialization file.
+  Warn! ! ! Do not write your code in this file as we will update this file regularly.
 {% endcomment %}
-{% if content_for_header contains "asyncLoad" and content_for_header contains "mw4M5Ya3iFNARE4t" %}
-{% assign checkout-button-protect = shop.metafields.ymq_option.branding.extra.checkout-button-protect | default: '1' %}
-{% if checkout-button-protect == '1' %}
-	<style id="ymq-checkout-button-protect">
-		[name="checkout"],[name="chekout"], a[href^="/checkout"], a[href="/account/login"].cart__submit, button[type="submit"].btn-order, a.btn.cart__checkout, a.cart__submit, .wc-proceed-to-checkout button, #cart_form .buttons .btn-primary, .ymq-checkout-button{
-        	pointer-events: none;
+{% if content_for_header contains 'asyncLoad' and content_for_header contains 'mw4M5Ya3iFNARE4t' %}
+  {% assign checkout-button-protect = shop.metafields.ymq_option.branding.extra['checkout-button-protect']
+    | default: '1'
+  %}
+  {% if checkout-button-protect == '1' %}
+    <style id="ymq-checkout-button-protect">
+      [name='checkout'],
+      [name='chekout'],
+      a[href^='/checkout'],
+      a[href='/account/login'].cart__submit,
+      button[type='submit'].btn-order,
+      a.btn.cart__checkout,
+      a.cart__submit,
+      .wc-proceed-to-checkout button,
+      #cart_form .buttons .btn-primary,
+      .ymq-checkout-button {
+        pointer-events: none;
+      }
+    </style>
+    <script>
+      function ymq_ready(fn) {
+        if (document.addEventListener) {
+          document.addEventListener(
+            'DOMContentLoaded',
+            function () {
+              document.removeEventListener('DOMContentLoaded', arguments.callee, false);
+              fn();
+            },
+            false,
+          );
+        } else if (document.attachEvent) {
+          document.attachEvent('onreadystatechange', function () {
+            if (document.readyState == 'complete') {
+              document.detachEvent('onreadystatechange', arguments.callee);
+              fn();
+            }
+          });
         }
-	</style>
-	<script>
-		function ymq_ready(fn){
-			if(document.addEventListener){
-				document.addEventListener('DOMContentLoaded',function(){
-					document.removeEventListener('DOMContentLoaded',arguments.callee,false);
-					fn();
-				},false);
-			}else if(document.attachEvent){
-				document.attachEvent('onreadystatechange',function(){
-					if(document.readyState=='complete'){
-						document.detachEvent('onreadystatechange',arguments.callee);
-						fn();
-					}
-				});
-			}
-		}
-		ymq_ready(() => {
-			setTimeout(function() {
-				var ymq_checkout_button_protect = document.getElementById("ymq-checkout-button-protect");
-				ymq_checkout_button_protect.remove();
-			}, 100);
-		})
-    </script> 
-{% endif %}
+      }
+      ymq_ready(() => {
+        setTimeout(function () {
+          var ymq_checkout_button_protect = document.getElementById('ymq-checkout-button-protect');
+          ymq_checkout_button_protect.remove();
+        }, 100);
+      });
+    </script>
+  {% endif %}
 
-{% assign ymq_api_secret = shop.metafields['ymq_option'].api_secret %} 
+  {% assign ymq_api_secret = shop.metafields.ymq_option.api_secret %}
 
-{% assign ymq_channel_key = shop.metafields['ymq_option'].channel_key %} 
+  {% assign ymq_channel_key = shop.metafields.ymq_option.channel_key %}
 
-{% assign ymq_timestamp = 'now' | date: "%s" %} 
+  {% assign ymq_timestamp = 'now' | date: '%s' %}
 
-{% assign ymq_token = ymq_channel_key 
+  {% assign ymq_token = ymq_channel_key | append: shop.domain | append: ymq_timestamp | hmac_sha256: ymq_api_secret %}
 
-	| append: shop.domain 
+  <script async src="https://cdn.shopify.com/s/files/1/0411/8639/4277/t/11/assets/spotlight.js"></script>
 
-	| append: ymq_timestamp 
+  <link async href="https://cdn.shopify.com/s/files/1/0411/8639/4277/t/11/assets/ymq-option.css" rel="stylesheet">
 
-	| hmac_sha256: ymq_api_secret %} 
+  <link async href="https://option.ymq.cool/option/bottom.css" rel="stylesheet">
 
+  <style id="ymq-jsstyle"></style>
 
-<script async src='https://cdn.shopify.com/s/files/1/0411/8639/4277/t/11/assets/spotlight.js'></script>
+  <div id="bndlr-loaded"></div>
 
-<link async href='https://cdn.shopify.com/s/files/1/0411/8639/4277/t/11/assets/ymq-option.css' rel='stylesheet'> 
-
-<link async href='https://option.ymq.cool/option/bottom.css' rel='stylesheet'> 
-
-<style id="ymq-jsstyle"></style> 
-
-<div id="bndlr-loaded"></div>
-
-<script>
+  <script>
     window.bundlerLoaded = true;
     
 	window.ymq_option = window.ymq_option || {}; 
@@ -271,4 +279,6 @@
             {% endif %}
         {% endif %}                                     
 	{% endif %}
-</script><script async src='https://option.ymq.cool/option/ymq-option.js'></script>{% endif %}
+  </script>
+  <script async src="https://option.ymq.cool/option/ymq-option.js"></script>
+{% endif %}

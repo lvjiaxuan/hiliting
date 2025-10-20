@@ -17,7 +17,7 @@
     {% assign collections_linklist_handle = page.content | strip_html %}
     {% assign collections_linklist = linklists[collections_linklist_handle] %}
   {% else %}
-    {% assign collections_linklist = linklists.all-collections %}
+    {% assign collections_linklist = linklists['all-collections'] %}
   {% endif %}
 
   {% if template contains 'page' %}

@@ -1,8 +1,8 @@
 {% if section.blocks.size > 0 %}
   <div class="product-tabs tabs">
     {% comment %}
-    Kagami allows to attach up to two "unique tabs" through tags mechanism and pages. Also, our theme allows to use a page-less system using a native
-    integration of our app SuperFields
+      Kagami allows to attach up to two "unique tabs" through tags mechanism and pages. Also, our theme allows to use a page-less system using a native
+      integration of our app SuperFields
     {% endcomment %}
 
     {% assign has_unique_tab_1 = false %}
@@ -13,13 +13,17 @@
         {% comment %}First, we check using our app{% endcomment %}
 
         {% if block.type == 'unique_tab_1' %}
-          {% if product.metafields.sf_product_tabs.tab_1_title != blank and product.metafields.sf_product_tabs.tab_1_content != blank %}
+          {% if product.metafields.sf_product_tabs.tab_1_title != blank
+            and product.metafields.sf_product_tabs.tab_1_content != blank
+          %}
             {% assign unique_tab_1_title = product.metafields.sf_product_tabs.tab_1_title %}
             {% assign unique_tab_1_content = product.metafields.sf_product_tabs.tab_1_content %}
             {% assign has_unique_tab_1 = true %}
           {% endif %}
         {% else %}
-          {% if product.metafields.sf_product_tabs.tab_2_title != blank and product.metafields.sf_product_tabs.tab_2_content != blank %}
+          {% if product.metafields.sf_product_tabs.tab_2_title != blank
+            and product.metafields.sf_product_tabs.tab_2_content != blank
+          %}
             {% assign unique_tab_2_title = product.metafields.sf_product_tabs.tab_2_title %}
             {% assign unique_tab_2_content = product.metafields.sf_product_tabs.tab_2_content %}
             {% assign has_unique_tab_2 = true %}
@@ -66,7 +70,11 @@
           {% continue %}
         {% endif %}
 
-        <li class="tabs__nav-item {% if tab_index == 0 %}tabs__nav-item--active{% endif %}" {{ block.shopify_attributes }} data-tab-index="{{ tab_index }}">
+        <li
+          class="tabs__nav-item {% if tab_index == 0 %}tabs__nav-item--active{% endif %}"
+          {{ block.shopify_attributes }}
+          data-tab-index="{{ tab_index }}"
+        >
           {%- case block.type -%}
             {%- when 'gallery' -%}
               {{ 'product.tabs.gallery' | t }}
@@ -124,7 +132,12 @@
                       {% endif %}
 
                       <div class="tile">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="{{ image | img_url: '1200x' }}" class="item" alt="{{ image.alt | escape }}">
+                        <img
+                          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                          data-src="{{ image | img_url: '1200x' }}"
+                          class="item"
+                          alt="{{ image.alt | escape }}"
+                        >
                       </div>
                     {% endfor %}
                   </div>

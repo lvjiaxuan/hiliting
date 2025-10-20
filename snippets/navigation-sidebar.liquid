@@ -1,7 +1,7 @@
 <nav class="navigation-sidebar" role="navigation">
   {% comment %}
-  The first level is a bit special because it is the one containing the cross to close the menu. Next levels are
-  just recursive
+    The first level is a bit special because it is the one containing the cross to close the menu. Next levels are
+    just recursive
   {% endcomment %}
 
   <header class="navigation-sidebar__header">
@@ -21,8 +21,15 @@
 
     {% if settings.navigation_sidebar_image %}
       <div class="navigation-sidebar__image">
-        <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: settings.navigation_sidebar_image.aspect_ratio }}%">
-          <img class="lazyload image--fade-in" data-src="{{ settings.navigation_sidebar_image | img_url: '650x300' }}" alt="{{ shop.name | escape }}">
+        <div
+          class="aspect-ratio"
+          style="padding-bottom: {{ 100.0 | divided_by: settings.navigation_sidebar_image.aspect_ratio }}%"
+        >
+          <img
+            class="lazyload image--fade-in"
+            data-src="{{ settings.navigation_sidebar_image | img_url: '650x300' }}"
+            alt="{{ shop.name | escape }}"
+          >
         </div>
       </div>
     {% endif %}
@@ -32,7 +39,16 @@
 
       <form class="navigation-sidebar__search-form" action="/search" method="GET" role="search">
         <input type="hidden" name="type" value="{{ settings.search_mode }}">
-        <input type="search" name="q" class="search__input" autocomplete="off" autocorrect="off" aria-label="{{ 'layout.navigation.search_placeholder' | t }}" placeholder="{{ 'layout.navigation.search_placeholder' | t }}" value="{{ search.terms | escape }}">
+        <input
+          type="search"
+          name="q"
+          class="search__input"
+          autocomplete="off"
+          autocorrect="off"
+          aria-label="{{ 'layout.navigation.search_placeholder' | t }}"
+          placeholder="{{ 'layout.navigation.search_placeholder' | t }}"
+          value="{{ search.terms | escape }}"
+        >
       </form>
     </div>
   </header>
@@ -42,14 +58,25 @@
 
   <div class="navigation-sidebar__lists">
     {% comment %}
-    A complex thing in Kagami sidebar navigation is that each list is flatten to be able to provide the desired effect, and not nested into
-    the DOM. To achieve that, we are doing various iterations
+      A complex thing in Kagami sidebar navigation is that each list is flatten to be able to provide the desired effect, and not nested into
+      the DOM. To achieve that, we are doing various iterations
     {% endcomment %}
 
-    <ul class="navigation-sidebar__list navigation-sidebar__list--active" tabindex="-1" data-nav-for="level-0" data-nav-name="{{ sidebar_nav_linklist.title | escape }}">
+    <ul
+      class="navigation-sidebar__list navigation-sidebar__list--active"
+      tabindex="-1"
+      data-nav-for="level-0"
+      data-nav-name="{{ sidebar_nav_linklist.title | escape }}"
+    >
       {% for link in sidebar_nav_linklist.links %}
         <li class="navigation-sidebar__item {% if link.links != blank %}navigation-sidebar__item--expandable{% endif %}">
-          <a href="{{ link.url }}" class="navigation-sidebar__link" {% if link.links != blank %}data-open-nav="level-1-{{ forloop.index0 }}" aria-haspopup="true"{% endif %}>
+          <a
+            href="{{ link.url }}"
+            class="navigation-sidebar__link"
+            {% if link.links != blank %}
+              data-open-nav="level-1-{{ forloop.index0 }}" aria-haspopup="true"
+            {% endif %}
+          >
             <span class="navigation-sidebar__link-title">{{ link.title | escape }}</span>
             {% if link.links != blank %}{% include 'icon' with 'arrow-right' %}{% endif %}
           </a>
@@ -61,11 +88,11 @@
       {% if shop.customer_accounts_enabled %}
         {% if customer %}
           <li class="navigation-sidebar__item">
-            <a href="/account" class="navigation-sidebar__link" >{{ 'customer.account.title' | t }}</a>
+            <a href="/account" class="navigation-sidebar__link">{{ 'customer.account.title' | t }}</a>
           </li>
         {% else %}
           <li class="navigation-sidebar__item">
-            <a href="/account/login" class="navigation-sidebar__link" >{{ 'customer.login.title' | t }}</a>
+            <a href="/account/login" class="navigation-sidebar__link">{{ 'customer.login.title' | t }}</a>
           </li>
         {% endif %}
       {% endif %}
@@ -78,10 +105,22 @@
         {% continue %}
       {% endif %}
 
-      <ul class="navigation-sidebar__list" tabindex="-1" data-nav-for="level-1-{{ forloop.index0 }}" data-nav-name="{{ link.title | escape }}" data-parent-nav="level-0">
+      <ul
+        class="navigation-sidebar__list"
+        tabindex="-1"
+        data-nav-for="level-1-{{ forloop.index0 }}"
+        data-nav-name="{{ link.title | escape }}"
+        data-parent-nav="level-0"
+      >
         {% for sub_link in link.links %}
           <li class="navigation-sidebar__item {% if sub_link.links != blank %}navigation-sidebar__item--expandable{% endif %}">
-            <a href="{{ sub_link.url }}" class="navigation-sidebar__link" {% if sub_link.links != blank %}data-open-nav="level-2-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" aria-haspopup="true"{% endif %}>
+            <a
+              href="{{ sub_link.url }}"
+              class="navigation-sidebar__link"
+              {% if sub_link.links != blank %}
+                data-open-nav="level-2-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" aria-haspopup="true"
+              {% endif %}
+            >
               <span class="navigation-sidebar__link-title">{{ sub_link.title | escape }}</span>
               {% if sub_link.links != blank %}{% include 'icon' with 'arrow-right' %}{% endif %}
             </a>
@@ -102,7 +141,13 @@
           {% continue %}
         {% endif %}
 
-        <ul class="navigation-sidebar__list" tabindex="-1" data-nav-for="level-2-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" data-nav-name="{{ sub_link.title | escape }}" data-parent-nav="level-1-{{ forloop.parentloop.index0 }}">
+        <ul
+          class="navigation-sidebar__list"
+          tabindex="-1"
+          data-nav-for="level-2-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}"
+          data-nav-name="{{ sub_link.title | escape }}"
+          data-parent-nav="level-1-{{ forloop.parentloop.index0 }}"
+        >
           {% for sub_sub_link in sub_link.links %}
             <li class="navigation-sidebar__item">
               <a href="{{ sub_sub_link.url }}" class="navigation-sidebar__link">

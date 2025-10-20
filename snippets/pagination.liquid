@@ -3,16 +3,26 @@
     <div class="inner">
       <div class="pagination__wrapper">
         {% if paginate.previous %}
-          <a class="button button--secondary pagination__nav pagination__nav--prev" rel="prev" href="{{ paginate.previous.url }}">
+          <a
+            class="button button--secondary pagination__nav pagination__nav--prev"
+            rel="prev"
+            href="{{ paginate.previous.url }}"
+          >
             {% include 'icon' with 'arrow-left' %}
             <span class="pagination__label">{{ 'general.pagination.previous_page' | t }}</span>
           </a>
         {% endif %}
 
-        <span class="pagination__current">{{ 'general.pagination.page_count' | t: current_page: paginate.current_page, total_pages: paginate.pages }}</span>
+        <span class="pagination__current">
+          {{- 'general.pagination.page_count' | t: current_page: paginate.current_page, total_pages: paginate.pages -}}
+        </span>
 
         {% if paginate.next %}
-          <a class="button button--secondary pagination__nav pagination__nav--next" rel="next" href="{{ paginate.next.url }}">
+          <a
+            class="button button--secondary pagination__nav pagination__nav--next"
+            rel="next"
+            href="{{ paginate.next.url }}"
+          >
             <span class="pagination__label">{{ 'general.pagination.next_page' | t }}</span>
             {% include 'icon' with 'arrow-right' %}
           </a>

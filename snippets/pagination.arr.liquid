@@ -3,16 +3,26 @@
     <div class="inner">
       <div class="pagination__wrapper">
         {% if has_previous %}
-          <a class="button button--secondary pagination__nav pagination__nav--prev" rel="prev" href="{{ request.path }}?page={{ page | minus: 1 }}">
+          <a
+            class="button button--secondary pagination__nav pagination__nav--prev"
+            rel="prev"
+            href="{{ request.path }}?page={{ page | minus: 1 }}"
+          >
             {% include 'icon' with 'arrow-left' %}
             <span class="pagination__label">{{ 'general.pagination.previous_page' | t }}</span>
           </a>
         {% endif %}
 
-        <span class="pagination__current">{{ 'general.pagination.page_count' | t: current_page: page, total_pages: page_count }}</span>
+        <span class="pagination__current">
+          {{- 'general.pagination.page_count' | t: current_page: page, total_pages: page_count -}}
+        </span>
 
         {% if has_next %}
-          <a class="button button--secondary pagination__nav pagination__nav--next" rel="next" href="{{ request.path }}?page={{ page | plus: 1 }}">
+          <a
+            class="button button--secondary pagination__nav pagination__nav--next"
+            rel="next"
+            href="{{ request.path }}?page={{ page | plus: 1 }}"
+          >
             <span class="pagination__label">{{ 'general.pagination.next_page' | t }}</span>
             {% include 'icon' with 'arrow-right' %}
           </a>
@@ -23,5 +33,8 @@
 {% endif %}
 
 {% style %}
-  .sticky-bottom-0 { position: sticky; bottom: 0; }
+  .sticky-bottom-0 {
+    position: sticky;
+    bottom: 0;
+  }
 {% endstyle %}

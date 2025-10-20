@@ -5,7 +5,8 @@
     <div class="blog__rss">
       <div class="inner">
         <a href="{{ blog.url }}.atom">
-          {{ 'blog.general.rss' | t }} {% include 'icon' with 'rss' %}
+          {{ 'blog.general.rss' | t }}
+          {% include 'icon' with 'rss' %}
         </a>
       </div>
     </div>
@@ -67,40 +68,40 @@
     }
   ],
   "blocks": [
-      {
-        "type": "blog_category",
-        "name": "Blog Category",
-        "settings": [
-          {
-            "type": "blog",
-            "id": "blog",
-            "label": "Select Blog"
-          },
-          {
-            "type": "range",
-            "id": "article_limit",
-            "label": "Number of articles to show",
-            "min": 1,
-            "max": 10,
-            "step": 1,
-            "default": 3
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Multi-blog Homepage",
-        "category": "Blog",
-        "blocks": [
-          {
-            "type": "blog_category",
-          },
-          {
-            "type": "blog_category",
-          }
-        ]
-      }
-    ]
+    {
+      "type": "blog_category",
+      "name": "Blog Category",
+      "settings": [
+        {
+          "type": "blog",
+          "id": "blog",
+          "label": "Select Blog"
+        },
+        {
+          "type": "range",
+          "id": "article_limit",
+          "label": "Number of articles to show",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 3
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multi-blog Homepage",
+      "category": "Blog",
+      "blocks": [
+        {
+          "type": "blog_category"
+        },
+        {
+          "type": "blog_category"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

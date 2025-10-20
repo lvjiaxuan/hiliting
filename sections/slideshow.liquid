@@ -1,7 +1,9 @@
-<section class="index-module slideshow"
-         data-autoplay="{{ section.settings.autoplay }}"
-         data-animation-type="{{ section.settings.animation_type }}"
-         data-cycle-speed="{{ section.settings.cycle_speed | times: 1000 }}">
+<section
+  class="index-module slideshow"
+  data-autoplay="{{ section.settings.autoplay }}"
+  data-animation-type="{{ section.settings.animation_type }}"
+  data-cycle-speed="{{ section.settings.cycle_speed | times: 1000 }}"
+>
   <div class="slideshow__slides">
     {% for block in section.blocks %}
       {% if block.settings.button_text != blank %}
@@ -10,9 +12,12 @@
         {% assign has_slideshow_button = false %}
       {% endif %}
 
-      <div class="slideshow__slide {% if section.settings.increase_contrast %}slideshow__slide--contrasted{% endif %}"
-           data-slide-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}
-           style="{% unless forloop.first %}display: none;{% endunless %} {% if block.settings.image %}background: url({{ block.settings.image | img_url: '1x1', format: 'jpg' }}){% endif %}">
+      <div
+        class="slideshow__slide {% if section.settings.increase_contrast %}slideshow__slide--contrasted{% endif %}"
+        data-slide-index="{{ forloop.index0 }}"
+        {{ block.shopify_attributes }}
+        style="{% unless forloop.first %}display: none;{% endunless %} {% if block.settings.image %}background: url({{ block.settings.image | img_url: '1x1', format: 'jpg' }}){% endif %}"
+      >
         {% if block.settings.button_text == blank and block.settings.link != blank %}
           <a href="{{ block.settings.link }}">
         {% endif %}
@@ -21,11 +26,24 @@
           {% include 'image-size', sizes: '400,600,800,900,1000,1200,1400,1600,1800', image: block.settings.image %}
           {% assign image_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
-          <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: block.settings.image.aspect_ratio }}%">
-            <img class="slideshow__image lazyload image--fade-in" data-widths="[{{ supported_sizes }}]" data-sizes="auto" data-src="{{ image_url }}" alt="{{ block.settings.image.alt }}">
+          <div
+            class="aspect-ratio"
+            style="padding-bottom: {{ 100.0 | divided_by: block.settings.image.aspect_ratio }}%"
+          >
+            <img
+              class="slideshow__image lazyload image--fade-in"
+              data-widths="[{{ supported_sizes }}]"
+              data-sizes="auto"
+              data-src="{{ image_url }}"
+              alt="{{ block.settings.image.alt }}"
+            >
 
             <noscript>
-              <img class="slideshow__image" src="{{ block.settings.image | img_url: '1200x' }}" alt="{{ block.settings.image.alt }}">
+              <img
+                class="slideshow__image"
+                src="{{ block.settings.image | img_url: '1200x' }}"
+                alt="{{ block.settings.image.alt }}"
+              >
             </noscript>
           </div>
         {% else %}
@@ -33,31 +51,40 @@
           {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
         {% endif %}
 
-        <div class="slideshow__cover {% if has_slideshow_button %}slideshow__cover--has-button{% endif %}" style="text-align: {{ block.settings.content_position }}">
+        <div
+          class="slideshow__cover {% if has_slideshow_button %}slideshow__cover--has-button{% endif %}"
+          style="text-align: {{ block.settings.content_position }}"
+        >
           <div class="slideshow__cover-wrapper">
             <div class="container">
               {% if block.settings.heading != blank %}
                 {% if block.settings.content_position == 'right' %}
                   <header class="slideshow__heading" style="margin-left: auto">{{ block.settings.heading }}</header>
-                  {% elsif block.settings.content_position == 'left' %}
+                {% elsif block.settings.content_position == 'left' %}
                   <header class="slideshow__heading" style="margin-right: auto">{{ block.settings.heading }}</header>
                 {% else %}
-                  <h2 class="slideshow__heading" style="margin-left: auto; margin-right: auto">{{ block.settings.heading }}</h2>
+                  <h2 class="slideshow__heading" style="margin-left: auto; margin-right: auto">
+                    {{ block.settings.heading }}
+                  </h2>
                 {% endif %}
               {% endif %}
 
               {% if block.settings.subheading != blank %}
                 {% if block.settings.content_position == 'right' %}
                   <h2 class="slideshow__subheading" style="margin-left: auto">{{ block.settings.subheading }}</h2>
-                  {% elsif block.settings.content_position == 'left' %}
+                {% elsif block.settings.content_position == 'left' %}
                   <h2 class="slideshow__subheading" style="margin-right: auto">{{ block.settings.subheading }}</h2>
                 {% else %}
-                  <h2 class="slideshow__subheading" style="margin-left: auto; margin-right: auto">{{ block.settings.subheading }}</h2>
+                  <h2 class="slideshow__subheading" style="margin-left: auto; margin-right: auto">
+                    {{ block.settings.subheading }}
+                  </h2>
                 {% endif %}
               {% endif %}
 
               {% if has_slideshow_button %}
-                <a href="{{ block.settings.link }}" class="slideshow__button button button--primary">{{ block.settings.button_text }}</a>
+                <a href="{{ block.settings.link }}" class="slideshow__button button button--primary">
+                  {{- block.settings.button_text -}}
+                </a>
               {% endif %}
             </div>
           </div>

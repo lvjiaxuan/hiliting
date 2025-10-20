@@ -35,10 +35,7 @@
 {% endcapture %}
 
 [
-  {{ results }}
-  {
-    "object_type": "all_results",
-    "results_count": {{ search.results_count }},
-    "url": "/search?q={{ search.terms }}&type={{ settings.search_mode }}"
-  }
-]
+{{ results }}
+{ "object_type": "all_results", "results_count": {{ search.results_count }}, "url": "/search?q={{ search.terms }}&type=
+{{- settings.search_mode -}}
+" } ]

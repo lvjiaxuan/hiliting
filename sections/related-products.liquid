@@ -1,5 +1,5 @@
 {% comment %}
-If there is no active collection, we choose the "all" collection so that we still display related products
+  If there is no active collection, we choose the "all" collection so that we still display related products
 {% endcomment %}
 
 {% if section.settings.show_related_products %}
@@ -8,8 +8,8 @@ If there is no active collection, we choose the "all" collection so that we stil
   {% endunless %}
 
   {% comment %}
-  All our themes come with a native integration with our SuperFields metafield app. If the product has the hand-picked choosen, then we display the
-  hand-picked products instead
+    All our themes come with a native integration with our SuperFields metafield app. If the product has the hand-picked choosen, then we display the
+    hand-picked products instead
   {% endcomment %}
 
   {% if product.metafields.sf_related_products.enabled == 1 %}
@@ -35,11 +35,26 @@ If there is no active collection, we choose the "all" collection so that we stil
             {% unless related_product.empty? %}
               <div class="related-products__item grid__cell 1/2 1/{{ settings.tablet_grid_items_per_row }}--handheld 1/{{ grid_items_per_row }}--lap-and-up">
                 <a href="{{ shop.url }}{{ related_product.url }}">
-                  {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: related_product.featured_image %}
-                  {% assign image_url = related_product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                  {% include 'image-size',
+                    sizes: '200,300,400,600,800,900,1000',
+                    image: related_product.featured_image
+                  %}
+                  {% assign image_url = related_product.featured_image
+                    | img_url: '1x1'
+                    | replace: '_1x1.', '_{width}x.'
+                  %}
 
-                  <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: related_product.featured_image.aspect_ratio }}%">
-                    <img class="lazyload image--fade-in" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ related_product.featured_image.alt }}">
+                  <div
+                    class="aspect-ratio"
+                    style="padding-bottom: {{ 100.0 | divided_by: related_product.featured_image.aspect_ratio }}%"
+                  >
+                    <img
+                      class="lazyload image--fade-in"
+                      data-src="{{ image_url }}"
+                      data-widths="[{{ supported_sizes }}]"
+                      data-sizes="auto"
+                      alt="{{ related_product.featured_image.alt }}"
+                    >
                   </div>
                 </a>
               </div>
@@ -52,17 +67,29 @@ If there is no active collection, we choose the "all" collection so that we stil
             {% endif %}
 
             {% comment %}
-            Performance note: we set the src in the data attribute, to prevent loading of all images, as some items will be removed by the related product
-            JavaScript picker
+              Performance note: we set the src in the data attribute, to prevent loading of all images, as some items will be removed by the related product
+              JavaScript picker
             {% endcomment %}
 
             <div class="related-products__item grid__cell 1/2 1/{{ settings.tablet_grid_items_per_row }}--handheld 1/{{ grid_items_per_row }}--lap-and-up">
               <a href="{{ shop.url }}{{ related_product.url }}">
                 {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: related_product.featured_image %}
-                {% assign image_url = related_product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                {% assign image_url = related_product.featured_image
+                  | img_url: '1x1'
+                  | replace: '_1x1.', '_{width}x.'
+                %}
 
-                <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: related_product.featured_image.aspect_ratio }}%">
-                  <img class="lazyload image--fade-in" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ related_product.featured_image.alt }}">
+                <div
+                  class="aspect-ratio"
+                  style="padding-bottom: {{ 100.0 | divided_by: related_product.featured_image.aspect_ratio }}%"
+                >
+                  <img
+                    class="lazyload image--fade-in"
+                    data-src="{{ image_url }}"
+                    data-widths="[{{ supported_sizes }}]"
+                    data-sizes="auto"
+                    alt="{{ related_product.featured_image.alt }}"
+                  >
                 </div>
               </a>
             </div>

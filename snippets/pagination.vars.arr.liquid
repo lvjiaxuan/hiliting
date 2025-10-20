@@ -8,12 +8,10 @@
   {% assign page_count = page_count | plus: 1 %}
 {% endif %}
 
-
 {% assign has_previous = false %}
 {% if page > 1 and total > 0 %}
   {% assign has_previous = true %}
 {% endif %}
-
 
 {% assign size_times_no = page_size | times: page %}
 {% assign has_next = false %}

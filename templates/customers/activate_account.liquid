@@ -25,8 +25,15 @@
         </div>
 
         <div class="form__control {% if form.errors.message.password_confirmation %}form__control--error{% endif %}">
-          <label class="form__label" for="customer__password-confirmation">{{ 'customer.activate_account.password_confirmation' | t }}</label>
-          <input type="password" id="customer__password-confirmation" name="customer[password_confirmation]" required="required">
+          <label class="form__label" for="customer__password-confirmation">
+            {{- 'customer.activate_account.password_confirmation' | t -}}
+          </label>
+          <input
+            type="password"
+            id="customer__password-confirmation"
+            name="customer[password_confirmation]"
+            required="required"
+          >
         </div>
 
         <div class="button-group">
@@ -35,7 +42,12 @@
           </div>
 
           <div class="button-group__item">
-            <input type="submit" class="button button--secondary" name="decline" value="{{ 'customer.activate_account.cancel' | t }}">
+            <input
+              type="submit"
+              class="button button--secondary"
+              name="decline"
+              value="{{ 'customer.activate_account.cancel' | t }}"
+            >
           </div>
         </div>
       {% endform %}

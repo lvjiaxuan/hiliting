@@ -1,23 +1,23 @@
 {% comment %}
-Add Facebook and Pinterest Open Graph meta tags to product pages
-for friendly Facebook sharing and Pinterest pinning.
+  Add Facebook and Pinterest Open Graph meta tags to product pages
+  for friendly Facebook sharing and Pinterest pinning.
 
-More info Open Graph meta tags
-- https://developers.facebook.com/docs/opengraph/using-objects/
-- https://developers.pinterest.com/rich_pins/
+  More info Open Graph meta tags
+  - https://developers.facebook.com/docs/opengraph/using-objects/
+  - https://developers.pinterest.com/rich_pins/
 
-Use the Facebook Open Graph Debugger for validation (and cache clearing)
-- http://developers.facebook.com/tools/debug
+  Use the Facebook Open Graph Debugger for validation (and cache clearing)
+  - http://developers.facebook.com/tools/debug
 
-Validate your Pinterest rich pins
-- https://developers.pinterest.com/rich_pins/validator/
+  Validate your Pinterest rich pins
+  - https://developers.pinterest.com/rich_pins/validator/
 {% endcomment %}
 
 {% if template contains 'product' %}
   <meta property="og:type" content="product">
   <meta property="og:title" content="{{ product.title | strip_html | escape }}">
 
-  {% for image in product.images limit:3 %}
+  {% for image in product.images limit: 3 %}
     <meta property="og:image" content="http:{{ image.src | img_url: 'grande' }}">
     <meta property="og:image:secure_url" content="https:{{ image.src | img_url: 'grande' }}">
   {% endfor %}
@@ -50,18 +50,18 @@ Validate your Pinterest rich pins
 <meta property="og:site_name" content="{{ shop.name }}">
 
 {% comment %}
-This snippet renders meta data needed to create a Twitter card
-for products and articles.
+  This snippet renders meta data needed to create a Twitter card
+  for products and articles.
 
-Your cards must be approved by Twitter to be activated
-- https://dev.twitter.com/docs/cards/validation/validator
+  Your cards must be approved by Twitter to be activated
+  - https://dev.twitter.com/docs/cards/validation/validator
 
-More information:
-- https://dev.twitter.com/cards/types/summary
+  More information:
+  - https://dev.twitter.com/cards/types/summary
 {% endcomment %}
 
 {% comment %}
-Twitter user name of the site, based on theme settings
+  Twitter user name of the site, based on theme settings
 {% endcomment %}
 {% if settings.twittercard_handle != blank %}
   <meta name="twitter:site" content="{{ settings.twittercard_handle }}">
@@ -75,10 +75,13 @@ Twitter user name of the site, based on theme settings
   <meta name="twitter:image:height" content="240">
 {% elsif template contains 'article' %}
   <meta name="twitter:title" content="{{ article.title }}">
-  <meta name="twitter:description" content="{{ article.excerpt_or_content | strip_html | truncatewords: 140, '' | escape }}">
+  <meta
+    name="twitter:description"
+    content="{{ article.excerpt_or_content | strip_html | truncatewords: 140, '' | escape }}"
+  >
   {% comment %}
-  Check if content contains an image to add to the card
-  - Source: http://blog.viralica.com/2013/09/twitter-product-cards-on-shopify/
+    Check if content contains an image to add to the card
+    - Source: http://blog.viralica.com/2013/09/twitter-product-cards-on-shopify/
   {% endcomment %}
 
   {% if article.image %}

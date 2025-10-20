@@ -15,7 +15,11 @@
               {% include 'icon' with 'close' %}
             </a>
 
-            <img class="mini-cart__image" src="{{ line_item.image | img_url: '180x' }}" alt="{{ line_item.image.alt | escape }}">
+            <img
+              class="mini-cart__image"
+              src="{{ line_item.image | img_url: '180x' }}"
+              alt="{{ line_item.image.alt | escape }}"
+            >
           </div>
 
           <div class="product-meta">
@@ -23,7 +27,9 @@
               <h3 class="product-meta__vendor">{{ line_item.product.vendor }}</h3>
             {% endif %}
 
-            <h2 class="product-meta__title"><a href="{{ line_item.url }}">{{ line_item.quantity }} x {{ line_item.title }}</a></h2>
+            <h2 class="product-meta__title">
+              <a href="{{ line_item.url }}">{{ line_item.quantity }} x {{ line_item.title }}</a>
+            </h2>
             <span class="product-meta__price" data-money-convertible>{{ line_item.price | money }}</span>
           </div>
         </li>

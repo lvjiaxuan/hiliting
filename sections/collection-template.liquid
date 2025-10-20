@@ -93,7 +93,11 @@
   {% endcapture %}
 
   {% if collection.all_products_count > 0 and collection_filters != blank %}
-    <div {% unless section.settings.grid_remove_spacing %}class="inner"{% endunless %}>
+    <div
+      {% unless section.settings.grid_remove_spacing %}
+        class="inner"
+      {% endunless %}
+    >
       <div class="collection__filters">
         {{ collection_filters }}
       </div>
@@ -120,19 +124,34 @@
 
 {% if collection.all_products_count > 0 %}
   {% paginate collection.products by products_per_page %}
-    <section {% unless section.settings.grid_remove_spacing %}class="inner"{% endunless %}>
+    <section
+      {% unless section.settings.grid_remove_spacing %}
+        class="inner"
+      {% endunless %}
+    >
       {% if layout_mode == 'collage' %}
-        <div class="collection collection--collage ftg" {% if section.settings.pagination_mode == 'infinite_scrolling' %}data-infinite-scroll-url="{{ paginate.next.url }}&view=infinite-scroll"{% endif %}>
+        <div
+          class="collection collection--collage ftg"
+          {% if section.settings.pagination_mode == 'infinite_scrolling' %}
+            data-infinite-scroll-url="{{ paginate.next.url }}&view=infinite-scroll"
+          {% endif %}
+        >
           <div class="ftg-items">
             {% for product in collection.products %}
-              {% include 'product-collage-item', show_vendor: section.settings.show_vendor, show_quick_shop: section.settings.show_quick_shop %}
+              {% include 'product-collage-item',
+                show_vendor: section.settings.show_vendor,
+                show_quick_shop: section.settings.show_quick_shop
+              %}
             {% endfor %}
           </div>
         </div>
       {% else %}
         <div class="collection collection--grid grid {% if section.settings.grid_remove_spacing %}grid--flush{% else %}grid--gallery grid--middle{% endif %}">
           {% for product in collection.products %}
-            {% include 'product-grid-item', show_vendor: section.settings.show_vendor, show_quick_shop: section.settings.show_quick_shop %}
+            {% include 'product-grid-item',
+              show_vendor: section.settings.show_vendor,
+              show_quick_shop: section.settings.show_quick_shop
+            %}
           {% endfor %}
         </div>
       {% endif %}

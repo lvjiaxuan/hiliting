@@ -20,17 +20,23 @@
   {% endcase %}
 {% endfor %}
 
-<section class="index-module section section--padded section--alternate index-module__social {% if section.settings.use_secondary_background %}section--secondary{% endif %}"
-         {% if instagram_enabled %}data-instagram-access-token="{{ instagram_access_token }}"{% endif %}
-         {% if twitter_enabled %}data-twitter-username="{{ twitter_username | remove_first: '@' }}"{% endif %}>
+<section
+  class="index-module section section--padded section--alternate index-module__social {% if section.settings.use_secondary_background %}section--secondary{% endif %}"
+  {% if instagram_enabled %}
+    data-instagram-access-token="{{ instagram_access_token }}"
+  {% endif %}
+  {% if twitter_enabled %}
+    data-twitter-username="{{ twitter_username | remove_first: '@' }}"
+  {% endif %}
+>
   <div class="inner">
     <h2 class="section__title">{{ section.settings.title | escape }}</h2>
 
     {% if instagram_enabled or twitter_enabled %}
       {% comment %}
-      When we have both modules activated, we want the Instagram pictures AND the tweet to have the same height.
-      To avoid to use an expensive JS solution, we'll use a solution based on table-cell, but it requires two
-      different markup depending on the context
+        When we have both modules activated, we want the Instagram pictures AND the tweet to have the same height.
+        To avoid to use an expensive JS solution, we'll use a solution based on table-cell, but it requires two
+        different markup depending on the context
       {% endcomment %}
 
       {% if instagram_enabled and twitter_enabled %}

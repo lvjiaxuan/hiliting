@@ -9,8 +9,13 @@
     <div class="product-item__labels">
       {% if product.available and show_quick_shop %}
         <div class="product-item__label product-item__label--hidden">
-          <button class="label label--quick-shop" data-action="open-quick-shop" data-quick-shop-url="{{ product.url | append: '?view=quick_shop' }}">
-            {% include 'icon' with 'cart-empty' %}{{ 'product.labels.quick_shop' | t }}
+          <button
+            class="label label--quick-shop"
+            data-action="open-quick-shop"
+            data-quick-shop-url="{{ product.url | append: '?view=quick_shop' }}"
+          >
+            {% include 'icon' with 'cart-empty' -%}
+            {{- 'product.labels.quick_shop' | t }}
           </button>
         </div>
       {% endif %}
@@ -25,11 +30,11 @@
       {% endfor %}
 
       {% if product_on_sale %}
-      {% comment %}
-        <div class="product-item__label">
-          <span class="label label--on-sale">{{ 'product.labels.on_sale' | t }}</span>
-        </div>
-      {% endcomment %}
+        {% comment %}
+          <div class="product-item__label">
+            <span class="label label--on-sale">{{ 'product.labels.on_sale' | t }}</span>
+          </div>
+        {% endcomment %}
       {% elsif product.available == false %}
         <div class="product-item__label">
           <span class="label label--sold-out">{{ 'product.labels.sold_out' | t }}</span>
@@ -42,18 +47,35 @@
         {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: product.featured_image %}
         {% assign image_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
-        {% for image_second in product.images limit:1 offset:1 %}
+        {% for image_second in product.images limit: 1 offset: 1 %}
+          {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: image_second %}
+          {% assign image_second_url = image_second | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+          <div
+            class="aspect-ratio"
+            style="padding-bottom: {{ 100.0 | divided_by: product.featured_image.aspect_ratio }}%"
+            onMouseOver="this.getElementsByTagName('img')[0].style.display='none';this.getElementsByTagName('img')[1].style.display='block'"
+            onMouseOut="this.getElementsByTagName('img')[0].style.display='block';this.getElementsByTagName('img')[1].style.display='none'"
+          >
+            <img
+              class="lazyload image--fade-in"
+              data-sizes="auto"
+              data-src="{{ image_url }}"
+              data-widths="[{{ supported_sizes }}]"
+              alt="{{ product.featured_image.alt }}"
+            >
+            <img
+              class="lazyload image--fade-in"
+              data-sizes="auto"
+              data-src="{{ image_second_url }}"
+              data-widths="[{{ supported_sizes }}]"
+              alt="{{ product.featured_image.alt }}"
+              style="display:none"
+            >
 
-        {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: image_second %}
-        {% assign image_second_url = image_second | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-        <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: product.featured_image.aspect_ratio }}%" onMouseOver="this.getElementsByTagName('img')[0].style.display='none';this.getElementsByTagName('img')[1].style.display='block'" onMouseOut="this.getElementsByTagName('img')[0].style.display='block';this.getElementsByTagName('img')[1].style.display='none'">
-          <img class="lazyload image--fade-in" data-sizes="auto" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" alt="{{ product.featured_image.alt }}">
-          <img class="lazyload image--fade-in" data-sizes="auto" data-src="{{ image_second_url }}" data-widths="[{{ supported_sizes }}]" alt="{{ product.featured_image.alt }}" style="display:none">
-
-          <noscript>
-            <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt }}">
-          </noscript>
-        </div>
+            <noscript>
+              <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt }}">
+            </noscript>
+          </div>
         {% endfor %}
       </div>
     </a>
@@ -70,13 +92,21 @@
       </div>
 
       {% if product_on_sale %}
-        <span class="product-item__price product-item__price--new" data-money-convertible>{{ product.price | money }}</span>
-        <span class="product-item__price product-item__price--old" data-money-convertible>{{ product.compare_at_price | money }}</span>
+        <span class="product-item__price product-item__price--new" data-money-convertible>
+          {{- product.price | money -}}
+        </span>
+        <span class="product-item__price product-item__price--old" data-money-convertible>
+          {{- product.compare_at_price | money -}}
+        </span>
       {% elsif product.price_varies %}
         {% assign formatted_min_price = product.price_min | money %}
-        <span class="product-item__price">{{ 'collection.product.from_price_html' | t: price: formatted_min_price }}</span>
+        <span class="product-item__price">
+          {{- 'collection.product.from_price_html' | t: price: formatted_min_price -}}
+        </span>
       {% else %}
-        <span class="product-item__price" data-money-convertible>{{ product.price | default: product.price | money }}</span>
+        <span class="product-item__price" data-money-convertible>
+          {{- product.price | default: product.price | money -}}
+        </span>
       {% endif %}
     </div>
   </div>

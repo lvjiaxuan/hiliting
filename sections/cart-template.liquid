@@ -48,8 +48,16 @@
               {% endif %}
 
               <span class="cart-item__subtotal" data-money-convertible>{{ line_item.line_price | money }}</span>
-              <input type="text" pattern="[0-9]*" class="cart-item__quantity-input" name="quantity" value="{{ line_item.quantity }}">
-              <a class="cart-item__remove" href="/cart/change?quantity=0&line={{ forloop.index }}">{{ 'cart.items.remove' | t }}</a>
+              <input
+                type="text"
+                pattern="[0-9]*"
+                class="cart-item__quantity-input"
+                name="quantity"
+                value="{{ line_item.quantity }}"
+              >
+              <a class="cart-item__remove" href="/cart/change?quantity=0&line={{ forloop.index }}">
+                {{- 'cart.items.remove' | t -}}
+              </a>
             </div>
           </li>
         {% endfor %}
@@ -129,11 +137,15 @@
     <div class="inner">
       <div class="cart__meta cart__meta--mobile">
         <div class="cart__recap">
-          <span class="cart__total cart__total" data-money-convertible><span  class='ymq_cart_total_price'>{{ cart.total_price | money }}</span></span>
+          <span class="cart__total cart__total" data-money-convertible
+            ><span class="ymq_cart_total_price">{{ cart.total_price | money }}</span></span
+          >
           <span class="cart__taxes">{{ 'cart.general.shipping_not_included' | t }}</span>
 
           {% if settings.currency_conversion_enabled %}
-            <p class="cart__currency-notice rte">{{ 'cart.general.currency_notice' | t: shop_currency: shop.currency }}</p>
+            <p class="cart__currency-notice rte">
+              {{ 'cart.general.currency_notice' | t: shop_currency: shop.currency }}
+            </p>
           {% endif %}
         </div>
 
@@ -148,7 +160,9 @@
 
         <div class="cart__checkout">
           <div class="button-wrapper">
-            <button type="submit" name="checkout" class="button button--primary">{{ 'cart.general.checkout' | t }}</button>
+            <button type="submit" name="checkout" class="button button--primary">
+              {{ 'cart.general.checkout' | t }}
+            </button>
           </div>
         </div>
       </div>
@@ -165,16 +179,22 @@
 
         <div class="cart__checkout grid__cell {% if section.settings.show_notes %}2/5--handheld-and-up{% endif %}">
           <div class="cart__recap--desktop">
-            <span class="cart__total cart__total" data-money-convertible><span  class='ymq_cart_total_price'>{{ cart.total_price | money }}</span></span>
+            <span class="cart__total cart__total" data-money-convertible
+              ><span class="ymq_cart_total_price">{{ cart.total_price | money }}</span></span
+            >
             <span class="cart__taxes">{{ 'cart.general.shipping_not_included' | t }}</span>
 
             {% if settings.currency_conversion_enabled %}
-              <p class="cart__currency-notice rte">{{ 'cart.general.currency_notice' | t: shop_currency: shop.currency }}</p>
+              <p class="cart__currency-notice rte">
+                {{ 'cart.general.currency_notice' | t: shop_currency: shop.currency }}
+              </p>
             {% endif %}
           </div>
 
           <div class="button-wrapper">
-            <button type="submit" name="checkout" class="button button--primary">{{ 'cart.general.checkout' | t }}</button>
+            <button type="submit" name="checkout" class="button button--primary">
+              {{ 'cart.general.checkout' | t }}
+            </button>
           </div>
         </div>
       </div>
@@ -193,25 +213,47 @@
 
           <div class="styled-select">
             {% include 'icon' with 'dropdown-arrow' %}
-            <select id="address_country" name="shipping_address[country]" data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif section.settings.shipping_estimator_default_country != '' %}{{ section.settings.shipping_estimator_default_country }}{% endif %}">{{ country_option_tags }}</select>
+            <select
+              id="address_country"
+              name="shipping_address[country]"
+              data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif section.settings.shipping_estimator_default_country != '' %}{{ section.settings.shipping_estimator_default_country }}{% endif %}"
+            >
+              {{ country_option_tags }}
+            </select>
           </div>
         </div>
 
         <div class="form__control" id="address_province_container" style="display: none;">
-          <label class="form__label" for="address_province" id="address_province_label">{{ 'cart.shipping_estimator.province' | t }}</label>
+          <label class="form__label" for="address_province" id="address_province_label">
+            {{- 'cart.shipping_estimator.province' | t -}}
+          </label>
 
           <div class="styled-select">
             {% include 'icon' with 'dropdown-arrow' %}
-            <select id="address_province" name="shipping_address[province]" data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"></select>
+            <select
+              id="address_province"
+              name="shipping_address[province]"
+              data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"
+            ></select>
           </div>
         </div>
 
         <div class="form__control form__control--zip">
           <label class="form__label" for="address_zip">{{ 'cart.shipping_estimator.zip' | t }}</label>
-          <input type="text" id="address_zip" name="shipping_address[zip]"{% if shop.customer_accounts_enabled and customer %} value="{{ customer.default_address.zip }}"{% endif %} required="required">
+          <input
+            type="text"
+            id="address_zip"
+            name="shipping_address[zip]"
+            {% if shop.customer_accounts_enabled and customer %}
+              value="{{ customer.default_address.zip }}"
+            {% endif %}
+            required="required"
+          >
         </div>
 
-        <button type="submit" class="button button--secondary shipping-estimator__submit">{{ 'cart.shipping_estimator.submit' | t }}</button>
+        <button type="submit" class="button button--secondary shipping-estimator__submit">
+          {{ 'cart.shipping_estimator.submit' | t }}
+        </button>
       </div>
 
       <div class="shipping-estimator__results" style="display: none">
@@ -253,4 +295,5 @@
     }
   ]
 }
-{% endschema %}{% comment %}<!-- ymq option done -->{% endcomment %}
+{% endschema %}
+{% comment %}<!-- ymq option done -->{% endcomment %}

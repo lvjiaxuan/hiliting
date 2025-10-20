@@ -1,7 +1,9 @@
 {% if section.settings.show_announcement %}
   <section class="announcement-bar">
     {%- if section.settings.announcement_link -%}
-      <a href="{{ section.settings.announcement_link }}" class="announcement-bar__content">{{ section.settings.announcement_text | escape }}</a>
+      <a href="{{ section.settings.announcement_link }}" class="announcement-bar__content">
+        {{- section.settings.announcement_text | escape -}}
+      </a>
     {%- else -%}
       <p class="announcement-bar__content">{{ section.settings.announcement_text | escape }}</p>
     {%- endif -%}

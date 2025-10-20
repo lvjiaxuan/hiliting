@@ -87,7 +87,7 @@
     <div class="inner">
       <p class="footer__copyright">
         {% capture shop_copyright %}<a href="/">{{ shop.name }}</a>{% endcapture %}
-        {{ 'layout.footer.copyright_html' | t: shop_copyright: shop_copyright }} 
+        {{ 'layout.footer.copyright_html' | t: shop_copyright: shop_copyright }}
       </p>
 
       {% if section.settings.show_payment_methods %}

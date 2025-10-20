@@ -7,11 +7,13 @@
     {%- endunless -%}
   {%- endunless -%}
 
-  <div class="remodal modal modal--centered promotion-popup"
-       data-visible="{% if popup_is_visible %}true{% else %}false{% endif %}"
-       data-remodal-id="popup"
-       data-delay="{{ section.settings.popup_delay | times: 1000 }}"
-       data-remember-me="{{ section.settings.popup_remember_me }}">
+  <div
+    class="remodal modal modal--centered promotion-popup"
+    data-visible="{% if popup_is_visible %}true{% else %}false{% endif %}"
+    data-remodal-id="popup"
+    data-delay="{{ section.settings.popup_delay | times: 1000 }}"
+    data-remember-me="{{ section.settings.popup_remember_me }}"
+  >
     <a href="#" class="modal__close" data-remodal-action="close">
       {% include 'icon' with 'close-thin' %}
     </a>
@@ -33,7 +35,12 @@
             <p class="alert alert--success">{{ 'layout.promotions.newsletter_success' | t }}</p>
           {%- else -%}
             <input type="hidden" name="contact[tags]" value="newsletter">
-            <input type="email" name="contact[email]" aria-label="{{ 'layout.promotions.email_placeholder' | t }}" placeholder="{{ 'layout.promotions.email_placeholder' | t }}">
+            <input
+              type="email"
+              name="contact[email]"
+              aria-label="{{ 'layout.promotions.email_placeholder' | t }}"
+              placeholder="{{ 'layout.promotions.email_placeholder' | t }}"
+            >
             <input type="submit" class="button button--primary" value="{{ 'layout.promotions.submit' | t }}">
           {%- endif -%}
         {%- endform -%}
