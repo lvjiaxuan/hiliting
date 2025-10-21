@@ -7,7 +7,9 @@
   <head>
     {% include 'ymq-option-initializer' %}
 
-    <meta name="google-site-verification" content="G53fMm5fahVFQnrGdCmxGkbnr6eJOA8ueUsmVqz2kGY">
+    <meta name="google-site-verification" content="z5s0SmkMHTiaLuFV5lHKmynSiwCXLl6TCK9HZCtemdE">
+    {% comment %} <meta name="google-site-verification" content="G53fMm5fahVFQnrGdCmxGkbnr6eJOA8ueUsmVqz2kGY"> {% endcomment %}
+
     <script>
       var shareasaleShopifySSCID = shareasaleShopifyGetParameterByName('sscid');
       function shareasaleShopifySetCookie(e, a, o, i, r) {
@@ -16,12 +18,12 @@
             S = i ? '; path=' + i : '',
             h = r ? '; domain=' + r : '',
             t = '';
-          (o && ((s = new Date()).setTime(s.getTime() + o), (t = '; expires=' + s.toUTCString())),
-            (document.cookie = e + '=' + a + t + S + h));
+          o && ((s = new Date()).setTime(s.getTime() + o), (t = '; expires=' + s.toUTCString())),
+            (document.cookie = e + '=' + a + t + S + h);
         }
       }
       function shareasaleShopifyGetParameterByName(e, a) {
-        (a || (a = window.location.href), (e = e.replace(/[\[\]]/g, '\\$&')));
+        a || (a = window.location.href), (e = e.replace(/[\[\]]/g, '\\$&'));
         var o = new RegExp('[?&]' + e + '(=([^&#]*)|&|#|$)').exec(a);
         return o ? (o[2] ? decodeURIComponent(o[2].replace(/\+/g, ' ')) : '') : null;
       }
