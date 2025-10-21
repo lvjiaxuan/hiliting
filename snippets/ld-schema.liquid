@@ -1,0 +1,146 @@
+{% if template == 'index' %}
+  {% comment %} 首页结构化数据 {% endcomment %}
+  <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Hiliting",
+        "url": "https://www.hiliting.com/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.hiliting.com/search?q={query}",
+          "query": "required"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "OnlineStore",
+        "name": "Hiliting",
+        "url": "https://www.hiliting.com",
+        "logo": "https://www.hiliting.com/cdn/shop/files/3_32x32_23ea58a0-c43f-4c30-8af5-6f5f24c96b6c.png",
+        "description": "HILITING LED gobo projectors will illuminate your event venue with dazzling light projections. Order gobo projector and get FREE custom one-color glass gobo based on your artwork, logo or monogram starts at $199.99. FREE SHIPPING for global orders now, what you need to do is to provide us your artwork.",
+        "foundingDate": "2018",
+        "slogan": "gobo projector,custom gobo",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "650 Castro St Ste 120-458",
+          "addressLocality": "Mountain View",
+          "addressRegion": "CA",
+          "postalCode": "94041",
+          "addressCountry": "US"
+        },
+        "areaServed": "Worldwide",
+        "paymentAccepted": ["Credit Card", "PayPal", "Apple Pay", "Google Pay"],
+        "priceRange": "$",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-899-379-3991",
+          "contactType": "customer service",
+          "email": "service@Hiliting.com",
+          "availableLanguage": ["en", "fr", "de", "es"]
+        },
+        "sameAs": [
+          "https://www.facebook.com/Hiliting-261591384539845/",
+          "https://www.instagram.com/hilitingprojector/",
+          "https://www.pinterest.com/hilitinggoboprojector/",
+          "https://youtu.be/BHWcp4S020Y"
+        ]
+      },
+      {
+        "@context": "http://www.schema.org",
+        "@type": "LocalBusiness",
+        "name": "Hiliting",
+        "priceRange": "$",
+        "image": "https://www.hiliting.com/cdn/shop/files/1-5_9ed34e92-75f2-462e-a1e2-7fa942876b09_200x.png",
+        "email": "service@Hiliting.com",
+        "telephone": "+1-899-379-3991",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "650 Castro St Ste 120-458",
+          "addressRegion": "CA",
+          "addressLocality": "Mountain View",
+          "postalCode": "94041",
+          "addressCountry": "US"
+        }
+      },
+      {
+        "@context": "http://www.schema.org",
+        "@type": "Corporation",
+        "name": "Hiliting",
+        "legalName": "Interfocus Inc.",
+        "url": "https://www.hiliting.com",
+        "image": "https://www.hiliting.com/cdn/shop/t/11/assets/Hiliting-photo.jpg",
+        "logo": "https://www.hiliting.com/cdn/shop/t/11/assets/Hiliting-logo.png",
+        "brand": {
+          "@type": "Brand",
+          "name": "Hiliting",
+          "description": "Dress your family in joy with Hiliting! Shop cozy Christmas PJs, matching family outfits and kids clothes for magical family memories everyone will love.",
+          "logo": "https://www.hiliting.com/cdn/shop/t/11/assets/Hiliting-logo.png",
+          "slogan": "Cute, Quality, Great Price"
+        },
+        "location": "650 Castro St Ste 120-458 Mountain View, CA, 94041-2055 United States",
+        "telephone": "+1-899-379-3991",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-899-379-3991",
+          "contactType": "customer service",
+          "email": "service@Hiliting.com",
+          "availableLanguage": ["en", "fr", "de", "es"]
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "650 Castro St Ste 120-458",
+          "addressLocality": "Mountain View",
+          "addressRegion": "CA",
+          "postalCode": "94041",
+          "addressCountry": "US"
+        },
+        "founder": [
+          {
+            "@type": "Person",
+            "name": "Albert Wang",
+            "jobTitle": "CEO",
+            "url": "https://www.linkedin.com/in/albertcanwang/"
+          },
+          {
+            "@type": "Person",
+            "name": "Ken Gao",
+            "jobTitle": "COO",
+            "url": "https://www.linkedin.com/in/cangao/"
+          }
+        ],
+        "foundingDate": "2014",
+        "foundingLocation": "Mountain View , CA, United States",
+        "description": "Dress your family in joy with Hiliting! Shop cozy Christmas PJs, matching family outfits and kids clothes for magical family memories everyone will love.",
+        "sameAs": [
+          "https://www.facebook.com/Hilitingshopping/",
+          "https://www.instagram.com/Hiliting_clothing/",
+          "https://www.linkedin.com/company/pat-pat/",
+          "https://www.pinterest.com/Hilitingshopping",
+          "https://www.tiktok.com/@Hilitingclothing",
+          "https://x.com/Hilitingshopping",
+          "https://www.youtube.com/@Hilitingclothing"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.hiliting.com"
+          }
+        ]
+      }
+    ]
+  </script>
+{% endif %}
+
+{% if ld_json != blank %}
+  <script type="application/ld+json">
+    {{- ld_json -}}
+  </script>
+{% endif %}
