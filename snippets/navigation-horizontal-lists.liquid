@@ -17,11 +17,11 @@
       >
         <a href="{{ link.url }}" class="navigation-horizontal__list-link">
           {{- link.title | escape }}
-          {% include 'icon' with 'dropdown-arrow' -%}
+          {% render 'icon' with 'dropdown-arrow' -%}
         </a>
 
         {% if mega_nav_name == downcased_link_title %}
-          {% include 'navigation-horizontal-mega-nav', mega_nav: link %}
+          {% render 'navigation-horizontal-mega-nav', mega_nav: link %}
         {% else %}
           <ul class="navigation-horizontal__dropdown">
             {% for sub_link in link.links %}
@@ -33,7 +33,7 @@
                 >
                   <a href="{{ sub_link.url }}" class="navigation-horizontal__dropdown-link">
                     {{- sub_link.title | escape }}
-                    {% include 'icon' with 'dropdown-arrow-right' -%}
+                    {% render 'icon' with 'dropdown-arrow-right' -%}
                   </a>
 
                   <ul class="navigation-horizontal__dropdown">

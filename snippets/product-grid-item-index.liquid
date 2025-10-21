@@ -14,7 +14,7 @@
             data-action="open-quick-shop"
             data-quick-shop-url="{{ product.url | append: '?view=quick_shop' }}"
           >
-            {% include 'icon' with 'cart-empty' -%}
+            {% render 'icon' with 'cart-empty' -%}
             {{- 'product.labels.quick_shop' | t }}
           </button>
         </div>
@@ -44,11 +44,11 @@
 
     <a href="{{ shop.url }}{{ product.url }}" class="product-item__image">
       <div class="product-item__image-wrapper">
-        {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: product.featured_image %}
+        {% render 'image-size', sizes: '200,300,400,600,800,900,1000', image: product.featured_image %}
         {% assign image_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
         {% for image_second in product.images limit: 1 offset: 1 %}
-          {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: image_second %}
+          {% render 'image-size', sizes: '200,300,400,600,800,900,1000', image: image_second %}
           {% assign image_second_url = image_second | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
           <div
             class="aspect-ratio"

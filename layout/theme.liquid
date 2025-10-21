@@ -5,7 +5,7 @@
 <html class="no-js">
   <!-- <![endif] -->
   <head>
-    {% include 'ymq-option-initializer' %}
+    {% render 'ymq-option-initializer' %}
 
     <meta name="google-site-verification" content="z5s0SmkMHTiaLuFV5lHKmynSiwCXLl6TCK9HZCtemdE">
     {% comment %} <meta name="google-site-verification" content="G53fMm5fahVFQnrGdCmxGkbnr6eJOA8ueUsmVqz2kGY"> {% endcomment %}
@@ -72,7 +72,7 @@
       <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
     {% endif %}
 
-    {% include 'social-meta-tags' %}
+    {% render 'social-meta-tags' %}
 
     {{ content_for_header }}
 
@@ -111,8 +111,8 @@
       }
     </script>
 
-    {% include 'microdata-schema' %}
-    {% include 'judgeme_core' %}
+    {% render 'microdata-schema' %}
+    {% render 'judgeme_core' %}
 
     <!-- StartCartCartCustomCode -->
 
@@ -145,13 +145,13 @@
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    {% include 'svg-icons' %}
+    {% render 'svg-icons' %}
 
     <div class="page__overlay"></div>
 
     <div class="drawers">
-      {% include 'mini-cart' %}
-      {% include 'navigation-sidebar' %}
+      {% render 'mini-cart' %}
+      {% render 'navigation-sidebar' %}
     </div>
 
     {% section 'popup' %}

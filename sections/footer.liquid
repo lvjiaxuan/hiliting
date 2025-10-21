@@ -20,7 +20,7 @@
 
           {% when 'social' %}
             {% capture footer_social_media %}
-              {% include 'social-networks', show_social_name: true %}
+              {% render'social-networks', show_social_name: true %}
             {% endcapture %}
 
             {% if footer_social_media != blank %}
@@ -105,7 +105,7 @@
 
 {% if section.settings.show_back_to_top %}
   <a href="#" class="back-to-top" title="Back to the top">
-    {% include 'icon' with 'back-to-top-arrow' %}
+    {% render 'icon' with 'back-to-top-arrow' %}
   </a>
 {% endif %}
 

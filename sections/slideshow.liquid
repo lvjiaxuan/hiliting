@@ -23,7 +23,7 @@
         {% endif %}
 
         {% if block.settings.image %}
-          {% include 'image-size', sizes: '400,600,800,900,1000,1200,1400,1600,1800', image: block.settings.image %}
+          {% render 'image-size', sizes: '400,600,800,900,1000,1200,1400,1600,1800', image: block.settings.image %}
           {% assign image_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
           <div

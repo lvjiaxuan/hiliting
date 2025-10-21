@@ -33,7 +33,7 @@
       <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
     {% endif %}
 
-    {% include 'social-meta-tags' %}
+    {% render 'social-meta-tags' %}
 
     {{ content_for_header }}
 
@@ -55,7 +55,7 @@
   {% assign template_handle = template | replace: '.', ' ' | truncatewords: 1, '' | handle %}
 
   <body class="focal kagami--v5 template-{{ template_handle }} {% if page.template_suffix != blank %}template-{{ template_handle }}-{{page.template_suffix}}{% endif %}">
-    {% include 'svg-icons' %}
+    {% render 'svg-icons' %}
 
     <div class="page__overlay"></div>
 

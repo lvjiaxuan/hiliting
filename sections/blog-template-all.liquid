@@ -1,12 +1,12 @@
 <header class="page__header">
-  {% include 'breadcrumb' %}
+  {% render 'breadcrumb' %}
 
   {% if section.settings.show_rss %}
     <div class="blog__rss">
       <div class="inner">
         <a href="{{ blog.url }}.atom">
           {{ 'blog.general.rss' | t }}
-          {% include 'icon' with 'rss' %}
+          {% render 'icon' with 'rss' %}
         </a>
       </div>
     </div>
@@ -19,7 +19,7 @@
   </div>
 </header>
 
-{% include 'pagination.vars.arr', page_size: section.settings.blog_limit, total: section.blocks.size %}
+{% render 'pagination.vars.arr', page_size: section.settings.blog_limit, total: section.blocks.size %}
 
 {% for block in section.blocks limit: page_size %}
   {% if block.type == 'blog_category' %}
@@ -30,7 +30,7 @@
           <h2 class="article__title">{{ current_blog.title | link_to: current_blog.url }}</h2>
           <div class="grid grid--large grid--gallery grid--gallery-large">
             {% for article in current_blog.articles limit: block.settings.article_limit %}
-              {% include 'article-preview', show_author: section.settings.show_author %}
+              {% render 'article-preview', show_author: section.settings.show_author %}
             {% endfor %}
           </div>
         </div>
@@ -39,7 +39,7 @@
   {% endif %}
 {% endfor %}
 
-{% include 'pagination.arr' %}
+{% render 'pagination.arr' %}
 
 {% schema %}
 {
