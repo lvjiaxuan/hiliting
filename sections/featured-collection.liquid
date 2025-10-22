@@ -24,7 +24,7 @@
           {% assign collection = collections[section.settings.collection] %}
 
           {% for product in collection.products limit: section.settings.products_count %}
-            {% render 'product-collage-item',
+            {% include 'product-collage-item',
               show_vendor: section.settings.show_vendor,
               show_quick_shop: section.settings.show_quick_shop
             %}
@@ -65,7 +65,7 @@
         {% assign collection = collections[section.settings.collection] %}
 
         {% for product in collection.products limit: section.settings.products_count %}
-          {% render 'product-grid-item-index',
+          {% include 'product-grid-item-index',
             show_vendor: section.settings.show_vendor,
             show_quick_shop: section.settings.show_quick_shop
           %}

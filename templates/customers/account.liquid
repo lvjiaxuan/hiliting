@@ -1,5 +1,5 @@
 <header class="page__header">
-  {% render 'breadcrumb' %}
+  {% include 'breadcrumb' %}
 
   <div class="page__header-wrapper">
     <div class="container">
@@ -57,7 +57,7 @@
                 <div class="pagination__wrapper">
                   {% if paginate.previous %}
                     <a class="pagination__prev" rel="prev" href="{{ paginate.previous.url }}">
-                      {% render 'icon' with 'arrow-left' %}
+                      {% include 'icon' with 'arrow-left' %}
                       {{ 'customer.orders.previous' | t }}
                     </a>
                   {% endif %}
@@ -65,7 +65,7 @@
                   {% if paginate.next %}
                     <a class="pagination__next" rel="next" href="{{ paginate.next.url }}">
                       {{ 'customer.orders.next' | t }}
-                      {% render 'icon' with 'arrow-right' %}
+                      {% include 'icon' with 'arrow-right' %}
                     </a>
                   {% endif %}
                 </div>

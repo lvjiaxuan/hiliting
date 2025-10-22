@@ -11,7 +11,7 @@
             {% assign collection = collections[block.settings.collection] %}
 
             {% unless collection.empty? %}
-              {% render 'collection-collage-item' %}
+              {% include 'collection-collage-item' %}
             {% else %}
               {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
 
@@ -41,7 +41,7 @@
           {% assign collection = collections[block.settings.collection] %}
 
           {% unless collection.empty? %}
-            {% render 'collection-grid-item' %}
+            {% include 'collection-grid-item' %}
           {% else %}
             {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
 

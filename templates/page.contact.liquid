@@ -1,5 +1,5 @@
 <header class="page__header">
-  {% render 'breadcrumb' %}
+  {% include 'breadcrumb' %}
 
   <div class="page__header-wrapper">
     <div class="container">
@@ -21,7 +21,7 @@
         {% if form.errors %}
           <div class="alert alert--error">
             <span class="alert__title">{{ 'general.forms.errors' | t }}</span>
-            {% render'form-errors' %}
+            {% include'form-errors' %}
           </div>
         {% endif %}
 

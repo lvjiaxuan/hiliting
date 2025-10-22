@@ -31,7 +31,7 @@
     <div class="header__wrapper">
       <div class="header__item header__item-toggle">
         <a href="#" class="header__link" data-action="open-navigation-sidebar">
-          {% render 'icon' with 'hamburger' %}
+          {% include 'icon' with 'hamburger' %}
         </a>
       </div>
 
@@ -56,7 +56,7 @@
 
       {% if section.settings.show_social_media %}
         {% capture social_media %}
-          {% render'social-networks', show_social_name: false %}
+          {% include'social-networks', show_social_name: false %}
         {% endcapture %}
 
         {% if social_media != blank %}
@@ -69,7 +69,7 @@
       {% if settings.currency_conversion_enabled %}
         <div class="header__item header__item-currency">
           <div class="styled-select currency-selector">
-            {% render 'icon' with 'dropdown-arrow' %}
+            {% include 'icon' with 'dropdown-arrow' %}
 
             <select class="currency-selector__select">
               {% capture codes %}USD,EUR,GBP,CAD,ARS,AUD,BBD,BDT,BSD,BHD,BRL,BOB,BND,BGN,MMK,KYD,CLP,CNY,COP,CRC,HRK,CZK,DKK,DOP,XCD,EGP,XPF,FJD,GHS,GTQ,GYD,GEL,HKD,HUF,ISK,INR,IDR,NIS,JMD,JPY,JOD,KZT,KES,KWD,LVL,LTL,MXN,MYR,MUR,MDL,MAD,MNT,MZN,ANG,NZD,NGN,NOK,OMR,PKR,PYG,PEN,PHP,PLN,QAR,RON,RUB,SAR,RSD,SCR,SGD,SYP,ZAR,KRW,LKR,SEK,CHF,TWD,THB,TZS,TTD,TRY,UAH,AED,UYU,VEB,VND,ZMK{% endcapture %}
@@ -96,19 +96,19 @@
       {% if shop.customer_accounts_enabled %}
         <div class="header__item header__item-account">
           <a href="/account{% unless customer %}/login{% endunless %}" class="header__link">
-            {% render 'icon' with 'profile' %}
+            {% include 'icon' with 'profile' %}
           </a>
         </div>
       {% endif %}
 
       <div class="header__item header__item-search">
         <a href="/search" class="header__link" data-action="open-search">
-          {% render 'icon' with 'search' %}
+          {% include 'icon' with 'search' %}
         </a>
 
         <div class="header__search-wrapper">
           <a href="#" class="header__link">
-            {% render 'icon' with 'search' %}
+            {% include 'icon' with 'search' %}
           </a>
 
           <form class="header__search-form" action="/search" method="GET" role="search">
@@ -126,7 +126,7 @@
           </form>
 
           <a href="#" class="header__link header__search-close" data-action="close-search">
-            {% render 'icon' with 'close-thin' %}
+            {% include 'icon' with 'close-thin' %}
           </a>
 
           <div class="autocomplete">
@@ -165,7 +165,7 @@
             {% endif %}
           >
             <span class="cart-icon-wrapper__count">{{ cart.item_count }}</span>
-            {% render 'icon' with 'cart-full' %}
+            {% include 'icon' with 'cart-full' %}
           </div>
 
           <div
@@ -174,7 +174,7 @@
               style="display: none"
             {% endunless %}
           >
-            {% render 'icon' with 'cart-empty' %}
+            {% include 'icon' with 'cart-empty' %}
           </div>
         </a>
       </div>
@@ -182,7 +182,7 @@
 
     {% if settings.navigation_mode == 'horizontal' %}
       <nav class="navigation-horizontal" role="navigation">
-        {% render 'navigation-horizontal-lists', level: 0 %}
+        {% include 'navigation-horizontal-lists', level: 0 %}
       </nav>
     {% endif %}
   </header>

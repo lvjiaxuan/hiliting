@@ -1,5 +1,5 @@
 <header class="page__header {% if cart.item_count == 0 %}page__header--no-border{% endif %}">
-  {% render 'breadcrumb' %}
+  {% include 'breadcrumb' %}
 
   <div class="page__header-wrapper">
     <div class="container">
@@ -113,10 +113,10 @@
 
                 <div class="quantity__actions">
                   <a href="/cart/change?quantity={{ line_item.quantity | minus: 1 }}&line={{ forloop.index }}">
-                    {% render 'icon' with 'minus' %}
+                    {% include 'icon' with 'minus' %}
                   </a>
                   <a href="/cart/change?quantity={{ line_item.quantity | plus: 1 }}&line={{ forloop.index }}">
-                    {% render 'icon' with 'plus' %}
+                    {% include 'icon' with 'plus' %}
                   </a>
                 </div>
               </td>
@@ -125,7 +125,7 @@
 
               <td class="cart-item__remove">
                 <a href="/cart/change?quantity=0&line={{ forloop.index }}" class="icon-cross-container">
-                  {% render 'icon' with 'close' %}
+                  {% include 'icon' with 'close' %}
                 </a>
               </td>
             </tr>
@@ -212,7 +212,7 @@
           <label class="form__label" for="address_country">{{ 'cart.shipping_estimator.country' | t }}</label>
 
           <div class="styled-select">
-            {% render 'icon' with 'dropdown-arrow' %}
+            {% include 'icon' with 'dropdown-arrow' %}
             <select
               id="address_country"
               name="shipping_address[country]"
@@ -229,7 +229,7 @@
           </label>
 
           <div class="styled-select">
-            {% render 'icon' with 'dropdown-arrow' %}
+            {% include 'icon' with 'dropdown-arrow' %}
             <select
               id="address_province"
               name="shipping_address[province]"

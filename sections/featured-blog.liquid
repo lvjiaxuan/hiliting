@@ -10,7 +10,7 @@
 
     <div class="grid grid--large grid--gallery grid--gallery-large">
       {% for article in blog.articles limit: 3 %}
-        {% render 'article-preview', show_author: section.settings.show_author %}
+        {% include 'article-preview', show_author: section.settings.show_author %}
       {% else %}
         {% for i in (1..3) %}
           <article class="grid__cell 1/3--handheld-and-up article article--preview">
@@ -36,7 +36,7 @@
 
               <a class="article__read-more" href="#">
                 {{ 'blog.article.read_more' | t }}
-                {% render 'icon' with 'arrow-right' %}
+                {% include 'icon' with 'arrow-right' %}
               </a>
             </div>
           </article>

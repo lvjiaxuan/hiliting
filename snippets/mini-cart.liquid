@@ -8,7 +8,7 @@
         {% endif %}
       >
         <span class="cart-icon-wrapper__count">{{ cart.item_count }}</span>
-        {% render 'icon' with 'cart-full' %}
+        {% include 'icon' with 'cart-full' %}
       </div>
 
       <div
@@ -17,18 +17,18 @@
           style="display: none"
         {% endunless %}
       >
-        {% render 'icon' with 'cart-empty' %}
+        {% include 'icon' with 'cart-empty' %}
       </div>
 
       <header class="mini-cart__header-title">{{ 'cart.general.title' | t }}</header>
     </div>
 
     <a href="#" class="mini-cart__close mini-cart__header-item" data-action="close-mini-cart">
-      {% render 'icon' with 'close-thin' %}
+      {% include 'icon' with 'close-thin' %}
     </a>
   </header>
 
   <section class="mini-cart__content">
-    {% render 'mini-cart-content' %}
+    {% include 'mini-cart-content' %}
   </section>
 </div>

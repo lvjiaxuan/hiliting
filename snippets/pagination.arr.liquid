@@ -8,7 +8,7 @@
             rel="prev"
             href="{{ request.path }}?page={{ page | minus: 1 }}"
           >
-            {% render 'icon' with 'arrow-left' %}
+            {% include 'icon' with 'arrow-left' %}
             <span class="pagination__label">{{ 'general.pagination.previous_page' | t }}</span>
           </a>
         {% endif %}
@@ -24,7 +24,7 @@
             href="{{ request.path }}?page={{ page | plus: 1 }}"
           >
             <span class="pagination__label">{{ 'general.pagination.next_page' | t }}</span>
-            {% render 'icon' with 'arrow-right' %}
+            {% include 'icon' with 'arrow-right' %}
           </a>
         {% endif %}
       </div>
