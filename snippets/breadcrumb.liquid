@@ -67,7 +67,7 @@
             <span class="breadcrumb__title" itemprop="name">{{ blog.title | link_to: blog.url }}</span>
             {% assign position = position | plus: 1 %}
             <meta itemprop="position" content="{{ position }}">
-            <meta itemprop="item" content="{{ blog.url }}">
+            <meta itemprop="item" content="{{shop.url}}{{ blog.url }}">
           </li>
 
           <li
