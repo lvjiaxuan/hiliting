@@ -1,5 +1,5 @@
 <header class="page__header">
-  {% include 'breadcrumb' %}
+  {% render 'breadcrumb' %}
 
   <div class="page__header-wrapper">
     <div class="container">
@@ -39,7 +39,7 @@
               {% continue %}
             {% endif %}
 
-            {% include 'collection-collage-item', collection: link.object %}
+            {% render 'collection-collage-item', collection: link.object %}
           {% endfor %}
         {% else %}
           {% for collection in collections %}
@@ -47,7 +47,7 @@
               {% continue %}
             {% endif %}
 
-            {% include 'collection-collage-item' %}
+            {% render 'collection-collage-item' %}
           {% endfor %}
         {% endif %}
       </div>
@@ -62,7 +62,7 @@
             {% continue %}
           {% endif %}
 
-          {% include 'collection-grid-item', collection: link.object %}
+          {% render 'collection-grid-item', collection: link.object %}
         {% endfor %}
       {% else %}
         {% for collection in collections %}
@@ -70,7 +70,7 @@
             {% continue %}
           {% endif %}
 
-          {% include 'collection-grid-item' %}
+          {% render 'collection-grid-item' %}
         {% endfor %}
       {% endif %}
     </div>

@@ -1,5 +1,5 @@
 <header class="page__header">
-  {% include 'breadcrumb' %}
+  {% render 'breadcrumb' %}
 
   <div class="page__header-wrapper">
     <div class="container">
@@ -61,7 +61,7 @@
       </div>
     </div>
 
-    {% include 'pagination' %}
+    {% render 'pagination' %}
   {% endpaginate %}
 {% endif %}
 
@@ -106,7 +106,7 @@
         <label class="form__label" for="address_country_new">{{ 'customer.addresses.country' | t }}</label>
 
         <div class="styled-select">
-          {% include 'icon' with 'dropdown-arrow' %}
+          {% render 'icon' with 'dropdown-arrow' %}
           <select id="address_country_new" name="address[country]" data-default="{{form.country}}">
             {{ country_option_tags }}
           </select>
@@ -117,7 +117,7 @@
         <label class="form__label" for="address_province_new">{{ 'customer.addresses.province' | t }}</label>
 
         <div class="styled-select">
-          {% include 'icon' with 'dropdown-arrow' %}
+          {% render 'icon' with 'dropdown-arrow' %}
           <select
             id="address_province_new"
             class="address_form"
@@ -208,7 +208,7 @@
           <label class="form__label" for="address_country_{{ form.id }}">{{ 'customer.addresses.country' | t }}</label>
 
           <div class="styled-select">
-            {% include 'icon' with 'dropdown-arrow' %}
+            {% render 'icon' with 'dropdown-arrow' %}
             <select id="address_country_{{ form.id }}" name="address[country]" data-default="{{form.country}}">
               {{ country_option_tags }}
             </select>
@@ -225,7 +225,7 @@
           </label>
 
           <div class="styled-select">
-            {% include 'icon' with 'dropdown-arrow' %}
+            {% render 'icon' with 'dropdown-arrow' %}
             <select
               id="address_province_{{ form.id }}"
               class="address_form"

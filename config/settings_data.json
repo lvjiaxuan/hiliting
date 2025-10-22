@@ -1,0 +1,1022 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "background": "#ffffff",
+    "secondary_background": "#f8f8f8",
+    "heading_color": "#383838",
+    "text_color": "#383838",
+    "accent_color": "#d50707",
+    "border_color": "#dddddd",
+    "primary_button_color": "#ffffff",
+    "primary_button_background": "#d50707",
+    "secondary_button_color": "#ffffff",
+    "secondary_button_background": "#e50c0c",
+    "header_color": "#383838",
+    "header_background": "#ffffff",
+    "header_accent_color": "#d50707",
+    "header_border_color": "#dddddd",
+    "navigation_sidebar_color": "#ffffff",
+    "navigation_sidebar_background": "#d50707",
+    "navigation_sidebar_border": "#ac0707",
+    "newsletter_color": "#ffffff",
+    "newsletter_background": "#1473fb",
+    "slideshow_heading_color": "#ffffff",
+    "slideshow_subheading_color": "#ffffff",
+    "product_label_on_sale_background": "#da2929",
+    "product_label_sold_out_background": "#383838",
+    "heading_font": "montserrat_n6",
+    "page_title_font_size": "60px",
+    "text_font": "montserrat_n5",
+    "slideshow_heading_font": "montserrat_n7",
+    "slideshow_heading_font_size": "70px",
+    "slideshow_subheading_font": "montserrat_n4",
+    "slideshow_subheading_font_size": "20px",
+    "navigation_menu": "main-menu",
+    "navigation_mode": "horizontal",
+    "navigation_sidebar_image": "",
+    "navigation_horizontal_mega_nav": "PRODUCTS",
+    "navigation_horizontal_image": "shopify://shop_images/custom_gobo_projector_wedding_event_lighting.jpg",
+    "navigation_horizontal_switch_image": true,
+    "search_mode": "product",
+    "currency_conversion_enabled": false,
+    "currency_conversion_supported_currencies": "USD CAD EUR GBP",
+    "currency_conversion_default_currency": "USD",
+    "mobile_grid_items_per_row": "1",
+    "tablet_grid_items_per_row": "2",
+    "cart_page": "drawer",
+    "social_facebook": "https://www.facebook.com/Hiliting-261591384539845/",
+    "social_twitter": "",
+    "social_google_plus": "",
+    "social_pinterest": "https://www.pinterest.com/hilitinggoboprojector/",
+    "social_instagram": "https://www.instagram.com/hilitingprojector/",
+    "social_vimeo": "",
+    "social_tumblr": "",
+    "social_youtube": "https://youtu.be/BHWcp4S020Y",
+    "social_fancy": "",
+    "favicon": "shopify://shop_images/3_32x32_23ea58a0-c43f-4c30-8af5-6f5f24c96b6c.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify://shop_images/1-5.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#383838",
+    "checkout_button_color": "#7c7a7a",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "announcement": {
+        "type": "announcement",
+        "settings": {
+          "show_announcement": true,
+          "announcement_text": "Free Shipping Today",
+          "announcement_link": "",
+          "announcement_text_position": "center",
+          "announcement_color": "#ffffff",
+          "announcement_background": "#383838"
+        }
+      },
+      "slideshow": {
+        "type": "slideshow",
+        "blocks": {
+          "slideshow-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/Awesome_Outdoor_Christmas_Projection_Lights_custom_gobo_lighting.jpg",
+              "content_position": "center",
+              "heading": "Discounts",
+              "subheading": "Gobo Projector + One Glass Gobo Starts at $199.99",
+              "button_text": "",
+              "link": "shopify://products/indoor-20w-static-gobo-projector"
+            }
+          },
+          "slideshow-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/wedding_lighting_custom_gobo_projector_event_light.jpg",
+              "content_position": "center",
+              "heading": "Special Lighting",
+              "subheading": "For Wedding / Events / Ads",
+              "button_text": "",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "slideshow-1",
+          "slideshow-0"
+        ],
+        "disabled": true,
+        "settings": {
+          "increase_contrast": true,
+          "autoplay": true,
+          "animation_type": "slide",
+          "cycle_speed": 3
+        }
+      },
+      "featured-blog": {
+        "type": "featured-blog",
+        "settings": {
+          "title": "Customer Cases",
+          "blog": "news",
+          "use_secondary_background": false,
+          "show_author": false
+        }
+      },
+      "popup": {
+        "type": "popup",
+        "settings": {
+          "popup_enabled": false,
+          "popup_heading": "Popup",
+          "popup_content": "<p>You can use this popup to display some useful information to your customers.</p>",
+          "popup_show_newsletter": false,
+          "popup_delay": 5,
+          "popup_only_on_index": true,
+          "popup_only_visitors": true,
+          "popup_remember_me": "7"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify://shop_images/1-5_9ed34e92-75f2-462e-a1e2-7fa942876b09.png",
+          "logo_max_width": 200,
+          "show_social_media": true
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "show_newsletter": false,
+          "title": "Subscribe to our newsletter",
+          "content": "<p>A short sentence describing what someone will receive by subscribing</p>"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-2": {
+            "type": "links",
+            "settings": {
+              "menu_linklist": "footer"
+            }
+          },
+          "1540978911007": {
+            "type": "links",
+            "settings": {
+              "menu_linklist": "shop"
+            }
+          },
+          "1540979236588": {
+            "type": "links",
+            "settings": {
+              "menu_linklist": "service"
+            }
+          },
+          "footer-3": {
+            "type": "newsletter",
+            "settings": {
+              "title": "News letter sign up",
+              "content": ""
+            }
+          },
+          "1544065746557": {
+            "type": "social",
+            "settings": {
+              "title": "Follow Us"
+            }
+          }
+        },
+        "block_order": [
+          "footer-2",
+          "1540978911007",
+          "1540979236588",
+          "footer-3",
+          "1544065746557"
+        ],
+        "settings": {
+          "show_payment_methods": true,
+          "show_back_to_top": true
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_vendor": false,
+          "hide_variants_if_only_one": false,
+          "always_show_description": true,
+          "form_position": "before_description",
+          "show_payment_button": false,
+          "showcase_size": "normal",
+          "showcase_rotation_effect": "fade",
+          "showcase_show_thumbnails": true,
+          "showcase_zoom_enabled": false,
+          "showcase_zoom_magnification": "1",
+          "show_reviews_badge": true
+        }
+      },
+      "product-tabs": {
+        "type": "product-tabs",
+        "blocks": {
+          "ddec51ed-ee9c-41ff-8914-aa0667b34c2f": {
+            "type": "global_tab",
+            "settings": {
+              "page": "auto-switch-tags"
+            }
+          },
+          "1579228493964": {
+            "type": "unique_tab_1",
+            "disabled": true,
+            "settings": {}
+          },
+          "1579228497222": {
+            "type": "unique_tab_2",
+            "settings": {}
+          }
+        },
+        "block_order": [
+          "ddec51ed-ee9c-41ff-8914-aa0667b34c2f",
+          "1579228493964",
+          "1579228497222"
+        ],
+        "settings": {}
+      },
+      "related-products": {
+        "type": "related-products",
+        "settings": {
+          "show_related_products": true,
+          "grid_items_per_row": 4,
+          "number_of_rows": 1
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout_mode": "grid",
+          "pagination_mode": "pagination",
+          "enable_tag_filters": false,
+          "enable_sort_by": false,
+          "enable_type_filters": false,
+          "enable_vendor_filters": false,
+          "show_vendor": false,
+          "show_quick_shop": true,
+          "grid_remove_spacing": false,
+          "grid_items_per_row": 4,
+          "number_of_rows": 3
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "layout_mode": "grid",
+          "grid_items_per_row": 3
+        }
+      },
+      "1540449567662": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "BEST SELL",
+          "collection": "featured-products",
+          "products_count": 12,
+          "show_vendor": false,
+          "show_quick_shop": false,
+          "use_secondary_background": false,
+          "layout_mode": "grid",
+          "grid_remove_spacing": false,
+          "grid_items_per_row": 4
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "show_author": false,
+          "show_rss": false,
+          "show_tags": true
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "show_notes": true,
+          "show_vendor": false,
+          "show_shipping_estimator": false,
+          "shipping_estimator_default_country": "United States"
+        }
+      },
+      "faq-template": {
+        "type": "faq-template",
+        "blocks": {
+          "1540949753295": {
+            "type": "faq_item",
+            "settings": {
+              "title": "What is a gobo?",
+              "answer": "<p>Glass gobos are made from transparent glass with a partial mirror coating to block the light and produce \"black\" areas in the projected image. This eliminates any need for bridging, since the glass itself is the support, and allows more intricate images to be produced. Glass gobos can also include colored areas (much like stained glass windows), whether by multiple layers of dichroic glass (one for each color) glued on an aluminium or chrome coated black and white gobo, or by newer technologies that allow the thickness of the dichroic coating (and therefore the color) to be varied in a controlled way on a single piece of glass, making it possible to turn a color photo into a glass gobo.</p>"
+            }
+          },
+          "1542099231546": {
+            "type": "faq_item",
+            "settings": {
+              "title": "How to order custom Gobo",
+              "answer": "<p>1) To place an order, head to the home page: <strong>www.hiliting.com</strong></p>\n<p>2) Select the product you wish to purchase (indoor projector, outdoor projector or glass gobo)</p>\n<p>3) Register for an account, log in to your existing account, OR checkout as a guest</p>\n<p>4) Enter billing/shipping info</p>\n<p>5) Proceed to payment via credit cardor Paypal</p>\n<p></p>\n<p>You can get&nbsp;a <strong>FREE one-color glass gobo</strong> for your gobo projector order. Just e-mail us when you complete the payment of gobo projector.</p>"
+            }
+          },
+          "1540949813895": {
+            "type": "faq_item",
+            "settings": {
+              "title": "Artwork quality for glass Gobos",
+              "answer": "<p>We can accept artwork from nearly all sources. We strongly recommend sending EPS or Adobe Illustrator (AI) files. These formats retain artwork as line-art instead of pixel-based bitmap images like JPG, GIF or BMP. By using line-art instead of bitmap art, the shapes and text will remain extremely crisp with no pixilation when enlarged.</p>\n<p>You can also send us photographic images. Please supply the highest resolution available for your artwork unless you supply line-art files. The desired resolution is 1200 dpi but lower resolutions will also work. However, if the resolution of the image is too low (a logo from a website for example) then it may look pixilated and the image will have to be redrawn. For an example of pixilation, see the examples below.</p>\n<p>The maximum resolution that we need is 1200 DPI with dimensions of 60mm x 60mm. You can also send a 72 DPI jpg with the dimensions of 1000mm x 1000mm.</p>"
+            }
+          },
+          "1542099698525": {
+            "type": "faq_item",
+            "settings": {
+              "title": "Turn around times for custom Gobo",
+              "answer": "<p>1-COLOR: around 1-2 days for production after gobo design confirmed, 3-5 days for delivery.</p>\n<p>2-COLORS: around 1-2 days for production after gobo design confirmed, 3-5 days for delivery.</p>\n<p>3-COLORS: around 2-3 days for production after gobo design confirmed, 3-5 days for delivery.</p>\n<p>FULL COLORS: around 2-3 days for production after design confirmed, 3-5 days for delivery.</p>\n<p><strong>Rush options are also available</strong> for customers that need their custom glass gobo faster (additional Rush Charges may apply).</p>"
+            }
+          },
+          "1540949788523": {
+            "type": "faq_item",
+            "settings": {
+              "title": "Which light is best for projections?",
+              "answer": "<p>In this case darkness is our friend. Daylight and sunlight are disruptable influences. To make light visible in light is comparable to trying to see white drops in a white colour. You need contrast. Shadow, dark areas or cloudy skies provide some clarity for images but the clearest are achieved in total darkness and these can be projected over far greater distances.</p>"
+            }
+          },
+          "1540949856853": {
+            "type": "faq_item",
+            "settings": {
+              "title": "What surface is the best for projection?",
+              "answer": "<p>The best surface is a white one because it reflects the light better. But light coloured surfaces, pink, yellow, light blues and greens etc. are also passable alternatives. Mirrors and stainless steel surfaces should be avoided because they reflect the whole of the light. Goods on display in cases, on shelves or in shop windows can also be good surfaces for projection.</p>"
+            }
+          }
+        },
+        "block_order": [
+          "1540949753295",
+          "1542099231546",
+          "1540949813895",
+          "1542099698525",
+          "1540949788523",
+          "1540949856853"
+        ],
+        "settings": {}
+      },
+      "contact-map": {
+        "type": "contact-map",
+        "settings": {
+          "show_section": false,
+          "title": "Our store",
+          "address": "<p>123 Fake St. Toronto, Canada</p>",
+          "hours": "<p>Mon - Fri, 10am - 9pm<br>Saturday, 11am - 9pm<br>Sunday, 11am - 5pm</p>",
+          "map_address": "80 Spadina Ave, Toronto",
+          "map_link_label": "Get directions",
+          "api_key": "",
+          "zoom": 14,
+          "image": ""
+        }
+      },
+      "1541063518469": {
+        "type": "slideshow",
+        "blocks": {
+          "1541063518469-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/custom_gobo_projector_outdoor_advertising_company_logo.jpg",
+              "content_position": "right",
+              "heading": "Highlight brand",
+              "subheading": "Hiliting gobo projector offers a bright beam to promote your brand for any application. It is an effective way for indoor/outdoor event, small or large-sized advertising, to catch your customers’ eyes, coming in a wide variety from the inexpensive basic models.",
+              "button_text": "SHOP NOW",
+              "link": "shopify://collections/outdoor-gobo-projector"
+            }
+          }
+        },
+        "block_order": [
+          "1541063518469-0"
+        ],
+        "disabled": true,
+        "settings": {
+          "increase_contrast": true,
+          "autoplay": false,
+          "animation_type": "slide",
+          "cycle_speed": 5
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "reduce_content": true,
+          "show_author": false,
+          "show_rss": true
+        }
+      },
+      "1566297889793": {
+        "type": "featured-video",
+        "settings": {
+          "title": "",
+          "use_secondary_background": false,
+          "video_url": "https://www.youtube.com/watch?v=PbazAJbgg6g"
+        }
+      },
+      "1566531248044": {
+        "type": "featured-text",
+        "blocks": {
+          "1566531248044-0": {
+            "type": "richtext",
+            "settings": {
+              "content": "<p>A New Way to Attract New Customers</p>"
+            }
+          }
+        },
+        "block_order": [
+          "1566531248044-0"
+        ],
+        "settings": {
+          "title": "HILITING Gobo Projector",
+          "use_secondary_background": true,
+          "content_position": "center"
+        }
+      },
+      "1566551777871": {
+        "type": "slideshow",
+        "blocks": {
+          "1566551777871-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/27a037fcc2550e03b3821d27373b7db.jpg",
+              "content_position": "center",
+              "heading": "Custom Gobo",
+              "subheading": "",
+              "button_text": "START NOW",
+              "link": "https://www.hiliting.com/collections/glass-gobo"
+            }
+          }
+        },
+        "block_order": [
+          "1566551777871-0"
+        ],
+        "settings": {
+          "increase_contrast": true,
+          "autoplay": true,
+          "animation_type": "slide",
+          "cycle_speed": 5
+        }
+      },
+      "1566976056816": {
+        "type": "image-with-text",
+        "settings": {
+          "use_secondary_background": false,
+          "image": "shopify://shop_images/2aec0fd0f945dbc948683f2e74292a2.jpg",
+          "title": "A projector for Car washes",
+          "content": "<p>Project logo, test, ads, images, or anything you like.</p>",
+          "image_position": "right",
+          "link": "https://www.hiliting.com/products/outdoor-40w-rotating-gobo-projector"
+        }
+      },
+      "1566976471879": {
+        "type": "image-with-text",
+        "disabled": true,
+        "settings": {
+          "use_secondary_background": false,
+          "image": "shopify://shop_images/wedding_custom_gobo_projector_logo_light_event.jpg",
+          "title": "Custom Service",
+          "content": "<p>Send us the artwork then we will create the gobo based on it.</p>",
+          "image_position": "right",
+          "link": ""
+        }
+      },
+      "16624492896b383285": {
+        "type": "image-with-text",
+        "settings": {
+          "use_secondary_background": false,
+          "image": "shopify://shop_images/projection_sign_led_safety_led_laser_floor_lighting_stop_safety_projection_banner.jpg",
+          "title": "Virtual Sign Projectors",
+          "content": "<p>Safety signage projector for industrial spaces, warehouse, factory, parking lot, etc.</p>",
+          "image_position": "left",
+          "link": "shopify://blogs/news/virtual-sign-projectors"
+        }
+      },
+      "0bb3f739-cc05-42de-b13e-f4f2d1c4c33b": {
+        "type": "image-with-text",
+        "disabled": true,
+        "settings": {
+          "use_secondary_background": false,
+          "image": "shopify://shop_images/hiliting_Gobo_Projector_inform_2025.jpg",
+          "title": "Notice:",
+          "content": "<p>We are sorry to inform you that we will be on vacation from <strong>January 9th to Januuary 28th.</strong> During this period, our factory will suspend all production.<br/><br/>We will upgrade <strong>all projectors orders </strong>during this period from monochrome to color for free.<br/><br/>Please contact customer service if you have any questions.</p>",
+          "image_position": "left",
+          "link": ""
+        }
+      },
+      "slideshow_LVPFAj": {
+        "type": "slideshow",
+        "blocks": {
+          "image_Mj6PKL": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/hiliting_Gobo_Projector_inform_2025_cd628175-f80e-4f36-9292-721d60f88f79.jpg",
+              "content_position": "center",
+              "heading": "",
+              "subheading": "",
+              "button_text": "",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "image_Mj6PKL"
+        ],
+        "disabled": true,
+        "settings": {
+          "increase_contrast": true,
+          "autoplay": true,
+          "animation_type": "slide",
+          "cycle_speed": 5
+        }
+      },
+      "blog-template-all": {
+        "type": "blog-template-all",
+        "blocks": {
+          "blog_category_ahkdVL": {
+            "type": "blog_category",
+            "settings": {
+              "blog": "news",
+              "article_limit": 3
+            }
+          }
+        },
+        "block_order": [
+          "blog_category_ahkdVL"
+        ],
+        "settings": {
+          "show_author": true,
+          "show_rss": false
+        }
+      }
+    },
+    "content_for_index": [
+      "0bb3f739-cc05-42de-b13e-f4f2d1c4c33b",
+      "1566531248044",
+      "slideshow_LVPFAj",
+      "1566297889793",
+      "slideshow",
+      "1540449567662",
+      "1566976056816",
+      "1566976471879",
+      "16624492896b383285",
+      "1541063518469",
+      "featured-blog",
+      "1566551777871"
+    ]
+  },
+  "presets": {
+    "Kyoto": {
+      "heading_font": "crimson_text_n7",
+      "page_title_font_size": "100px",
+      "text_font": "open_sans_n4",
+      "slideshow_heading_font": "crimson_text_n7",
+      "slideshow_heading_font_size": "80px",
+      "slideshow_subheading_font": "crimson_text_n4",
+      "slideshow_subheading_font_size": "24px",
+      "background": "#ffffff",
+      "secondary_background": "#f8f8f8",
+      "heading_color": "#161e26",
+      "text_color": "#585858",
+      "accent_color": "#dc4c40",
+      "border_color": "#dddddd",
+      "primary_button_color": "#ffffff",
+      "primary_button_background": "#dc4c40",
+      "secondary_button_color": "#ffffff",
+      "secondary_button_background": "#787878",
+      "header_color": "#585858",
+      "header_background": "#ffffff",
+      "header_accent_color": "#dc4c40",
+      "header_border_color": "#b7b7b7",
+      "navigation_sidebar_color": "#ffffff",
+      "navigation_sidebar_background": "#dc4c40",
+      "navigation_sidebar_border": "#c14539",
+      "newsletter_color": "#ffffff",
+      "newsletter_background": "#dc4c40",
+      "slideshow_heading_color": "#ffffff",
+      "slideshow_subheading_color": "#ffffff",
+      "product_label_on_sale_background": "#da2929",
+      "product_label_sold_out_background": "#383838",
+      "sections": {
+        "announcement": {
+          "type": "announcement",
+          "settings": {
+            "announcement_color": "#ffffff",
+            "announcement_background": "#f8301f"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "slideshow-1": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "slideshow-1"
+          ],
+          "settings": {}
+        },
+        "featured-products": {
+          "type": "featured-collection",
+          "settings": {
+            "collection": "frontpage",
+            "use_secondary_background": true,
+            "layout_mode": "grid"
+          }
+        },
+        "featured-content": {
+          "type": "featured-text",
+          "blocks": {
+            "text-0": {
+              "type": "richtext",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "text-0"
+          ],
+          "settings": {
+            "title": "Rich text"
+          }
+        },
+        "featured-collections": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-0": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-1": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-2": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-3": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-4": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-5": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-6": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-7": {
+              "type": "collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "collection-0",
+            "collection-1",
+            "collection-2",
+            "collection-3",
+            "collection-4",
+            "collection-5",
+            "collection-6",
+            "collection-7"
+          ],
+          "settings": {
+            "layout_mode": "grid"
+          }
+        },
+        "featured-blog": {
+          "type": "featured-blog",
+          "settings": {
+            "blog": "news"
+          }
+        }
+      },
+      "content_for_index": [
+        "slideshow",
+        "featured-content",
+        "featured-products",
+        "featured-collections",
+        "featured-blog"
+      ]
+    },
+    "Baptiste": {
+      "heading_font": "montserrat_n6",
+      "page_title_font_size": "70px",
+      "text_font": "montserrat_n4",
+      "slideshow_heading_font": "montserrat_n7",
+      "slideshow_heading_font_size": "80px",
+      "slideshow_subheading_font": "montserrat_n4",
+      "slideshow_subheading_font_size": "16px",
+      "background": "#ffffff",
+      "secondary_background": "#f8f8f8",
+      "heading_color": "#383838",
+      "text_color": "#a5a5a5",
+      "accent_color": "#1473fb",
+      "border_color": "#dddddd",
+      "primary_button_color": "#ffffff",
+      "primary_button_background": "#1473fb",
+      "secondary_button_color": "#ffffff",
+      "secondary_button_background": "#a5a5a5",
+      "header_color": "#c1c0c0",
+      "header_background": "#ffffff",
+      "header_accent_color": "#1473fb",
+      "header_border_color": "#dddddd",
+      "navigation_sidebar_color": "#ffffff",
+      "navigation_sidebar_background": "#1473fb",
+      "navigation_sidebar_border": "#0b5dd3",
+      "newsletter_color": "#ffffff",
+      "newsletter_background": "#1473fb",
+      "slideshow_heading_color": "#ffffff",
+      "slideshow_subheading_color": "#ffffff",
+      "product_label_on_sale_background": "#da2929",
+      "product_label_sold_out_background": "#383838",
+      "sections": {
+        "announcement": {
+          "type": "announcement",
+          "settings": {
+            "announcement_color": "#ffffff",
+            "announcement_background": "#1473fb"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "slideshow-1": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "slideshow-1"
+          ],
+          "settings": {}
+        },
+        "featured-products": {
+          "type": "featured-collection",
+          "settings": {
+            "title": "",
+            "collection": "frontpage",
+            "use_secondary_background": false,
+            "layout_mode": "grid",
+            "grid_remove_spacing": true
+          }
+        },
+        "featured-content": {
+          "type": "featured-text",
+          "blocks": {
+            "text-0": {
+              "type": "richtext",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "text-0"
+          ],
+          "settings": {
+            "title": "Rich text"
+          }
+        },
+        "featured-collections": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-0": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-1": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-2": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-3": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-4": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-5": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-6": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-7": {
+              "type": "collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "collection-0",
+            "collection-1",
+            "collection-2",
+            "collection-3",
+            "collection-4",
+            "collection-5",
+            "collection-6",
+            "collection-7"
+          ],
+          "settings": {
+            "layout_mode": "grid"
+          }
+        },
+        "featured-blog": {
+          "type": "featured-blog",
+          "settings": {
+            "blog": "news"
+          }
+        }
+      },
+      "content_for_index": [
+        "slideshow",
+        "featured-content",
+        "featured-products",
+        "featured-collections",
+        "featured-blog"
+      ]
+    },
+    "Geneve": {
+      "heading_font": "josefin_sans_n7",
+      "page_title_font_size": "100px",
+      "text_font": "maven_pro_n4",
+      "slideshow_heading_font": "josefin_sans_n7",
+      "slideshow_heading_font_size": "80px",
+      "slideshow_subheading_font": "josefin_sans_n4",
+      "slideshow_subheading_font_size": "24px",
+      "background": "#464646",
+      "secondary_background": "#222222",
+      "heading_color": "#eaeaea",
+      "text_color": "#eaeaea",
+      "accent_color": "#c5997c",
+      "border_color": "#858585",
+      "primary_button_color": "#222222",
+      "primary_button_background": "#eaeaea",
+      "secondary_button_color": "#eaeaea",
+      "secondary_button_background": "#c5997c",
+      "header_color": "#919191",
+      "header_background": "#222222",
+      "header_accent_color": "#ffffff",
+      "header_border_color": "#858585",
+      "navigation_sidebar_color": "#222222",
+      "navigation_sidebar_background": "#f3f4f4",
+      "navigation_sidebar_border": "#cccccc",
+      "newsletter_color": "#222222",
+      "newsletter_background": "#eaeaea",
+      "slideshow_heading_color": "#ffffff",
+      "slideshow_subheading_color": "#ffffff",
+      "product_label_on_sale_background": "#da2929",
+      "product_label_sold_out_background": "#222222",
+      "sections": {
+        "announcement": {
+          "type": "announcement",
+          "settings": {
+            "announcement_color": "#ffffff",
+            "announcement_background": "#7b7976"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "slideshow-1": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "slideshow-1"
+          ],
+          "settings": {}
+        },
+        "featured-products": {
+          "type": "featured-collection",
+          "settings": {
+            "title": "",
+            "collection": "frontpage",
+            "use_secondary_background": false,
+            "layout_mode": "grid",
+            "grid_remove_spacing": true
+          }
+        },
+        "featured-content": {
+          "type": "featured-text",
+          "blocks": {
+            "text-0": {
+              "type": "richtext",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "text-0"
+          ],
+          "settings": {
+            "title": "Rich text"
+          }
+        },
+        "featured-collections": {
+          "type": "collection-list",
+          "blocks": {
+            "collection-0": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-1": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-2": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-3": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-4": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-5": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-6": {
+              "type": "collection",
+              "settings": {}
+            },
+            "collection-7": {
+              "type": "collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "collection-0",
+            "collection-1",
+            "collection-2",
+            "collection-3",
+            "collection-4",
+            "collection-5",
+            "collection-6",
+            "collection-7"
+          ],
+          "settings": {
+            "layout_mode": "grid"
+          }
+        },
+        "featured-blog": {
+          "type": "featured-blog",
+          "settings": {
+            "blog": "news"
+          }
+        }
+      },
+      "content_for_index": [
+        "slideshow",
+        "featured-content",
+        "featured-products",
+        "featured-collections",
+        "featured-blog"
+      ]
+    }
+  }
+}

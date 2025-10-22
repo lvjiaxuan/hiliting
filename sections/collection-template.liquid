@@ -1,6 +1,6 @@
 {% unless template contains '.infinite-scroll' %}
   <header class="page__header page__header--no-border">
-    {% include 'breadcrumb' %}
+    {% render 'breadcrumb' %}
 
     <div class="page__header-wrapper">
       <div class="container">
@@ -28,7 +28,7 @@
   {% capture collection_filters %}
     {% if section.settings.enable_tag_filters and collection.all_tags.size > 1 %}
       <div class="styled-select collection-filter collection-filter--tag">
-        {% include 'icon' with 'dropdown-arrow' %}
+        {% render'icon' with 'dropdown-arrow' %}
         <select>
           <option value="/collections/{{ collection.handle }}" {% unless current_tags %}selected="selected"{% endunless %}>
             {%- unless current_tags -%}
@@ -51,7 +51,7 @@
 
     {% if section.settings.enable_type_filters and collections.all.all_types.size > 1 %}
       <div class="styled-select collection-filter collection-filter--type">
-        {% include 'icon' with 'dropdown-arrow' %}
+        {% render'icon' with 'dropdown-arrow' %}
         <select>
           <option value="/collections/all" {% if collection.current_type == blank %}selected="selected"{% endif %}>{{ 'collection.filters.no_type_selected' | t }}</option>
 
@@ -64,7 +64,7 @@
 
     {% if section.settings.enable_vendor_filters and collections.all.all_vendors.size > 1 %}
       <div class="styled-select collection-filter collection-filter--vendor">
-        {% include 'icon' with 'dropdown-arrow' %}
+        {% render'icon' with 'dropdown-arrow' %}
         <select>
           <option value="/collections/all" {% if collection.current_vendor == blank %}selected="selected"{% endif %}>{{ 'collection.filters.no_vendor_selected' | t }}</option>
 
@@ -77,7 +77,7 @@
 
     {% if section.settings.enable_sort_by %}
       <div class="styled-select collection-filter collection-filter--sorter">
-        {% include 'icon' with 'dropdown-arrow' %}
+        {% render'icon' with 'dropdown-arrow' %}
         <select id="sort-by">
           <option value="manual" {% if collection.sort_by == 'manual' %}selected="selected"{% endif %}>{{ 'collection.sorting.featured' | t }}</option>
           <option value="price-ascending" {% if collection.sort_by == 'price-ascending' %}selected="selected"{% endif %}>{{ 'collection.sorting.price_ascending' | t }}</option>
@@ -138,7 +138,7 @@
         >
           <div class="ftg-items">
             {% for product in collection.products %}
-              {% include 'product-collage-item',
+              {% render 'product-collage-item',
                 show_vendor: section.settings.show_vendor,
                 show_quick_shop: section.settings.show_quick_shop
               %}
@@ -148,7 +148,7 @@
       {% else %}
         <div class="collection collection--grid grid {% if section.settings.grid_remove_spacing %}grid--flush{% else %}grid--gallery grid--middle{% endif %}">
           {% for product in collection.products %}
-            {% include 'product-grid-item',
+            {% render 'product-grid-item',
               show_vendor: section.settings.show_vendor,
               show_quick_shop: section.settings.show_quick_shop
             %}
@@ -158,7 +158,7 @@
     </section>
 
     {% if section.settings.pagination_mode == 'pagination' %}
-      {% include 'pagination' %}
+      {% render 'pagination' %}
     {% elsif paginate.pages > 1 %}
       <div class="collection__loader spinner-container" data-next-page="{{ paginate.next.url }}&view=infinite-scroll">
         <div class="spinner spinner--circle"></div>

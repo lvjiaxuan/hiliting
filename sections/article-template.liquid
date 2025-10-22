@@ -1,12 +1,12 @@
 <div class="article__top">
-  {% include 'breadcrumb' %}
+  {% render 'breadcrumb' %}
 
   {% if section.settings.show_rss %}
     <div class="blog__rss">
       <div class="inner">
         <a href="{{ blog.url }}.atom">
           {{ 'blog.general.rss' | t }}
-          {% include 'icon' with 'rss' %}
+          {% render 'icon' with 'rss' %}
         </a>
       </div>
     </div>
@@ -55,7 +55,7 @@
 
             <li class="share-buttons__item">
               <a href="https://www.facebook.com/sharer.php?u={{ share_url }}" target="_blank">
-                {%- include 'icon' with 'facebook' -%}
+                {%- render 'icon' with 'facebook' -%}
               </a>
             </li>
 
@@ -64,7 +64,7 @@
                 href="https://twitter.com/share?{% if twitter_text != blank %}text={{twitter_text}}&{% endif %}url={{ share_url }}"
                 target="_blank"
               >
-                {%- include 'icon' with 'twitter' -%}
+                {%- render 'icon' with 'twitter' -%}
               </a>
             </li>
 
@@ -73,7 +73,7 @@
                 href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}"
                 target="_blank"
               >
-                {%- include 'icon' with 'pinterest' -%}
+                {%- render 'icon' with 'pinterest' -%}
               </a>
             </li>
           </ul>
@@ -136,7 +136,7 @@
             <div class="pagination__wrapper">
               {% if paginate.previous %}
                 <a class="pagination__prev" rel="prev" href="{{ paginate.previous.url }}#comments-list">
-                  {% include 'icon' with 'arrow-left' %}
+                  {% render 'icon' with 'arrow-left' %}
                   {{ 'blog.comments.previous_comments' | t }}
                 </a>
               {% endif %}
@@ -144,7 +144,7 @@
               {% if paginate.next %}
                 <a class="pagination__next" rel="next" href="{{ paginate.next.url }}#comments-list">
                   {{ 'blog.comments.next_comments' | t }}
-                  {% include 'icon' with 'arrow-right' %}
+                  {% render 'icon' with 'arrow-right' %}
                 </a>
               {% endif %}
             </div>
@@ -175,7 +175,7 @@
         {% if form.errors %}
           <div class="alert alert--error">
             <h4 class="alert__title">{{ 'general.forms.errors' | t }}</h4>
-            {% include 'form-errors' %}
+            {% render 'form-errors' %}
           </div>
         {% endif %}
 

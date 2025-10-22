@@ -3,7 +3,7 @@
 {% endif %}
 
 <header class="page__header {% if search_not_performed_or_empty %}page__header--no-border{% endif %}">
-  {% include 'breadcrumb' %}
+  {% render 'breadcrumb' %}
 
   <div class="page__header-wrapper">
     <div class="container">
@@ -49,7 +49,7 @@
         {% for result in search.results %}
           {% case result.object_type %}
             {% when 'product' %}
-              {% include 'product-grid-item',
+              {% render 'product-grid-item',
                 product: result,
                 grid_items_per_row: 4,
                 show_vendor: section.settings.show_vendor,
@@ -100,7 +100,7 @@
       </div>
     </div>
 
-    {% include 'pagination' %}
+    {% render 'pagination' %}
   {% endpaginate %}
 {% endunless %}
 

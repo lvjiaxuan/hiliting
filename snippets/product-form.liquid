@@ -33,7 +33,7 @@
             </select>
 
             <span class="option-selector__label">{{ option.name }}:</span>
-            {% include 'icon' with 'dropdown-arrow' %}
+            {% render 'icon' with 'dropdown-arrow' %}
           </div>
         </div>
       {%- endfor -%}
@@ -58,7 +58,7 @@
           </select>
 
           <span class="option-selector__label">{{ 'product.form.variant_label' | t }}:</span>
-          {% include 'icon' with 'dropdown-arrow' %}
+          {% render 'icon' with 'dropdown-arrow' %}
         </div>
       </div>
     {%- else -%}

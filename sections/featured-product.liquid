@@ -8,7 +8,7 @@
 
     <div id="{{ section.id }}-product-{{ product.id }}" class="featured-product">
       {%- unless product.empty? -%}
-        {% include 'product-meta', show_vendor: section.settings.show_vendor, for_mobile: true %}
+        {% render 'product-meta', show_vendor: section.settings.show_vendor, for_mobile: true %}
 
         <div class="grid grid--middle">
           <div class="product__gallery grid__cell 1/2--lap-and-up">
@@ -17,7 +17,7 @@
                 class="aspect-ratio"
                 style="padding-bottom: {{ 100.0 | divided_by: product.featured_image.aspect_ratio }}%"
               >
-                {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: product.featured_image %}
+                {% render 'image-size', sizes: '200,300,400,600,800,900,1000', image: product.featured_image %}
                 {% assign image_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
                 <img
@@ -33,10 +33,10 @@
 
           <div class="product__info grid__cell 1/2--lap-and-up">
             <div class="product__info-inner">
-              {% include 'product-meta', show_vendor: section.settings.show_vendor, for_mobile: false %}
+              {% render 'product-meta', show_vendor: section.settings.show_vendor, for_mobile: false %}
 
               {% if section.settings.form_position == 'before_description' %}
-                {% include 'product-form' %}
+                {% render 'product-form' %}
               {% endif %}
 
               {% if section.settings.show_description and product.description != blank %}
@@ -61,7 +61,7 @@
 
                     <li class="share-buttons__item">
                       <a href="https://www.facebook.com/sharer.php?u={{ share_url }}" target="_blank">
-                        {%- include 'icon' with 'facebook' -%}
+                        {%- render 'icon' with 'facebook' -%}
                       </a>
                     </li>
 
@@ -70,7 +70,7 @@
                         href="https://twitter.com/share?{% if twitter_text != blank %}text={{twitter_text}}&{% endif %}url={{ share_url }}"
                         target="_blank"
                       >
-                        {%- include 'icon' with 'twitter' -%}
+                        {%- render 'icon' with 'twitter' -%}
                       </a>
                     </li>
 
@@ -79,7 +79,7 @@
                         href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}"
                         target="_blank"
                       >
-                        {%- include 'icon' with 'pinterest' -%}
+                        {%- render 'icon' with 'pinterest' -%}
                       </a>
                     </li>
                   </ul>
@@ -87,7 +87,7 @@
               </div>
 
               {% if section.settings.form_position == 'after_description' %}
-                {% include 'product-form' %}
+                {% render 'product-form' %}
               {% endif %}
             </div>
           </div>
@@ -152,17 +152,17 @@
                   <ul class="share-buttons__list">
                     <li class="share-buttons__item">
                       <a href="https://www.facebook.com/sharer.php?u=#" target="_blank">
-                        {%- include 'icon' with 'facebook' -%}
+                        {%- render 'icon' with 'facebook' -%}
                       </a>
                     </li>
 
                     <li class="share-buttons__item">
-                      <a href="https://twitter.com/share?url=#" target="_blank">{% include 'icon' with 'twitter' %}</a>
+                      <a href="https://twitter.com/share?url=#" target="_blank">{% render 'icon' with 'twitter' %}</a>
                     </li>
 
                     <li class="share-buttons__item">
                       <a href="https://pinterest.com/pin/create/button/?url=#" target="_blank">
-                        {%- include 'icon' with 'pinterest' -%}
+                        {%- render 'icon' with 'pinterest' -%}
                       </a>
                     </li>
                   </ul>

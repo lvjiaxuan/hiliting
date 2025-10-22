@@ -5,7 +5,7 @@
       href="{{ article.url }}"
       style="background: url({{ article.image | img_url: '1x1', format: 'jpg' }})"
     >
-      {% include 'image-size', sizes: '200,300,400,600,800', image: article.image %}
+      {% render 'image-size', sizes: '200,300,400,600,800', image: article.image %}
       {% assign image_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
       <div class="aspect-ratio" style="max-width: {{ article.image.width }}px; padding-bottom: 70%;">
@@ -36,7 +36,7 @@
         {% if blog.comments_enabled? %}
           <a href="{{ article.url }}#comments-list" class="article__comments">
             {{- article.comments_count -}}
-            {%- include 'icon' with 'comments' -%}
+            {%- render 'icon' with 'comments' -%}
           </a>
         {% endif %}
       </div>
@@ -52,7 +52,7 @@
 
     <a class="article__read-more" href="{{ article.url }}">
       {{ 'blog.article.read_more' | t }}
-      {% include 'icon' with 'arrow-right' %}
+      {% render 'icon' with 'arrow-right' %}
     </a>
   </div>
 </article>
