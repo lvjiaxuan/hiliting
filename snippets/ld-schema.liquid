@@ -64,7 +64,7 @@
           {% comment %} "telephone": "", {% endcomment %}
           "contactType": "customer service",
           "email": {{-ld_email-}},
-          "availableLanguage": ["en"]
+          "availableLanguage": "en"
         },
         "sameAs": {{ ld_same_as }}
       },
@@ -72,7 +72,7 @@
         "@context": "http://www.schema.org",
         "@type": "LocalBusiness",
         "name": "Hiliting",
-        "paymentAccepted": "Credit Card, PayPal, Shop Pay, Google Pay",
+        "paymentAccepted": ["Credit Card", "PayPal", "Shop Pay", "Google Pay"],
         "priceRange": "$",
         "image": {{-ld_image-}},
         "email": {{-ld_email-}},
@@ -101,7 +101,7 @@
           "telephone": "",
           "contactType": "customer service",
           "email": {{- ld_email -}},
-          "availableLanguage": ["en"]
+          "availableLanguage": "en"
         },
         "address": {{- ld_address-}},
         "founder": {{- ld_founder -}},
