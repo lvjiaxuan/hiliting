@@ -13,7 +13,7 @@
 {% capture ld_image %}"https://www.hiliting.com/cdn/shop/files/1-5_9ed34e92-75f2-462e-a1e2-7fa942876b09_200x.png"{% endcapture %}
 {% capture ld_logo %}"https://www.hiliting.com/cdn/shop/files/3_32x32_23ea58a0-c43f-4c30-8af5-6f5f24c96b6c.png"{% endcapture %}
 {% capture ld_email %}"info@hiliting.com"{% endcapture %}
-{% capture ld_description %}"HILITING LED gobo projectors will illuminate your event venue with dazzling light projections. Order gobo projector and get FREE custom one-color glass gobo based on your artwork, logo or monogram starts at $199.99. FREE SHIPPING for global orders now, what you need to do is to provide us your artwork."{% endcapture %}
+{% capture ld_description %}"{{  page_description }}"{% endcapture %}
 {% capture ld_location %}"425 S Pine St, San Gabriel, CA, 91776, United State"{% endcapture %}
 {% capture ld_same_as %}
 [
@@ -32,6 +32,8 @@
   }
 ]
 {% endcapture %}
+
+{{ template }}
 
 {% if template == 'index' %}
   {% comment %} 首页结构化数据 {% endcomment %}
@@ -113,6 +115,7 @@
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
+        "name": "BreadcrumbList",
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -125,14 +128,24 @@
     ]
   </script>
 {% elsif template == 'collection' %}
+  {% comment %} 产品集合页 https://www.hiliting.com/collections/all {% endcomment %}
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "{{ collection.title | escape }}",
-      "description": "{{ collection.description | strip_html | escape }}",
-      "url": "{{ shop.url }}{{ collection.url }}"
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "@id": "https://www.hiliting.com/collections/all#mainlist",
+        "url": "https://www.hiliting.com/collections/all",
+        "name": "Products",
+        "brand": {
+          "@type": "Brand",
+          "name": "Hiliting"
+        },
+        {% comment %} "description": "", {% endcomment %}
+        "numberOfItems": {{ all_products.size }},
+        "itemListOrder": "Descending"
+      }
+    ]
   </script>
 {% endif %}
 
