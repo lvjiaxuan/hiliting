@@ -111,6 +111,10 @@
       }
     </script>
 
+    {% if template contains 'collection' and collection.handle == 'all' %}
+      <meta name="robots" content="noindex, follow">
+    {% endif %}
+
     {% render 'ld-schema' %}
     {% render 'microdata-schema' %}
     {% render 'judgeme_core' %}

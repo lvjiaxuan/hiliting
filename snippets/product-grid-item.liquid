@@ -44,24 +44,36 @@
 
     <a href="{{ shop.url }}{{ product.url }}" class="product-item__image">
       <div class="product-item__image-wrapper">
-        {% for image in product.images limit: 1 offset: 1 %}
-          {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: image %}
-          {% assign image_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+        {% if product.featured_image %}
+          {% assign main_image = product.featured_image %}
+        {% elsif product.images.size > 0 %}
+          {% assign main_image = product.images[0] %}
+          {% comment %} {% assign main_image = product.images | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %} {% endcomment %}
+        {% endif %}
 
-          <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: image.aspect_ratio }}%">
+        {% if main_image %}
+          {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: main_image %}
+          {% assign image_url = main_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+
+          <div
+            class="aspect-ratio"
+            style="padding-bottom: {{ 100.0  }}%"
+          >
             <img
               class="lazyload image--fade-in"
               data-sizes="auto"
               data-src="{{ image_url }}"
               data-widths="[{{ supported_sizes }}]"
-              alt="{{ product.featured_image.alt }}"
+              alt="{{ main_image.alt }}"
             >
 
             <noscript>
-              <img src="{{ image | img_url: '600x' }}" alt="{{ product.featured_image.alt }}">
+              <img src="{{ main_image | img_url: '600x' }}" alt="{{ main_image.alt }}">
             </noscript>
           </div>
-        {% endfor %}
+        {% else %}
+          empty
+        {% endif %}
       </div>
     </a>
 
@@ -72,9 +84,9 @@
         </h3>
       {% endif %}
 
-      <h2 class="product-item__title">
+      <div class="product-item__title ellipsis-1">
         <a href="{{ shop.url }}{{ product.url }}">{{ product.title }}</a>
-      </h2>
+      </div>
 
       {% if product_on_sale %}
         <span class="product-item__price product-item__price--new" data-money-convertible>
@@ -96,3 +108,15 @@
     </div>
   </div>
 </div>
+
+{% style %}
+  .ellipsis-1 {
+    display: -webkit-box; /* 必须 */
+    -webkit-box-orient: vertical; /* 必须 */
+    -webkit-line-clamp: 1; /* 将 N 替换为需要的行数，如 2、3 */
+    overflow: hidden; /* 必须 */
+    text-overflow: ellipsis; /* 末尾显示省略号 */
+    width: 100%; /* 建议设置宽度（或最大宽度） */
+    line-height: 1.5; /* 建议设置行高，便于高度与行数匹配 */
+  }
+{% endstyle %}

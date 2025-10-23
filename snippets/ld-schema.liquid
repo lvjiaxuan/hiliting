@@ -72,7 +72,7 @@
         "@context": "http://www.schema.org",
         "@type": "LocalBusiness",
         "name": "Hiliting",
-        "paymentAccepted": "Credit Card, PayPal, Apple Pay, Google Pay",
+        "paymentAccepted": "Credit Card, PayPal, Shop Pay, Google Pay",
         "priceRange": "$",
         "image": {{-ld_image-}},
         "email": {{-ld_email-}},
@@ -123,6 +123,16 @@
         ]
       }
     ]
+  </script>
+{% elsif template == 'collection' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "{{ collection.title | escape }}",
+      "description": "{{ collection.description | strip_html | escape }}",
+      "url": "{{ shop.url }}{{ collection.url }}"
+    }
   </script>
 {% endif %}
 
