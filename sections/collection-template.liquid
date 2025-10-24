@@ -122,9 +122,13 @@
   {% assign products_per_page = grid_items_per_row | times: section.settings.number_of_rows %}
 {% endif %}
 
+{% comment %} todo 所有分页描述 {% endcomment %}
+
 {% if collection.all_products_count > 0 %}
   {% paginate collection.products by products_per_page %}
     <section
+      itemscope
+      itemtype="https://schema.org/ItemList"
       {% unless section.settings.grid_remove_spacing %}
         class="inner"
       {% endunless %}

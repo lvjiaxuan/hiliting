@@ -4,7 +4,15 @@
   {% assign product_on_sale = false %}
 {% endif %}
 
-<div class="collection__item product-item {% unless product.available %}product-item--sold-out{% endunless %} grid__cell 1/{{ settings.mobile_grid_items_per_row }} 1/{{ settings.tablet_grid_items_per_row }}--handheld 1/{{ grid_items_per_row }}--lap-and-up">
+<div
+  itemscope
+  itemprop="itemListElement"
+  itemtype="http://schema.org/Product"
+  class="collection__item product-item {% unless product.available %}product-item--sold-out{% endunless %} grid__cell 1/{{ settings.mobile_grid_items_per_row }} 1/{{ settings.tablet_grid_items_per_row }}--handheld 1/{{ grid_items_per_row }}--lap-and-up"
+>
+  <meta itemprop="position" content="{{ forloop.index }}">
+  <meta itemprop="sku" content="{{ product.selected_or_first_available_variant.sku }}">
+
   <div class="product-item__inner">
     <div class="product-item__labels">
       {% if product.available and show_quick_shop %}
@@ -70,6 +78,11 @@
             <noscript>
               <img src="{{ main_image | img_url: '600x' }}" alt="{{ main_image.alt }}">
             </noscript>
+
+            <meta
+              itemprop="image"
+              content="{{ shop.url }}{{ main_image | img_url: '1x1' | replace: '_1x1.', '_400x.'  }}"
+            >
           </div>
         {% else %}
           empty
@@ -85,26 +98,36 @@
       {% endif %}
 
       <div class="product-item__title ellipsis-1">
-        <a href="{{ shop.url }}{{ product.url }}">{{ product.title }}</a>
+        <a itemprop="url" href="{{ shop.url }}{{ product.url }}">{{ product.title }}</a>
+        <meta itemprop="name" content="{{ product.title }}">
       </div>
 
-      {% if product_on_sale %}
-        <span class="product-item__price product-item__price--new" data-money-convertible>
-          {{- product.price | money -}}
-        </span>
-        <span class="product-item__price product-item__price--old" data-money-convertible>
-          {{- product.compare_at_price | money -}}
-        </span>
-      {% elsif product.price_varies %}
-        {% assign formatted_min_price = product.price_min | money %}
-        <span class="product-item__price">
-          {{- 'collection.product.from_price_html' | t: price: formatted_min_price -}}
-        </span>
-      {% else %}
-        <span class="product-item__price" data-money-convertible>
-          {{- product.price | default: product.price | money -}}
-        </span>
-      {% endif %}
+      <div itemscope itemprop="offers" itemtype="http://schema.org/Offer">
+        <meta itemprop="priceCurrency" content="USD">
+        <meta itemprop="price" content="{{product.price }}">
+        <meta
+          itemprop="availability"
+          content="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}"
+        >
+        <meta itemprop="priceValidUntil" content="2100-01-01">
+        {% if product_on_sale %}
+          <span class="product-item__price product-item__price--new" data-money-convertible>
+            {{- product.price | money -}}
+          </span>
+          <span class="product-item__price product-item__price--old" data-money-convertible>
+            {{- product.compare_at_price | money -}}
+          </span>
+        {% elsif product.price_varies %}
+          {% assign formatted_min_price = product.price_min | money %}
+          <span class="product-item__price">
+            {{- 'collection.product.from_price_html' | t: price: formatted_min_price -}}
+          </span>
+        {% else %}
+          <span class="product-item__price" data-money-convertible>
+            {{- product.price | default: product.price | money -}}
+          </span>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
