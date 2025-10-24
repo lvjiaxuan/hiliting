@@ -1,5 +1,6 @@
 {% if paginate.pages > 1 %}
-  <div class="pagination">
+  <div class="pagination" itemscope itemtype="https://schema.org/ItemList">
+    <meta itemprop="name" content="Pagination">
     <div class="inner">
       <div class="pagination__wrapper">
         {% if paginate.previous %}
@@ -7,9 +8,13 @@
             class="button button--secondary pagination__nav pagination__nav--prev"
             rel="prev"
             href="{{ paginate.previous.url }}"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="http://schema.org/ListItem"
           >
             {% include 'icon' with 'arrow-left' %}
             <span class="pagination__label">{{ 'general.pagination.previous_page' | t }}</span>
+            <meta itemprop="url" content="{{ shop.url }}{{ paginate.previous.url }}">
           </a>
         {% endif %}
 
@@ -22,9 +27,13 @@
             class="button button--secondary pagination__nav pagination__nav--next"
             rel="next"
             href="{{ paginate.next.url }}"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="http://schema.org/ListItem"
           >
             <span class="pagination__label">{{ 'general.pagination.next_page' | t }}</span>
             {% include 'icon' with 'arrow-right' %}
+            <meta itemprop="url" content="{{ shop.url }}{{ paginate.next.url }}">
           </a>
         {% endif %}
       </div>

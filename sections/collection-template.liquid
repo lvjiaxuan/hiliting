@@ -133,6 +133,9 @@
         class="inner"
       {% endunless %}
     >
+
+      <meta itemprop="name" content="Product - Page {{ paginate.current_page }}">
+
       {% if layout_mode == 'collage' %}
         <div
           class="collection collection--collage ftg"
