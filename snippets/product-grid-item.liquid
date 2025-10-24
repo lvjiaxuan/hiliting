@@ -66,6 +66,9 @@
           <div
             class="aspect-ratio"
             style="padding-bottom: {{ 100.0  }}%"
+            itemscope
+            itemprop="image"
+            itemtype="ImageObject"
           >
             <img
               class="lazyload image--fade-in"
@@ -80,9 +83,15 @@
             </noscript>
 
             <meta
-              itemprop="image"
+              itemprop="contentUrl"
               content="{{ shop.url }}{{ main_image | img_url: '1x1' | replace: '_1x1.', '_400x.'  }}"
             >
+            <meta itemprop="name" content="{{ product.title }}">
+            <meta itemprop="license" content="https://www.hiliting.com/pages/terms-of-service">
+            <meta itemprop="acquireLicensePage" content="https://www.hiliting.com/pages/contact">
+            <meta itemprop="creditText" content="{{ shop.name }}">
+            <meta itemprop="copyrightNotice" content="© {{ 'now' | date: '%Y' }} {{ shop.name }}">
+            {% comment %} todo creator {% endcomment %}
           </div>
         {% else %}
           empty

@@ -135,32 +135,7 @@
   {% comment %} 产品集合页 https://www.hiliting.com/collections/all {% endcomment %}
   <script type="application/ld+json">
     [
-      {% comment %} 分页描述 {% endcomment %}
-      {% comment %} {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "@id": "https://www.hiliting.com/collections/all#mainlist",
-        "url": "https://www.hiliting.com/collections/all",
-        "name": "Products",
-        "brand": {
-          "@type": "Brand",
-          "name": "Hiliting"
-        },
-        "description": "",
-        "numberOfItems": {{  collection.all_products_count}},
-        "numberOfItems": {{   section|json }},
-        "itemListOrder": "Descending",
-        "itemListElement": [
-          {% for product in collection.products %}
-            {
-              "@type": "ListItem",
-              "position": {{ forloop.index }},
-              "url": "{{ shop.url }}{{ product.url }}"
-            }{% if forloop.last == false %},{% endif %}
-          {% endfor %}
-        ]
-      }, {% endcomment %}
-      {{ ld_brand }},
+      {{ ld_brand }}
     ]
   </script>
 {% endif %}
