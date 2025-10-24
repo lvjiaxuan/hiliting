@@ -138,10 +138,20 @@
       {{ ld_brand }}
     ]
   </script>
+{% elsif template == 'product' %}
+  {% comment %} /products/outdoor-40w-rotating-gobo-projector {% endcomment %}
+  {% comment %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "{{ product.title | escape }}",
+        "url": "{{- canonical_url -}}"
+      }
+    </script>
+  {% endcomment %}
 {% endif %}
 
 {% if ld_json != blank %}
-  <script type="application/ld+json">
-    {{- ld_json -}}
-  </script>
+  {{- ld_json -}}
 {% endif %}
