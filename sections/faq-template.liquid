@@ -17,6 +17,31 @@
   {% endfor %}
 </section>
 
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for block in section.blocks %}
+        {% comment %} {% if block.type == 'text' %} {% endcomment %}
+        {%- assign title = block.settings.title -%}
+        {%- assign answer = block.settings.answer -%}
+        {% unless title == blank or answer == blank %}
+        {
+          "@type": "Question",
+          "name": "{{ title | strip_html | escape | replace: '"', '&quot;' }}",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "{{ answer | strip_html | escape | replace: '"', '&quot;' | strip_newlines }}"
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {% endunless %}
+        {% comment %} {% endif %} {% endcomment %}
+      {% endfor %}
+    ]
+  }
+</script>
+
 {% schema %}
 {
   "name": "FAQ",
@@ -40,6 +65,7 @@
   ]
 }
 {% endschema %}
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     $('body').on('click', '.faq__question', function () {

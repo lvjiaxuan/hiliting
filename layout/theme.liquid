@@ -122,15 +122,17 @@
     <!-- StartCartCartCustomCode -->
 
     <!-- Abandoned Cart Information -->
-    <div id="care-cart-customer-information" style="display:none">
-      {"id":"{{ customer.id }}", "email":"{{ customer.email }}","default_address":
-      {{- customer.default_address | json -}}
-      ,"first_name":"{{ customer.first_name }}","last_name":"{{ customer.last_name }}","name":"{{ customer.name }}" }
-    </div>
+    {% comment %}
+      <div id="care-cart-customer-information" style="display:none">
+        {"id":"{{ customer.id }}", "email":"{{ customer.email }}","default_address":
+        {{- customer.default_address | json -}}
+        ,"first_name":"{{ customer.first_name }}","last_name":"{{ customer.last_name }}","name":"{{ customer.name }}" }
+      </div>
+    {% endcomment %}
     <!-- Abandoned Cart Information -->
 
     <!-- ShopInformation -->
-    <div id="care-cart-shop-information" style="display:none">{"domain":"{{ shop.permanent_domain }}" }</div>
+    {% comment %} <div id="care-cart-shop-information" style="display:none">{"domain":"{{ shop.permanent_domain }}" }</div> {% endcomment %}
     <!-- ShopInformation -->
 
     <!-- EndCareCartCustomCode -->
