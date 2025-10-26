@@ -7,15 +7,7 @@
       "@type": "Offer",
       "availability": {%- if product.available -%}"//schema.org/InStock"{%- else -%}"//schema.org/OutOfStock"{%- endif -%},
       "price": {{ product.price_min | money_without_currency | json }},
-      "priceCurrency": {{ shop.currency | json }},
-      "hasMerchantReturnPolicy": {
-        "@type": "MerchantReturnPolicy",
-        "url": "https://www.hiliting.com/pages/warranty"
-      },
-      "warranty": {
-        "@type": "WarrantyPromise",
-        "url": "https://www.hiliting.com/pages/warranty"
-      }
+      "priceCurrency": {{ shop.currency | json }}
     },
     "brand": {{ product.vendor | json }},
     "name": {{ product.title | json }},
@@ -34,7 +26,7 @@
 {%- elsif template contains 'article' -%}
   {%- capture main_entity_microdata -%}
     "@type": "BlogPosting",
-    "mainEntityOfPage": "{{ shop.url }}{{ article.url }}",
+    "mainEntityOfPage": "{{ article.url }}",
     "articleSection": {{ blog.title | json }},
     "keywords": "{{ article.tags | join: ', ' }}",
     "headline": {{ article.title | json }},
