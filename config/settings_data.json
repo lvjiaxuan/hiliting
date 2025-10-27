@@ -414,9 +414,9 @@
       "article-template": {
         "type": "article-template",
         "settings": {
-          "reduce_content": true,
+          "reduce_content": false,
           "show_author": false,
-          "show_rss": true
+          "show_rss": false
         }
       },
       "1566297889793": {
