@@ -576,7 +576,14 @@
       "1541063518469",
       "featured-blog",
       "1566551777871"
-    ]
+    ],
+    "blocks": {
+      "53419374109736018": {
+        "type": "shopify://apps/nabu-redirect-manager/blocks/script-block/1ec76215-4f32-4e94-950a-ce6073ea1b48",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "presets": {
     "Kyoto": {
