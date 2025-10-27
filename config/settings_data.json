@@ -552,14 +552,23 @@
               "blog": "news",
               "article_limit": 3
             }
+          },
+          "blog_category_nANW6g": {
+            "type": "blog_category",
+            "settings": {
+              "blog": "test",
+              "article_limit": 3
+            }
           }
         },
         "block_order": [
-          "blog_category_ahkdVL"
+          "blog_category_ahkdVL",
+          "blog_category_nANW6g"
         ],
         "settings": {
           "show_author": true,
-          "show_rss": false
+          "show_rss": false,
+          "blog_limit": 3
         }
       }
     },
@@ -576,14 +585,7 @@
       "1541063518469",
       "featured-blog",
       "1566551777871"
-    ],
-    "blocks": {
-      "53419374109736018": {
-        "type": "shopify://apps/nabu-redirect-manager/blocks/script-block/1ec76215-4f32-4e94-950a-ce6073ea1b48",
-        "disabled": false,
-        "settings": {}
-      }
-    }
+    ]
   },
   "presets": {
     "Kyoto": {
