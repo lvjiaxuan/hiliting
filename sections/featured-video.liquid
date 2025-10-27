@@ -1,4 +1,29 @@
-<section class="index-module section section--padded {% if section.settings.use_secondary_background %}section--secondary{% endif %} index-module__video">
+<section
+  itemscope
+  itemtype="https://schema.org/VideoObject"
+  class="index-module section section--padded {% if section.settings.use_secondary_background %}section--secondary{% endif %} index-module__video"
+>
+  {% assign video_name = section.settings.title %}
+  {% assign video_description = section.settings.description %}
+  {% if template == 'index' %}
+    {% assign video_name = section.settings.title | default: 'Introduction video' %}
+    {% assign video_description = section.settings.description
+      | default: 'Introduction video for HILITING Gobo Projector'
+    %}
+  {% endif %}
+  <meta itemprop="name" content="{{ video_name | escape }}">
+  <meta
+    itemprop="description"
+    content="{{ video_description | escape }}"
+  >
+
+  <meta
+    itemprop="thumbnailUrl"
+    content="​https://img.youtube.com/vi/{{ section.settings.video_url.id }}/maxresdefault.jpg"
+  >
+  <meta itemprop="uploadDate" content="2025-01-01T08:00:00+08:00">
+  <meta itemprop="contentUrl" content="{{ section.settings.video_url }}">
+
   <div class="container">
     {% if section.settings.title != blank %}
       <h2 class="section__title">{{ section.settings.title | escape }}</h2>
@@ -8,12 +33,14 @@
       <div class="video-wrapper">
         {% if section.settings.video_url.type == 'youtube' %}
           <iframe
+            itemprop="embedUrl"
             src="//www.youtube.com/embed/{{ section.settings.video_url.id }}?autoplay=0&showinfo=0&controls=0&rel=0"
             frameborder="0"
             allowfullscreen
           ></iframe>
         {% elsif section.settings.video_url.type == 'vimeo' %}
           <iframe
+            itemprop="embedUrl"
             src="//player.vimeo.com/video/{{ section.settings.video_url.id }}?portrait=0&byline=0&color={{ settings.accent_color | remove_first: '#' }}"
             frameborder="0"
           ></iframe>
@@ -31,8 +58,12 @@
     {
       "type": "text",
       "id": "title",
-      "label": "Heading",
-      "default": "Your video"
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description"
     },
     {
       "type": "checkbox",

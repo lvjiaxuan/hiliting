@@ -1,5 +1,6 @@
 {% capture ld_address %}
 {
+  "@context": "https://schema.org",
   "@type": "PostalAddress",
   "streetAddress": "425 S Pine St",
   "addressLocality": "San Gabriel",
@@ -12,8 +13,6 @@
 {% capture ld_slogan %}"HILITING GOBOS & PROJECTORS"{% endcapture %}
 {% capture ld_image %}"https://www.hiliting.com/cdn/shop/files/1-5_9ed34e92-75f2-462e-a1e2-7fa942876b09_200x.png"{% endcapture %}
 {% capture ld_logo %}"https://www.hiliting.com/cdn/shop/files/3_32x32_23ea58a0-c43f-4c30-8af5-6f5f24c96b6c.png"{% endcapture %}
-{% capture ld_email %}"info@hiliting.com"{% endcapture %}
-{% capture ld_description %}"{{  page_description }}"{% endcapture %}
 {% capture ld_location %}"425 S Pine St, San Gabriel, CA, 91776, United State"{% endcapture %}
 {% capture ld_same_as %}
 [
@@ -37,13 +36,13 @@
   "@context": "https://schema.org",
   "@type": "Brand",
   "name": "Hiliting",
-  "description": {{- ld_description -}},
+  "description": "{{- ld_description -}}",
   "logo": {{- ld_logo -}},
   "slogan": {{- ld_slogan -}}
 }
 {% endcapture %}
 
-{% comment %} {{ template }} {% endcomment %}
+{% assign variable_name = 'value' %}
 
 {% if template == 'index' %}
   {% comment %} 首页结构化数据 {% endcomment %}
@@ -52,7 +51,7 @@
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Hiliting",
+        "name": "{{ shop.name }}",
         "url": "https://www.hiliting.com/",
         "potentialAction": {
           "@type": "SearchAction",
@@ -63,10 +62,10 @@
       {
         "@context": "https://schema.org",
         "@type": "OnlineStore",
-        "name": "Hiliting",
+        "name": "{{ shop.name }}",
         "url": "https://www.hiliting.com",
         "logo": {{- ld_logo -}},
-        "description": {{-ld_description-}},
+        "description": "{{- page_description -}}",
         "foundingDate": "2018",
         "slogan": {{- ld_slogan -}},
         "address": {{- ld_address -}},
@@ -75,7 +74,7 @@
           "@type": "ContactPoint",
           {% comment %} "telephone": "", {% endcomment %}
           "contactType": "customer service",
-          "email": {{-ld_email-}},
+          "email": "{{- shop.email -}}",
           "availableLanguage": "en"
         },
         "sameAs": {{ ld_same_as }}
@@ -83,19 +82,19 @@
       {
         "@context": "http://www.schema.org",
         "@type": "LocalBusiness",
-        "name": "Hiliting",
+        "name": "{{ shop.name }}",
         "paymentAccepted": ["Credit Card", "PayPal", "Shop Pay", "Google Pay"],
         "priceRange": "$",
-        "image": {{-ld_image-}},
-        "email": {{-ld_email-}},
+        "image": {{- ld_image -}},
+        "email": "{{- shop.email -}}",
         {% comment %} "telephone": "", {% endcomment %}
         "address": {{-ld_address-}}
       },
       {
         "@context": "http://www.schema.org",
         "@type": "Corporation",
-        "name": "Hiliting",
-        "legalName": "Hiliting",
+        "name": "{{ shop.name }}",
+        "legalName": "{{ shop.name }}",
         "url": "https://www.hiliting.com",
         "image": {{- ld_image -}},
         "logo": {{- ld_logo -}},
@@ -106,14 +105,14 @@
           "@type": "ContactPoint",
           "telephone": "",
           "contactType": "customer service",
-          "email": {{- ld_email -}},
+          "email": "{{- shop.email -}}",
           "availableLanguage": "en"
         },
-        "address": {{- ld_address-}},
+        "address": {{- ld_address -}},
         "founder": {{- ld_founder -}},
         "foundingDate": "2018",
         "foundingLocation": {{-  ld_location -}},
-        "description": {{- ld_description -}},
+        "description": "{{- page_description -}}",
         "sameAs": {{ ld_same_as }}
       },
       {
@@ -131,29 +130,4 @@
       }
     ]
   </script>
-{% elsif template == 'collection' %}
-  {% comment %} 产品集合页 https://www.hiliting.com/collections/all {% endcomment %}
-  <script type="application/ld+json">
-    [
-      {{ ld_brand }}
-    ]
-  </script>
-{% elsif template == 'product' %}
-  {% comment %} /products/outdoor-40w-rotating-gobo-projector {% endcomment %}
-  {% comment %}
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "{{ product.title | escape }}",
-        "url": "{{- canonical_url -}}"
-      }
-    </script>
-  {% endcomment %}
-{% elsif template == 'page.faq' %}
-
-{% endif %}
-
-{% if ld_json != blank %}
-  {{- ld_json -}}
 {% endif %}
