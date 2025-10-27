@@ -19,10 +19,13 @@
           itemscope
           itemtype="http://schema.org/ListItem"
         >
-          <span class="breadcrumb__title" itemprop="name">{{ 'All Blog' | link_to: '/blogs/all' }}</span>
+          {% capture all_blog_url %}{{ shop.url }}/blogs/all{% endcapture %}
+          <span class="breadcrumb__title" itemprop="name">
+            {{- 'All Blog' | link_to: all_blog_url -}}
+          </span>
           {% assign position = position | plus: 1 %}
           <meta itemprop="position" content="{{ position }}">
-          <meta itemprop="item" content="{{ shop.url }}/blogs/all">
+          <meta itemprop="item" content="{{ all_blog_url }}">
         </li>
       {% endif %}
 
@@ -35,11 +38,11 @@
           itemscope
           itemtype="http://schema.org/ListItem"
         >
-          {% assign url = routes.collections_url | append: '/safety-sign-projector' %}
-          <span class="breadcrumb__title" itemprop="name">{{ 'Safety Sign Projector' | link_to: url }}</span>
+          {% assign safety_url = shop.url | append: routes.collections_url | append: '/safety-sign-projector' %}
+          <span class="breadcrumb__title" itemprop="name">{{ 'Safety Sign Projector' | link_to: safety_url }}</span>
           {% assign position = position | plus: 1 %}
           <meta itemprop="position" content="{{ position }}">
-          <meta itemprop="item" content="{{ url }}">
+          <meta itemprop="item" content="{{ safety_url }}">
         </li>
       {% endif %}
 
@@ -85,7 +88,7 @@
           </li>
         {% elsif template contains 'product' %}
           {% if collection and collection.handle %}
-            {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+            {% capture collection_url %}/collections/{{ collection.handle }}{% endcapture %}
             <li
               class="breadcrumb__item"
               data-breadcrumb-separator="/"
@@ -93,10 +96,10 @@
               itemscope
               itemtype="http://schema.org/ListItem"
             >
-              <span class="breadcrumb__title" itemprop="name">{{ collection.title | link_to: url }}</span>
+              <span class="breadcrumb__title" itemprop="name">{{ collection.title | link_to: collection_url }}</span>
               {% assign position = position | plus: 1 %}
               <meta itemprop="position" content="{{ position }}">
-              <meta itemprop="item" content="{{ url }}">
+              <meta itemprop="item" content="{{ collection_url }}">
             </li>
 
             <li
@@ -115,7 +118,7 @@
             {% assign main_collection = product.metafields.custom.main_collection.value %}
 
             {% if main_collection %}
-              {% capture url %}{{ shop.url }}/collections/{{ main_collection.handle }}{% endcapture %}
+              {% capture main_collection_url %}{{ shop.url }}/collections/{{ main_collection.handle }}{% endcapture %}
               <li
                 class="breadcrumb__item"
                 data-breadcrumb-separator="/"
@@ -123,10 +126,10 @@
                 itemscope
                 itemtype="http://schema.org/ListItem"
               >
-                <span class="breadcrumb__title" itemprop="name">{{ main_collection.title | link_to: url }}</span>
+                <span class="breadcrumb__title" itemprop="name">{{ main_collection.title | link_to: main_collection_url }}</span>
                 {% assign position = position | plus: 1 %}
                 <meta itemprop="position" content="{{ position }}">
-                <meta itemprop="item" content="{{ url }}">
+                <meta itemprop="item" content="{{ main_collection_url }}">
               </li>
             {% endif %}
 
