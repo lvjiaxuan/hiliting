@@ -552,18 +552,10 @@
               "blog": "news",
               "article_limit": 3
             }
-          },
-          "blog_category_nANW6g": {
-            "type": "blog_category",
-            "settings": {
-              "blog": "test",
-              "article_limit": 3
-            }
           }
         },
         "block_order": [
-          "blog_category_ahkdVL",
-          "blog_category_nANW6g"
+          "blog_category_ahkdVL"
         ],
         "settings": {
           "show_author": true,
