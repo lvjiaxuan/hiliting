@@ -1,0 +1,15 @@
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {% assign limit = limit | default: 100 %}
+      {% for item in list limit: limit %}
+        {% if type == 'product' %}
+          {% render 'json-ld.product', product: item %}
+          {% unless forloop.last %},{% endunless %}
+        {% endif %}
+      {% endfor %}
+    ]
+  }
+</script>

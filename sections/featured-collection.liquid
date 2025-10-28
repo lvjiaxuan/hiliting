@@ -8,7 +8,12 @@
   {% assign section_classes = 'section--padded' %}
 {% endif %}
 
-<section class="index-module section {{ section_classes }} {% if section.settings.use_secondary_background %}section--secondary{% endif %}">
+{% assign collection = collections[section.settings.collection] %}
+{% render 'json-ld.itemlist', list: collection.products, limit: section.settings.products_count, type: 'product' %}
+
+<section
+  class="index-module section {{ section_classes }} {% if section.settings.use_secondary_background %}section--secondary{% endif %}"
+>
   <div
     {% unless section.settings.grid_remove_spacing %}
       class="container"
@@ -21,8 +26,6 @@
     {% if section.settings.layout_mode == 'collage' %}
       <div class="collection collection--collage ftg">
         <div class="ftg-items">
-          {% assign collection = collections[section.settings.collection] %}
-
           {% for product in collection.products limit: section.settings.products_count %}
             {% include 'product-collage-item',
               show_vendor: section.settings.show_vendor,
@@ -62,7 +65,6 @@
     {% else %}
       <div class="collection collection--grid {% if section.settings.title == blank %}collection--grid-no-border{% endif %} grid {% if section.settings.grid_remove_spacing %}grid--flush{% else %}grid--gallery grid--middle{% endif %}">
         {% assign grid_items_per_row = section.settings.grid_items_per_row %}
-        {% assign collection = collections[section.settings.collection] %}
 
         {% for product in collection.products limit: section.settings.products_count %}
           {% include 'product-grid-item-index',
