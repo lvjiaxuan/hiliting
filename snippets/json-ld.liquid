@@ -1,0 +1,198 @@
+{% capture ld_address %}
+{
+  "@context": "https://schema.org",
+  "@type": "PostalAddress",
+  "streetAddress": "425 S Pine St",
+  "addressLocality": "San Gabriel",
+  "addressRegion": "CA",
+  "postalCode": "91776",
+  "addressCountry": "US"
+}
+{% endcapture %}
+
+{% capture ld_slogan %}"HILITING GOBOS & PROJECTORS"{% endcapture %}
+{% capture ld_image %}"https://www.hiliting.com/cdn/shop/files/1-5_9ed34e92-75f2-462e-a1e2-7fa942876b09_200x.png"{% endcapture %}
+{% capture ld_logo %}"https://www.hiliting.com/cdn/shop/files/3_32x32_23ea58a0-c43f-4c30-8af5-6f5f24c96b6c.png"{% endcapture %}
+{% capture ld_location %}"425 S Pine St, San Gabriel, CA, 91776, United State"{% endcapture %}
+{% capture ld_same_as %}
+[
+  "https://www.facebook.com/Hiliting-261591384539845/",
+  "https://www.instagram.com/hilitingprojector/",
+  "https://www.pinterest.com/hilitinggoboprojector/",
+  "https://www.youtube.com/@hiliting5785"
+]
+{% endcapture %}
+{% capture ld_founder %}
+[
+  {
+    "@type": "Person",
+    "name": "Vincent",
+    "jobTitle": "CEO"
+  }
+]
+{% endcapture %}
+{% capture ld_brand %}
+{
+  "@context": "https://schema.org",
+  "@type": "Brand",
+  "@id": "https://www.hiliting.com/#brand",
+  "name": "Hiliting",
+  "description": "{{- ld_description -}}",
+  "logo": {{- ld_logo -}},
+  "slogan": {{- ld_slogan -}}
+}
+{% endcapture %}
+
+{% comment %}
+  {% if template == 'index' %}
+    {% comment %} 首页结构化数据 {% endcomment %}
+  {% endif %}
+{% endcomment %}
+
+<script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "{{ shop.name }}",
+      "url": "{{  shop.url }}",
+      "publisher": {
+        "@id": "https://www.hiliting.com/#corporation"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.hiliting.com/search?q={query}",
+        "query": "required"
+      }
+    },
+        {
+      "@context": "https://schema.org",
+      "@type": "Brand",
+      "@id": "https://www.hiliting.com/#brand",
+      "name": "Hiliting",
+      "description": "{{- ld_description -}}",
+      "logo": {{- ld_logo -}},
+      "slogan": {{- ld_slogan -}}
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPoint",
+      "@id": "https://www.hiliting.com/#contactpoint",
+      "telephone": "",
+      "contactType": "customer service",
+      "email": "{{- shop.email -}}",
+      "availableLanguage": "en"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "OnlineStore",
+      "name": "{{ shop.name }}",
+      "url": "https://www.hiliting.com",
+      "logo": {{- ld_logo -}},
+      "description": "{{- page_description -}}",
+      "foundingDate": "2018",
+      "slogan": {{- ld_slogan -}},
+      "address": {{- ld_address -}},
+      "areaServed": "Worldwide",
+      "contactPoint": {
+        "@id": "https://www.hiliting.com/#contactpoint"
+      },
+      "sameAs": {{ ld_same_as }}
+    },
+    {
+      "@context": "http://www.schema.org",
+      "@type": "LocalBusiness",
+      "name": "{{ shop.name }}",
+      "paymentAccepted": ["Credit Card", "PayPal", "Shop Pay", "Google Pay"],
+      "priceRange": "$",
+      "image": {{- ld_image -}},
+      "email": "{{- shop.email -}}",
+      {% comment %} "telephone": "", {% endcomment %}
+      "address": {{-ld_address-}}
+    },
+    {
+      "@context": "http://www.schema.org",
+      "@type": "Corporation",
+      "@id": "https://www.hiliting.com/#corporation",
+      "name": "{{ shop.name }}",
+      "legalName": "{{ shop.name }}",
+      "url": "https://www.hiliting.com",
+      "image": {{- ld_image -}},
+      "logo": {{- ld_logo -}},
+      "brand": {
+        "@id": "https://www.hiliting.com/#brand"
+      },
+      "location": {{- ld_location -}},
+      {% comment %} "telephone": "", {% endcomment %}
+      "contactPoint": {
+        "@id": "https://www.hiliting.com/#contactpoint"
+      },
+      "address": {{- ld_address -}},
+      "founder": {{- ld_founder -}},
+      "foundingDate": "2018",
+      "foundingLocation": {{-  ld_location -}},
+      "description": "{{- page_description -}}",
+      "sameAs": {{ ld_same_as }}
+    }
+  ]
+</script>
+
+{%- comment -%}This snippet structures the micro-data using JSON-LD specification{%- endcomment -%}
+
+{%- if template contains 'product' -%}
+  <script type="application/ld+json">
+    {% render 'json-ld.product' %}
+  </script>
+{%- elsif template contains 'article' -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": "{{ article.url }}",
+      "articleSection": {{ blog.title | json }},
+      "keywords": "{{ article.tags | join: ', ' }}",
+      "headline": {{ article.title | json }},
+      "description": {{ article.excerpt_or_content | strip_html | truncatewords: 25 | json }},
+      "dateCreated": "{{ article.created_at | date: '%Y-%m-%dT%T' }}",
+      "datePublished": "{{ article.published_at | date: '%Y-%m-%dT%T' }}",
+      "dateModified": "{{ article.published_at | date: '%Y-%m-%dT%T' }}",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https:{{ article.image | img_url: '1024x1024' }}",
+        "image": "https:{{ article.image | img_url: '1024x1024' }}",
+        "name": {{ article.image.alt | json }},
+        "width": 1024,
+        "height": 1024
+      },
+      "author": {
+        "@type": "Person",
+        "name": "{{ article.user.first_name | escape }} {{ article.user.last_name | escape }}",
+        "givenName": {{ article.user.first_name | json }},
+        "familyName": {{ article.user.last_name | json }}
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": {{ shop.name | json }},
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https:{{ 'logo.png' | asset_url }}",
+          "image": "https:{{ 'logo.png' | asset_url }}",
+          "name": {{ shop.name | json }},
+          "width": 100,
+          "height": 100
+        }
+      },
+      "commentCount": {{ article.comments_count }},
+      "comment": [
+        {%- for comment in article.comments limit: 5 -%}
+          {
+            "@type": "Comment",
+            "author": {{ comment.author | json }},
+            "datePublished": "{{ comment.created_at | date: '%Y-%m-%dT%T' }}",
+            "text": {{ comment.content | json }}
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}
