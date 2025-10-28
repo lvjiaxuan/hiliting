@@ -124,18 +124,12 @@
 
 {% if collection.all_products_count > 0 %}
   {% paginate collection.products by products_per_page %}
+    {% render 'json-ld.itemlist', list: collection.products, limit: paginate.page_size, type: 'product' %}
     <section
-      itemscope
-      itemtype="https://schema.org/ItemList"
       {% unless section.settings.grid_remove_spacing %}
         class="inner"
       {% endunless %}
     >
-      <meta
-        itemprop="name"
-        content="{{ collection.title }}{% if paginate.pages > 1 %} - Page {{ paginate.current_page }}{% endif %}"
-      >
-
       {% if layout_mode == 'collage' %}
         <div
           class="collection collection--collage ftg"

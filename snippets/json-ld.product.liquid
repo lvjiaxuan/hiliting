@@ -20,6 +20,7 @@
   "description": {{ product.description | strip_html | json }},
   "category": {{ product.type | json }},
   "url": "{{ shop.url }}{{ product.url }}",
+  "sku": "{{ product.selected_or_first_available_variant.sku }}",
   "image": {
     "@type": "ImageObject",
     "url": "https:{{ product.featured_image | img_url: '1024x1024' }}",

@@ -2,6 +2,7 @@
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
+    "url": "{{ canonical_url  }}",
     "itemListElement": [
       {% assign limit = limit | default: 100 %}
       {% for item in list limit: limit %}

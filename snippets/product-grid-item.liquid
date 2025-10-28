@@ -5,14 +5,8 @@
 {% endif %}
 
 <div
-  itemscope
-  itemprop="itemListElement"
-  itemtype="http://schema.org/Product"
   class="collection__item product-item {% unless product.available %}product-item--sold-out{% endunless %} grid__cell 1/{{ settings.mobile_grid_items_per_row }} 1/{{ settings.tablet_grid_items_per_row }}--handheld 1/{{ grid_items_per_row }}--lap-and-up"
 >
-  <meta itemprop="position" content="{{ forloop.index }}">
-  <meta itemprop="sku" content="{{ product.selected_or_first_available_variant.sku }}">
-
   <div class="product-item__inner">
     <div class="product-item__labels">
       {% if product.available and show_quick_shop %}
@@ -66,9 +60,6 @@
           <div
             class="aspect-ratio"
             style="padding-bottom: {{ 100.0  }}%"
-            itemscope
-            itemprop="image"
-            itemtype="https://schema.org/ImageObject"
           >
             <img
               class="lazyload image--fade-in"
@@ -81,17 +72,6 @@
             <noscript>
               <img src="{{ main_image | img_url: '600x' }}" alt="{{ main_image.alt }}">
             </noscript>
-
-            <meta
-              itemprop="contentUrl"
-              content="{{ shop.url }}{{ main_image | img_url: '1x1' | replace: '_1x1.', '_400x.'  }}"
-            >
-            <meta itemprop="name" content="{{ product.title }}">
-            <meta itemprop="license" content="https://www.hiliting.com/pages/terms-of-service">
-            <meta itemprop="acquireLicensePage" content="https://www.hiliting.com/pages/contact">
-            <meta itemprop="creditText" content="{{ shop.name }}">
-            <meta itemprop="copyrightNotice" content="© {{ 'now' | date: '%Y' }} {{ shop.name }}">
-            {% comment %} todo creator {% endcomment %}
           </div>
         {% else %}
           empty
@@ -107,18 +87,10 @@
       {% endif %}
 
       <div class="product-item__title ellipsis-1">
-        <a itemprop="url" href="{{ shop.url }}{{ product.url }}">{{ product.title }}</a>
-        <meta itemprop="name" content="{{ product.title }}">
+        <a href="{{ shop.url }}{{ product.url }}">{{ product.title }}</a>
       </div>
 
-      <div itemscope itemprop="offers" itemtype="http://schema.org/Offer">
-        <meta itemprop="priceCurrency" content="USD">
-        <meta itemprop="price" content="{{product.price }}">
-        <meta
-          itemprop="availability"
-          content="https://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}"
-        >
-        <meta itemprop="priceValidUntil" content="2100-01-01">
+      <div>
         {% if product_on_sale %}
           <span class="product-item__price product-item__price--new" data-money-convertible>
             {{- product.price | money -}}
