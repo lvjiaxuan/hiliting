@@ -1,3 +1,4 @@
+{% capture no_format %}
 {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -8,11 +9,42 @@
     "priceCurrency": {{ shop.currency | json }},
     "hasMerchantReturnPolicy": {
       "@type": "MerchantReturnPolicy",
-      "url": "https://www.hiliting.com/pages/warranty"
+      "url": "https://www.hiliting.com/pages/warranty",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 90,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
     },
-    "warranty": {
+    {% comment %} "warranty": {
       "@type": "WarrantyPromise",
       "url": "https://www.hiliting.com/pages/warranty"
+    }, {% endcomment %}
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": 0,
+        "currency": "USD"
+      },
+      {% comment %} "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "US"
+      }, {% endcomment %}
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 3,
+          "maxValue": 7,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 7,
+          "maxValue": 10,
+          "unitCode": "DAY"
+        }
+      }
     }
   },
   "brand": {{ product.vendor | json }},
@@ -30,3 +62,6 @@
     "height": 1024
   }
 }
+{% endcapture %}
+
+{{ no_format }}
