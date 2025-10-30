@@ -5,7 +5,7 @@
   "offers": {
     "@type": "Offer",
     "availability": "https://schema.org/{%- if product.available -%}InStock{%- else -%}OutOfStock{%- endif -%}",
-    "price": {{ product.price_min | money_without_currency | json }},
+    "price": {{ product.price_min | money_without_currency | replace: ',', '' |json }},
     "priceCurrency": {{ shop.currency | json }},
     "hasMerchantReturnPolicy": {
       "@type": "MerchantReturnPolicy",
