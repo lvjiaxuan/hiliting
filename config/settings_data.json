@@ -423,6 +423,7 @@
         "type": "featured-video",
         "settings": {
           "title": "",
+          "description": "",
           "use_secondary_background": false,
           "video_url": "https://www.youtube.com/watch?v=PbazAJbgg6g"
         }
@@ -577,7 +578,14 @@
       "1541063518469",
       "featured-blog",
       "1566551777871"
-    ]
+    ],
+    "blocks": {
+      "6174493523689735930": {
+        "type": "shopify://apps/webrex-seo-schema/blocks/webrexSeoEmbed/283875bf-bf86-4e78-831b-502ad0c4a5c2",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "presets": {
     "Kyoto": {
