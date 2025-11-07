@@ -1,6 +1,9 @@
 extends: theme-check:recommended
 ignore:
   - node_modules/**
+  - assets/**
+  - config/**
+
 # AssetPreload:
 #   enabled: true
 #   severity: 1
