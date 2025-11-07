@@ -1,55 +1,46 @@
 {
   "general": {
+    "404": {
+      "title": "404",
+      "subtitle": "La page que vous recherchez n'existe pas.",
+      "go_back": "Retour à l'accueil"
+    },
     "meta": {
       "tags": "Mots clés \"{{ tags }}\"",
       "page": "Page {{ page }}"
     },
-
     "breadcrumb": {
       "home": "Accueil",
       "account": "Compte"
     },
-
     "pagination": {
       "previous_page": "Précédent",
       "next_page": "Suivant",
       "page_count": "Page {{current_page}} de {{total_pages}}"
     },
-
     "social": {
       "share": "Partager",
       "tags": "Tags"
     },
-
     "forms": {
       "errors": "Il y a des erreurs..."
-    },
-
-    "404": {
-      "title": "404",
-      "subtitle": "La page que vous recherchez n'existe pas.",
-      "go_back": "Retour à l'accueil"
     }
   },
-
   "layout": {
     "navigation": {
       "search_placeholder": "Rechercher..."
     },
-
     "newsletter": {
       "title_success": "Merci !",
       "subtitle_success": "Nous vous tiendrons informés de notre activité !",
       "input_placeholder": "Votre email...",
       "submit": "S'inscrire"
     },
-
     "promotions": {
       "email_placeholder": "Votre email",
       "newsletter_success": "Merci ! Nous vous tiendrons informé de nos nouveautés !",
       "submit": "Rejoignez nous"
     },
-
     "footer": {
       "newsletter_placeholder": "Adresse email",
       "newsletter_submit": "Soumettre",
@@ -57,7 +48,6 @@
       "copyright_html": "© {{shop_copyright}}"
     }
   },
-
   "home_page": {
     "onboarding": {
       "brand_title": "Votre marque",
@@ -68,19 +58,17 @@
       "blog_excerpt": "Votre boutique n'a pas publié d'articles pour le moment. Un blog peut être utilisé pour parler de vos nouveaux produits, dévoiler des astuces ou parler de l'actualité de votre boutique.",
       "instagram_date": "Date",
       "tweet_date": "Date",
-      "tweet_content": "Ceci est un exemple d'un tweet très court"
+      "tweet_content": "Ceci est un exemple d'un tweet très court",
+      "product_description": "TODO"
     }
   },
-
   "blog": {
     "general": {
       "rss": "Suivre notre flux RSS"
     },
-
     "article": {
       "read_more": "Voir plus"
     },
-
     "comments": {
       "write": "Ecrire un commentaire",
       "success": "Votre commentaire a été publié",
@@ -99,30 +87,25 @@
       }
     }
   },
-
   "collections": {
     "general": {
       "title": "Toutes les collections"
     }
   },
-
   "collection": {
     "general": {
       "empty": "Cette collection ne contient aucun produit.",
       "lets_shop": "Retour à l'accueil"
     },
-
     "product": {
       "from_price_html": "A partir de <span data-money-convertible>{{price}}</span>"
     },
-
     "filters": {
       "filter": "Filtrer",
       "all_products": "Tous les produits",
       "no_type_selected": "Tous les types",
       "no_vendor_selected": "Toutes les marques"
     },
-
     "sorting": {
       "title": "Trier Par",
       "featured": "Mis en avant",
@@ -135,7 +118,6 @@
       "date_ascending": "Plus récent au plus ancien"
     }
   },
-
   "product": {
     "general": {
       "view_details": "Voir les détails",
@@ -148,25 +130,24 @@
       "sale_price": "Prix remisé",
       "regular_price": "Prix normal"
     },
-
     "labels": {
       "sold_out": "Rupture",
       "on_sale": "Promo",
       "unavailable": "Non disponible",
       "quick_shop": "Achat rapide"
     },
-
     "tabs": {
       "gallery": "Galerie",
       "description": "Description",
       "reviews": "Critiques"
     },
-
     "reviews": {
       "close": "Fermer"
+    },
+    "form": {
+      "variant_label": "TODO"
     }
   },
-
   "search": {
     "general": {
       "title": "Recherche",
@@ -179,14 +160,12 @@
         "other": "{{ count }} résultats pour {{ terms }}"
       }
     },
-
     "autocomplete": {
       "input_placeholder": "Recherche...",
       "no_results": "Aucun résultat",
       "see_all": "Voir tous les résultats"
     }
   },
-
   "customer": {
     "login": {
       "title": "Connexion",
@@ -197,21 +176,18 @@
       "not_member": "Pas encore inscrit ?",
       "register": "S'inscrire"
     },
-
     "recover": {
       "title": "Récupérer mon mot de passe",
       "email": "Email",
       "submit": "Envoyer",
       "sent": "Les instructions ont été envoyées par email"
     },
-
     "reset_password": {
       "title": "Réinitialiser mot de passe",
       "password": "Mot de passe",
       "password_confirmation": "Confirmation du mot de passe",
       "submit": "Réinitialiser"
     },
-
     "activate_account": {
       "title": "Activer mon compte",
       "password": "Mot de passe",
@@ -219,7 +195,6 @@
       "cancel": "Refuser",
       "submit": "Activer"
     },
-
     "register": {
       "title": "Créer mon compte",
       "first_name": "Prénom",
@@ -230,13 +205,11 @@
       "already_member": "Déjà un compte ?",
       "login": "Se connecter"
     },
-
     "account": {
       "title": "Mon compte",
       "logout": "Déconnexion",
       "manage_addresses": "Gérer mes adresses"
     },
-
     "orders": {
       "order_number": "Commande",
       "date": "Date",
@@ -247,7 +220,6 @@
       "next": "Commandes plus récentes",
       "previous": "Commandes plus anciennes"
     },
-
     "order": {
       "title": "Commande {{number}}",
       "details": "Détails de la commande",
@@ -268,7 +240,6 @@
       "shipping_address": "Adresse de livraison",
       "billing_address": "Adresse de paiement"
     },
-
     "addresses": {
       "title": "Adresses",
       "empty": "Vous n'avez aucune adresse.",
@@ -293,7 +264,6 @@
       "delete": "Supprimer"
     }
   },
-
   "cart": {
     "general": {
       "title": "Panier",
@@ -307,7 +277,6 @@
       "estimated_shipping": "+ Estimation des frais de port :",
       "currency_notice": "Les commandes sont traitées dans la devise de la boutique, qui est {{ shop_currency }}. Le contenu de votre panier peut être affiché dans une autre devise, au taux le plus récent."
     },
-
     "items": {
       "product": "Produit",
       "item": "Nom",
@@ -317,7 +286,6 @@
       "subtotal": "Sous-total",
       "total": "Total"
     },
-
     "shipping_estimator": {
       "title": "Estimer les frais de port",
       "country": "Pays",
@@ -329,7 +297,6 @@
       "rates": "Frais de port disponibles :",
       "no_rates": "Nous ne livrons pas vers cette destination"
     },
-
     "mini_cart": {
       "empty_title": "Votre panier est vide",
       "empty_subtitle": "Il se sent un peu seul...",
@@ -338,12 +305,10 @@
       "continue_to_checkout": "Valider ma commande"
     }
   },
-
   "gift_cards": {
     "general": {
       "title": "Nous avons une bonne nouvelle pour vous !"
     },
-
     "issued": {
       "title_html": "Voici votre carte cadeau de {{ value }} à valoir chez {{ shop }}!",
       "issued_text": "Voici votre carte-cadeau",
@@ -355,13 +320,11 @@
       "shop_link": "Boutique",
       "print": "Imprimer"
     },
-
     "alt": {
       "illustration": "Illustration de la carte cadeau",
       "add_to_apple_wallet": "Ajouter à Apple Wallet"
     }
   },
-
   "contact": {
     "form": {
       "thank_you": "Votre message a été envoyé. Nous vous recontacterons vers vous au plus vite.",
@@ -371,26 +334,22 @@
       "submit": "Envoyer mon message"
     }
   },
-
   "password": {
     "general": {
       "title": "Ouverture imminente !",
-      "admin_link_html": "Êtes-vous le gérant de la boutique ? <a href=\"\/admin\" class=\"link link--primary\">Cliquez ici pour vous connecter<\/a> ou <a href=\"#\" class=\"link link--primary\" data-action=\"storefront-password\">entrez le mot de passe de la boutique</a>.",
+      "admin_link_html": "Êtes-vous le gérant de la boutique ? <a href=\"/admin\" class=\"link link--primary\">Cliquez ici pour vous connecter</a> ou <a href=\"#\" class=\"link link--primary\" data-action=\"storefront-password\">entrez le mot de passe de la boutique</a>.",
       "powered_by": "Cette boutique sera propulsée par"
     },
-
     "form": {
       "enter_password": "Entrez le mot de passe :",
       "submit": "Valider"
     },
-
     "newsletter": {
       "thank_you": "Merci pour votre inscription !",
       "email": "Email",
       "find_out": "Soyez averti de notre ouverture"
     }
   },
-
   "date_formats": {
     "month_day_year": "%d %B %Y",
     "month_day_year_time": "%d %B %Y à %I:%M"

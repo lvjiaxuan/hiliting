@@ -126,7 +126,9 @@
                 itemscope
                 itemtype="http://schema.org/ListItem"
               >
-                <span class="breadcrumb__title" itemprop="name">{{ main_collection.title | link_to: main_collection_url }}</span>
+                <span class="breadcrumb__title" itemprop="name">
+                  {{- main_collection.title | link_to: main_collection_url -}}
+                </span>
                 {% assign position = position | plus: 1 %}
                 <meta itemprop="position" content="{{ position }}">
                 <meta itemprop="item" content="{{ main_collection_url }}">
