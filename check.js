@@ -10,9 +10,9 @@ exec('shopify theme check -o json', (error, stdout, stderr) => {
     }
     if (stderr) {
         console.error(`stderr: ${stderr}`);
-        writeFileSync('check.txt', `Stderr: ${stderr}\n${stdout}`);
+        writeFileSync('check.json', `Stderr: ${stderr}\n${stdout}`);
         return;
     }
     console.log(`stdout: ${stdout}`);
-    writeFileSync('check.txt', stdout);
+    writeFileSync('check.json', stdout);
 });
