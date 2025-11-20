@@ -1380,18 +1380,18 @@ $product-label-sold-out-background : {{settings.product_label_sold_out_backgroun
  * TYPOGRAPHY
  */
 
-{{ settings.heading_font | font_face }}
-{{ settings.text_font | font_face }}
-{{ settings.slideshow_heading_font | font_face }}
-{{ settings.slideshow_subheading_font | font_face }}
+{{ settings.heading_font | font_face: font_display: 'swap'}}
+{{ settings.text_font | font_face: font_display: 'swap'}}
+{{ settings.slideshow_heading_font | font_face: font_display: 'swap'}}
+{{ settings.slideshow_subheading_font | font_face: font_display: 'swap'}}
 
 {%- assign text_font_bold = settings.text_font | font_modify: 'weight', 'bolder' -%}
 {%- assign text_font_italic = settings.text_font | font_modify: 'style', 'italic' -%}
 {%- assign text_font_bold_italic = text_font_bold | font_modify: 'style', 'italic' -%}
 
-{{ text_font_bold | font_face }}
-{{ text_font_italic | font_face }}
-{{ text_font_bold_italic | font_face }}
+{{ text_font_bold | font_face: font_display: 'swap'}}
+{{ text_font_italic | font_face: font_display: 'swap'}}
+{{ text_font_bold_italic | font_face: font_display: 'swap'}}
 
 $heading-font-family : {{settings.heading_font.family}}, {{ settings.heading_font.fallback_families }};
 $heading-font-weight : {{settings.heading_font.weight}};
@@ -6094,7 +6094,7 @@ select::-ms-expand {
 
 @font-face {
   font-family: "icomoon";
-  font-display: optional;
+  font-display: "swap";
   src: url(#{'{{ 'icomoon.eot' | asset_url }}'});
   src: url(#{'{{ 'icomoon.eot?#iefix' | asset_url }}'}) format('embedded-opentype'),
     url(#{'{{ 'icomoon.woff' | asset_url }}'}),
