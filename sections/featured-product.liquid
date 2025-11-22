@@ -18,15 +18,16 @@
                 style="padding-bottom: {{ 100.0 | divided_by: product.featured_image.aspect_ratio }}%"
               >
                 {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: product.featured_image %}
-                {% assign image_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
-                <img
-                  class="featured-product__image image--fade-in lazyload"
-                  data-sizes="auto"
-                  data-src="{{ image_url }}"
-                  data-widths="[{{ supported_sizes }}]"
-                  alt="{{ product.featured_image.alt | escape }}"
-                >
+                {{
+                  product
+                  | image_url: width: 1000
+                  | image_tag:
+                    widths: '200, 300, 400, 600, 800, 900, 1000',
+                    sizes: 'auto',
+                    class: 'featured-product__image lazyload image--fade-in',
+                    loading: 'lazy'
+                }}
               </div>
             </div>
           </div>
@@ -57,7 +58,10 @@
                       | truncatewords: 15
                       | url_param_escape
                     %}
-                    {% assign pinterest_image = product.featured_image | img_url: 'large' | prepend: 'https:' %}
+                    {% assign pinterest_image = product.featured_image
+                      | image_url: width: 480, height: 480
+                      | prepend: 'https:'
+                    %}
 
                     <li class="share-buttons__item">
                       <a href="https://www.facebook.com/sharer.php?u={{ share_url }}" target="_blank">

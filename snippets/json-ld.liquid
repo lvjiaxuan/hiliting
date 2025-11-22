@@ -155,8 +155,8 @@
       "dateModified": "{{ article.published_at | date: '%Y-%m-%dT%T' }}",
       "image": {
         "@type": "ImageObject",
-        "url": "https:{{ article.image | img_url: '1024x1024' }}",
-        "image": "https:{{ article.image | img_url: '1024x1024' }}",
+        "url": "https:{{ article.image | image_url: width: 1024, height: 1024 }}",
+        "image": "https:{{ article.image | image_url: width: 1024, height: 1024 }}",
         "name": {{ article.image.alt | json }},
         "width": 1024,
         "height": 1024

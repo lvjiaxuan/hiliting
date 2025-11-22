@@ -64,7 +64,7 @@
               <div class="collection__item product-item grid__cell 1/{{ settings.mobile_grid_items_per_row }} 1/{{ settings.tablet_grid_items_per_row }}--handheld 1/4--lap-and-up">
                 <div class="product-item__inner">
                   <a href="{{ result.url }}" class="product-item__image">
-                    <img src="{{ result.image | img_url: '600x' }}" alt="{{ result.image.alt }}">
+                    <img src="{{ result.image | image_url: width: 600 }}" alt="{{ result.image.alt }}">
                   </a>
 
                   <div class="product-item__info">
@@ -83,7 +83,7 @@
               <div class="collection__item product-item grid__cell 1/{{ settings.mobile_grid_items_per_row }} 1/{{ settings.tablet_grid_items_per_row }}--handheld 1/4--lap-and-up">
                 <div class="product-item__inner">
                   <a href="{{ result.url }}" class="product-item__image">
-                    <img src="{{ result.image | img_url: 'x500' }}" alt="{{ result.image.alt }}">
+                    <img src="{{ result.image | image_url: height: 500 }}" alt="{{ result.image.alt }}">
                   </a>
 
                   <div class="product-item__info">

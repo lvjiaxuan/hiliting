@@ -9,7 +9,7 @@
         "title"       : {{ result.title | json }},
         "url"         : {{ result.url | json }},
         "price_min"   : {{ result.price_min | json }},
-        "image"       : {{ result.featured_image | img_url: '120x' | json }}
+        "image"       : {{ result.featured_image | image_url: width: 120 | json }}
       },
     {% elsif result.object_type == 'article' %}
       {%- assign url_parts = result.url | split: '/' -%}
@@ -20,7 +20,7 @@
         "object_type" : {{ result.object_type | json }},
         "title"       : {{ result.title | json }},
         "url"         : {{ result.url | json }},
-        "image"       : {{ result.image | img_url: '120x' | json }},
+        "image"       : {{ result.image | image_url: width: 120 | json }},
         "blog"        : {{ article_blog.title | json }}
       },
     {% else %}
@@ -28,7 +28,7 @@
         "object_type" : {{ result.object_type | json }},
         "title"       : {{ result.title | json }},
         "url"         : {{ result.url | json }},
-        "image"       : {{ result.image | img_url: '120x' | json }}
+        "image"       : {{ result.image | image_url: width: 120 | json }}
       },
     {% endif %}
   {% endfor %}

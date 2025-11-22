@@ -13,7 +13,7 @@
     <li class="navigation-horizontal__image-container">
       <img
         class="navigation-horizontal__image"
-        src="{{ settings.navigation_horizontal_image | img_url: '175x175', scale: 2, crop: 'center' }}"
+        src="{{ settings.navigation_horizontal_image | image_url: width: 175, height: 175, crop: 'center' }}"
         width="175"
         height="175"
       >
@@ -43,7 +43,7 @@
               href="{{ sub_link.url }}"
               class="dropdown-column__list-link"
               {% if sub_link_image != blank %}
-                data-src="{{ sub_link_image | img_url: '175x175', scale: 2, crop: 'center' }}"
+                data-src="{{ sub_link_image | image_url: width: 175, height: 175, crop: 'center' }}"
               {% endif %}
             >
               {{- sub_link.title | escape -}}

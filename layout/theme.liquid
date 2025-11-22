@@ -10,7 +10,27 @@
     <meta name="google-site-verification" content="z5s0SmkMHTiaLuFV5lHKmynSiwCXLl6TCK9HZCtemdE">
     {% comment %} <meta name="google-site-verification" content="G53fMm5fahVFQnrGdCmxGkbnr6eJOA8ueUsmVqz2kGY"> {% endcomment %}
 
-    <script>var shareasaleShopifySSCID=shareasaleShopifyGetParameterByName('sscid');function shareasaleShopifySetCookie(e,a,o,i,r){if(e&&a){var s,S=i?'; path='+i:'',h=r?'; domain='+r:'',t='';o&&(s=new Date(),s.setTime(s.getTime()+o),t='; expires='+s.toUTCString()),document.cookie=e+'='+a+t+S+h}}function shareasaleShopifyGetParameterByName(e,a){a||(a=window.location.href);e=e.replace(/[\[\]]/g,'\\$&');var o=new RegExp('[?&]'+e+'(=([^&#]*)|&|#|$)').exec(a);return o?(o[2]?decodeURIComponent(o[2].replace(/\+/g,' ')):''):null}shareasaleShopifySSCID&&shareasaleShopifySetCookie('shareasaleShopifySSCID',shareasaleShopifySSCID,94670778e4,'/');</script>
+    <script>
+      var shareasaleShopifySSCID = shareasaleShopifyGetParameterByName('sscid');
+      function shareasaleShopifySetCookie(e, a, o, i, r) {
+        if (e && a) {
+          var s,
+            S = i ? '; path=' + i : '',
+            h = r ? '; domain=' + r : '',
+            t = '';
+          o && ((s = new Date()), s.setTime(s.getTime() + o), (t = '; expires=' + s.toUTCString())),
+            (document.cookie = e + '=' + a + t + S + h);
+        }
+      }
+      function shareasaleShopifyGetParameterByName(e, a) {
+        a || (a = window.location.href);
+        e = e.replace(/[\[\]]/g, '\\$&');
+        var o = new RegExp('[?&]' + e + '(=([^&#]*)|&|#|$)').exec(a);
+        return o ? (o[2] ? decodeURIComponent(o[2].replace(/\+/g, ' ')) : '') : null;
+      }
+      shareasaleShopifySSCID &&
+        shareasaleShopifySetCookie('shareasaleShopifySSCID', shareasaleShopifySSCID, 94670778e4, '/');
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta
@@ -36,7 +56,7 @@
     <link rel="canonical" href="{{ canonical_url }}">
 
     {% if settings.favicon %}
-      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png">
     {% endif %}
 
     {% include 'social-meta-tags' %}
@@ -107,7 +127,6 @@
   {% assign template_handle = template | replace: '.', ' ' | truncatewords: 1, '' | handle %}
 
   <body class="kagami--v6 template-{{ template_handle }} {% if page.template_suffix != blank %}template-{{ template_handle }}-{{page.template_suffix}}{% endif %}">
-
     {% include 'svg-icons' %}
 
     <div class="page__overlay"></div>

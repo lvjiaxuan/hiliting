@@ -1,13 +1,17 @@
 <section class="index-module section section--padded {% if section.settings.use_secondary_background %}section--secondary{% endif %} index-module__image-with-text">
   <div class="container">
     {%- capture image -%}
-      <a href="{{section.settings.link}}" class="image-with-text__image-wrapper" {% if section.settings.image %}style="background-image: url({{ section.settings.image | img_url: '1x1' }})"{% endif %}>
+      <a href="{{section.settings.link}}" class="image-with-text__image-wrapper" {% if section.settings.image %}style="background-image: url({{ section.settings.image | image_url: width: 50 }})"{% endif %}>
         {%- if section.settings.image -%}
           <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: section.settings.image.aspect_ratio }}%">
-            {% include'image-size', sizes: '200,300,400,600,800,900,1000', image: ssection.settings.image %}
-            {% assign image_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+            {% include'image-size', sizes: '200,300,400,600,800,900,1000', image: section.settings.image %}
 
-            <img class="image--fade-in lazyload" data-sizes="auto" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" alt="{{ section.settings.image.alt | escape }}">
+            {{ section.settings.image | image_url: width: 1000 | image_tag:
+              widths: '200,300,400,600,800,900,1000',
+              sizes: 'auto',
+              class: 'lazyload image--fade-in',
+              loading: 'lazy'
+            }}
           </div>
         {%- else -%}
           {{ 'image' | placeholder_svg_tag }}

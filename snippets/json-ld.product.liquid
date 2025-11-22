@@ -55,8 +55,8 @@
   "sku": "{{ product.selected_or_first_available_variant.sku }}",
   "image": {
     "@type": "ImageObject",
-    "url": "https:{{ product.featured_image | img_url: '1024x1024' }}",
-    "image": "https:{{ product.featured_image | img_url: '1024x1024' }}",
+    "url": "https:{{ product | image_url: width: 1024, height: 1024 }}",
+    "image": "https:{{ product | image_url: width: 1024, height: 1024 }}",
     "name": {{ product.featured_image.alt | json }},
     "width": 1024,
     "height": 1024

@@ -7,13 +7,16 @@
         <div class="header__logo header__logo--centered">
           <a href="{{ shop.url }}" class="header__link">
             {% if section.settings.logo %}
-              {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+              {% assign image_width = section.settings.logo_max_width %}
+              {% assign image_width_2x = image_width | times: 2 %}
 
               <img
                 class="header__logo-image"
-                src="{{ section.settings.logo | img_url: image_size }}"
-                srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                src="{{ section.settings.logo | image_url: width: image_width }}"
+                srcset="{{ section.settings.logo | image_url: width: image_width }} 1x, {{ section.settings.logo | image_url: width: image_width_2x }} 2x"
                 alt="{{ section.settings.logo.alt | default: shop.name }}"
+                width="{{ section.settings.logo.width }}"
+                height="{{ section.settings.logo.height }}"
               >
             {% else %}
               <span class="header__logo-text">{{ shop.name }}</span>
@@ -39,13 +42,16 @@
         <div class="header__logo">
           <a href="{{ shop.url }}" class="header__link">
             {% if section.settings.logo %}
-              {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+              {% assign image_width = section.settings.logo_max_width %}
+              {% assign image_width_2x = image_width | times: 2 %}
 
               <img
                 class="header__logo-image"
-                src="{{ section.settings.logo | img_url: image_size }}"
-                srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                src="{{ section.settings.logo | image_url: width: image_width }}"
+                srcset="{{ section.settings.logo | image_url: width: image_width }} 1x, {{ section.settings.logo | image_url: width: image_width_2x }} 2x"
                 alt="{{ section.settings.logo.alt | default: shop.name }}"
+                width="{{ section.settings.logo.width }}"
+                height="{{ section.settings.logo.height }}"
               >
             {% else %}
               <span class="header__logo-text">{{ shop.name }}</span>

@@ -18,8 +18,8 @@
   <meta property="og:title" content="{{ product.title | strip_html | escape }}">
 
   {% for image in product.images limit: 3 %}
-    <meta property="og:image" content="http:{{ image.src | img_url: 'grande' }}">
-    <meta property="og:image:secure_url" content="https:{{ image.src | img_url: 'grande' }}">
+    <meta property="og:image" content="http:{{ image.src | image_url: width: 600, height: 600 }}">
+    <meta property="og:image:secure_url" content="https:{{ image.src | image_url: width: 600, height: 600 }}">
   {% endfor %}
 
   <meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html | escape }}">
@@ -29,8 +29,8 @@
   <meta property="og:title" content="{{ article.title | strip_html | escape }}">
 
   {% if article.image %}
-    <meta property="og:image" content="http:{{ article.image | img_url: 'grande' }}">
-    <meta property="og:image:secure_url" content="https:{{ article.image | img_url: 'grande' }}">
+    <meta property="og:image" content="http:{{ article.image | image_url: width: 600, height: 600 }}">
+    <meta property="og:image:secure_url" content="https:{{ article.image | image_url: width: 600, height: 600 }}">
   {% endif %}
 {% else %}
   <meta property="og:type" content="website">
@@ -70,7 +70,7 @@
 {% if template contains 'product' %}
   <meta name="twitter:title" content="{{ product.title }}">
   <meta name="twitter:description" content="{{ product.description | strip_html | truncatewords: 140, '' | escape }}">
-  <meta name="twitter:image" content="https:{{ product.featured_image.src | img_url: 'medium' }}">
+  <meta name="twitter:image" content="https:{{ product.featured_image.src | image_url: width: 240, height: 240 }}">
   <meta name="twitter:image:width" content="240">
   <meta name="twitter:image:height" content="240">
 {% elsif template contains 'article' %}
@@ -85,7 +85,7 @@
   {% endcomment %}
 
   {% if article.image %}
-    <meta property="twitter:image" content="{{ article.image | img_url: 'medium' }}">
+    <meta property="twitter:image" content="{{ article.image | image_url: width: 240, height: 240 }}">
     <meta name="twitter:image:width" content="240">
     <meta name="twitter:image:height" content="240">
   {% endif %}

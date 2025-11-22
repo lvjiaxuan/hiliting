@@ -3,20 +3,21 @@
     <a
       class="article__image-link"
       href="{{ article.url }}"
-      style="background: url({{ article.image | img_url: '1x1', format: 'jpg' }})"
+      style="background: url({{ article.image | image_url: width: 50 }})"
     >
       {% include 'image-size', sizes: '200,300,400,600,800', image: article.image %}
-      {% assign image_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
       <div class="aspect-ratio" style="max-width: {{ article.image.width }}px; padding-bottom: 70%;">
-        <img
-          class="article__image lazyload image--fade-in"
-          loading="lazy"
-          data-widths="[{{ supported_sizes }}]"
-          data-sizes="auto"
-          data-src="{{ image_url }}"
-          alt="{{ article.title | escape }}"
-        >
+        {{
+          article.image
+          | image_url: width: 800
+          | image_tag:
+            widths: '200,300,400,600,800',
+            sizes: 'auto',
+            class: 'article__image lazyload image--fade-in',
+            loading: 'lazy',
+            alt: article.title
+        }}
       </div>
     </a>
   {% endif %}
