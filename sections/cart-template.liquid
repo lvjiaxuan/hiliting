@@ -32,7 +32,7 @@
           <li class="cart-item" data-variant-id="{{ line_item.id }}" data-index="{{ forloop.index }}">
             <div class="cart-item__left">
               <a href="{{ line_item.url }}" class="cart-item__link">
-                <img class="cart-item__image" src="{{ line_item.image | img_url: '180x' }}">
+                <img class="cart-item__image" src="{{ line_item.image | image_url: width: 180 }}">
               </a>
             </div>
 
@@ -82,7 +82,7 @@
             <tr data-variant-id="{{ line_item.id }}" data-index="{{ forloop.index }}">
               <td class="cart-item__product">
                 <a href="{{ line_item.url }}" class="cart-item__link">
-                  <img class="cart-item__image" src="{{ line_item.image | img_url: '320x320' }}">
+                  <img class="cart-item__image" src="{{ line_item.image | image_url: width: 320, height: 320 }}">
                 </a>
               </td>
 

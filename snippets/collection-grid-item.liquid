@@ -11,19 +11,19 @@
   <a
     href="{{ collection.url }}"
     class="collection__link"
-    style="background: url({{ collection_image | img_url: '1x1', format: 'jpg' }})"
+    style="background: url({{ collection_image | image_url: width: 50 }})"
   >
     <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: collection_image.aspect_ratio }}%">
       <div
         class="collection__image-background lazyload image--fade-in"
         data-optimumx="1.4"
-        data-bgset="{{ collection_image | img_url: '400x' }} 400w, {{ collection_image | img_url: '600x' }} 600w, {{ collection_image | img_url: '800x' }} 800w, {{ collection_image | img_url: '1000x' }} 1000w"
+        data-bgset="{{ collection_image | image_url: width: 400 }} 400w, {{ collection_image | image_url: width: 600 }} 600w, {{ collection_image | image_url: width: 800 }} 800w, {{ collection_image | image_url: width: 1000 }} 1000w"
       ></div>
 
       <noscript>
         <div
           class="collection__image-background"
-          style="background-image: url({{ collection_image | img_url: '800x' }})"
+          style="background-image: url({{ collection_image | image_url: width: 800 }})"
         ></div>
       </noscript>
     </div>

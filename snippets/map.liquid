@@ -10,7 +10,7 @@
   <div
     class="featured-map lazyload"
     {% if section.settings.image %}
-      data-bg="{{ section.settings.image | img_url: '1500x' }}"
+      data-bg="{{ section.settings.image | image_url: width: 1500 }}"
     {% endif %}
     data-section-settings="{{ section_settings | escape }}"
   >

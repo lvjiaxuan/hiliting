@@ -50,27 +50,27 @@
           {% assign main_image = product.featured_image %}
         {% elsif product.images.size > 0 %}
           {% assign main_image = product.images[0] %}
-          {% comment %} {% assign main_image = product.images | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %} {% endcomment %}
         {% endif %}
 
         {% if main_image %}
           {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: main_image %}
-          {% assign image_url = main_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
           <div
             class="aspect-ratio"
             style="padding-bottom: {{ 100.0  }}%"
           >
-            <img
-              class="lazyload image--fade-in"
-              data-sizes="auto"
-              data-src="{{ image_url }}"
-              data-widths="[{{ supported_sizes }}]"
-              alt="{{ main_image.alt }}"
-            >
+            {{
+              main_image
+              | image_url: width: 1000
+              | image_tag:
+                widths: '200,300,400,600,800,900,1000',
+                sizes: 'auto',
+                class: 'lazyload image--fade-in',
+                loading: 'lazy'
+            }}
 
             <noscript>
-              <img src="{{ main_image | img_url: '600x' }}" alt="{{ main_image.alt }}">
+              <img src="{{ main_image | image_url: width: 600 }}" alt="{{ main_image.alt }}">
             </noscript>
           </div>
         {% else %}

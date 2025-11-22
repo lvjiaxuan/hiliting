@@ -3,4 +3,5 @@ pnpm-lock.yaml
 node_modules
 .prettierrc
 .vscode
+!.vscode/mcp.json
 .github

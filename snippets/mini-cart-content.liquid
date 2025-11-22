@@ -17,7 +17,7 @@
 
             <img
               class="mini-cart__image"
-              src="{{ line_item.image | img_url: '180x' }}"
+              src="{{ line_item.image | image_url: width: 180 }}"
               alt="{{ line_item.image.alt | escape }}"
             >
           </div>

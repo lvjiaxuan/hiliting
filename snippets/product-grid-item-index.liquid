@@ -45,35 +45,34 @@
     <a href="{{ shop.url }}{{ product.url }}" class="product-item__image">
       <div class="product-item__image-wrapper">
         {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: product.featured_image %}
-        {% assign image_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
         {% for image_second in product.images limit: 1 offset: 1 %}
           {% include 'image-size', sizes: '200,300,400,600,800,900,1000', image: image_second %}
-          {% assign image_second_url = image_second | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
           <div
-            class="aspect-ratio"
+            class="aspect-ratio css-ctrl"
             style="padding-bottom: {{ 100.0 | divided_by: product.featured_image.aspect_ratio }}%"
-            onMouseOver="this.getElementsByTagName('img')[0].style.display='none';this.getElementsByTagName('img')[1].style.display='block'"
-            onMouseOut="this.getElementsByTagName('img')[0].style.display='block';this.getElementsByTagName('img')[1].style.display='none'"
           >
-            <img
-              class="lazyload image--fade-in"
-              data-sizes="auto"
-              data-src="{{ image_url }}"
-              data-widths="[{{ supported_sizes }}]"
-              alt="{{ product.featured_image.alt }}"
-            >
-            <img
-              class="lazyload image--fade-in"
-              data-sizes="auto"
-              data-src="{{ image_second_url }}"
-              data-widths="[{{ supported_sizes }}]"
-              alt="{{ product.featured_image.alt }}"
-              style="display:none"
-            >
+            {{
+              product
+              | image_url: width: 1000
+              | image_tag:
+                widths: '200,300,400,600,800,900,1000',
+                sizes: 'auto',
+                class: 'lazyload image--fade-in',
+                loading: 'lazy'
+            }}
+            {{
+              image_second
+              | image_url: width: 1000
+              | image_tag:
+                widths: '200,300,400,600,800,900,1000',
+                sizes: 'auto',
+                class: 'lazyload image--fade-in',
+                loading: 'lazy'
+            }}
 
             <noscript>
-              <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.featured_image.alt }}">
+              <img src="{{ product | image_url: width: 600 }}" alt="{{ product.featured_image.alt }}">
             </noscript>
           </div>
         {% endfor %}
