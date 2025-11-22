@@ -25,14 +25,19 @@
 </header>
 
 {% if cart.item_count > 0 %}
-  <form action="/cart" method="POST">
+  <form action="{{ routes.cart_url }}" method="POST">
     <div class="cart--mobile">
       <ul class="cart__items">
         {% for line_item in cart.items %}
           <li class="cart-item" data-variant-id="{{ line_item.id }}" data-index="{{ forloop.index }}">
             <div class="cart-item__left">
               <a href="{{ line_item.url }}" class="cart-item__link">
-                <img class="cart-item__image" src="{{ line_item.image | image_url: width: 180 }}">
+                <img
+                  class="cart-item__image"
+                  src="{{ line_item.image | image_url: width: 180 }}"
+                  width="{{ line_item.image.width }}"
+                  height="{{ line_item.image.height }}"
+                >
               </a>
             </div>
 
@@ -55,7 +60,7 @@
                 name="quantity"
                 value="{{ line_item.quantity }}"
               >
-              <a class="cart-item__remove" href="/cart/change?quantity=0&line={{ forloop.index }}">
+              <a class="cart-item__remove" href="{{ routes.cart_change_url }}?quantity=0&line={{ forloop.index }}">
                 {{- 'cart.items.remove' | t -}}
               </a>
             </div>
@@ -82,7 +87,12 @@
             <tr data-variant-id="{{ line_item.id }}" data-index="{{ forloop.index }}">
               <td class="cart-item__product">
                 <a href="{{ line_item.url }}" class="cart-item__link">
-                  <img class="cart-item__image" src="{{ line_item.image | image_url: width: 320, height: 320 }}">
+                  <img
+                    class="cart-item__image"
+                    src="{{ line_item.image | image_url: width: 320, height: 320 }}"
+                    width="{{ line_item.image.width }}"
+                    height="{{ line_item.image.height }}"
+                  >
                 </a>
               </td>
 
@@ -112,10 +122,10 @@
                 <span>{{ line_item.quantity }}</span>
 
                 <div class="quantity__actions">
-                  <a href="/cart/change?quantity={{ line_item.quantity | minus: 1 }}&line={{ forloop.index }}">
+                  <a href="{{ routes.cart_change_url }}?quantity={{ line_item.quantity | minus: 1 }}&line={{ forloop.index }}">
                     {% include 'icon' with 'minus' %}
                   </a>
-                  <a href="/cart/change?quantity={{ line_item.quantity | plus: 1 }}&line={{ forloop.index }}">
+                  <a href="{{ routes.cart_change_url }}?quantity={{ line_item.quantity | plus: 1 }}&line={{ forloop.index }}">
                     {% include 'icon' with 'plus' %}
                   </a>
                 </div>
@@ -124,7 +134,7 @@
               <td class="cart-item__subtotal" data-money-convertible>{{ line_item.line_price | money }}</td>
 
               <td class="cart-item__remove">
-                <a href="/cart/change?quantity=0&line={{ forloop.index }}" class="icon-cross-container">
+                <a href="{{ routes.cart_change_url }}?quantity=0&line={{ forloop.index }}" class="icon-cross-container">
                   {% include 'icon' with 'close' %}
                 </a>
               </td>

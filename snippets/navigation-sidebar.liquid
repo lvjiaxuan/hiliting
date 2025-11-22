@@ -29,6 +29,8 @@
             class="lazyload image--fade-in"
             data-src="{{ settings.navigation_sidebar_image | image_url: width: 650, height: 300 }}"
             alt="{{ shop.name | escape }}"
+            width="{{ settings.navigation_sidebar_image.width }}"
+            height="{{ settings.navigation_sidebar_image.height }}"
           >
         </div>
       </div>
@@ -37,7 +39,7 @@
     <div class="navigation-sidebar__search--mobile">
       {% include 'icon' with 'search' %}
 
-      <form class="navigation-sidebar__search-form" action="/search" method="GET" role="search">
+      <form class="navigation-sidebar__search-form" action="{{ routes.search_url }}" method="GET" role="search">
         <input type="hidden" name="type" value="{{ settings.search_mode }}">
         <input
           type="search"
@@ -88,11 +90,13 @@
       {% if shop.customer_accounts_enabled %}
         {% if customer %}
           <li class="navigation-sidebar__item">
-            <a href="/account" class="navigation-sidebar__link">{{ 'customer.account.title' | t }}</a>
+            <a href="{{ routes.account_url }}" class="navigation-sidebar__link">{{ 'customer.account.title' | t }}</a>
           </li>
         {% else %}
           <li class="navigation-sidebar__item">
-            <a href="/account/login" class="navigation-sidebar__link">{{ 'customer.login.title' | t }}</a>
+            <a href="{{ routes.account_login_url }}" class="navigation-sidebar__link">
+              {{- 'customer.login.title' | t -}}
+            </a>
           </li>
         {% endif %}
       {% endif %}

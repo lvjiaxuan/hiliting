@@ -5,6 +5,8 @@
       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
       data-src="{{ product.featured_image | image_url: width: 500 }}"
       alt="{{ product.featured_image.alt | escape }}"
+      width="{{ product.featured_image.width }}"
+      height="{{ product.featured_image.height }}"
     >
 
     <div class="product-tile__overlay">

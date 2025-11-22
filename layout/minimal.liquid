@@ -67,14 +67,14 @@
       </main>
     </div>
 
-    {{ '//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js' | script_tag }}
-    {{ 'modernizr.min.js' | asset_url | script_tag }}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" defer></script>
+    <script src="{{ 'modernizr.min.js' | asset_url }}" defer></script>
 
-    {{
-      '//cdn.polyfill.io/v2/polyfill.min.js?features=String.prototype.trim,Element.prototype.placeholder,Object.keys,Array.prototype.map,Array.prototype.forEach'
-      | script_tag
-    }}
-    {{ 'libs.js' | asset_url | script_tag }}
-    {{ 'script.js' | asset_url | script_tag }}
+    <script
+      src="//cdn.polyfill.io/v2/polyfill.min.js?features=String.prototype.trim,Element.prototype.placeholder,Object.keys,Array.prototype.map,Array.prototype.forEach"
+      defer
+    ></script>
+    <script src="{{ 'libs.js' | asset_url }}" defer></script>
+    <script src="{{ 'script.js' | asset_url }}" defer></script>
   </body>
 </html>

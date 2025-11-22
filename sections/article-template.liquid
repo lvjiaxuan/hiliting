@@ -15,7 +15,13 @@
 
 <article class="article article--full">
   {% if article.image %}
-    <img class="article__image" alt="{{ article.title | escape }}" src="{{ article | image_url: width: 1200 }}">
+    <img
+      class="article__image"
+      alt="{{ article.title | escape }}"
+      src="{{ article | image_url: width: 1200 }}"
+      width="{{ article.image.width }}"
+      height="{{ article.image.height }}"
+    >
   {% endif %}
 
   <div class="article__body">
@@ -118,6 +124,8 @@
                 class="comment__gravatar"
                 alt="{{ comment.author }}"
                 src="//www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}?d=https:{{ 'gravatar-user-default-retina.png' | asset_url }}"
+                width="40"
+                height="40"
               >
               <p class="comment__author">{{ comment.author }}</p>
               <time class="comment__date" datetime="{{ comment.created_at | date: '%Y-%m-%dT%T' }}">

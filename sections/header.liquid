@@ -101,14 +101,14 @@
 
       {% if shop.customer_accounts_enabled %}
         <div class="header__item header__item-account">
-          <a href="/account{% unless customer %}/login{% endunless %}" class="header__link">
+          <a href="{{ routes.account_url }}{% unless customer %}/login{% endunless %}" class="header__link">
             {% include 'icon' with 'profile' %}
           </a>
         </div>
       {% endif %}
 
       <div class="header__item header__item-search">
-        <a href="/search" class="header__link" data-action="open-search">
+        <a href="{{ routes.search_url }}" class="header__link" data-action="open-search">
           {% include 'icon' with 'search' %}
         </a>
 
@@ -117,7 +117,7 @@
             {% include 'icon' with 'search' %}
           </a>
 
-          <form class="header__search-form" action="/search" method="GET" role="search">
+          <form class="header__search-form" action="{{ routes.search_url }}" method="GET" role="search">
             <input type="hidden" name="type" value="{{ settings.search_mode }}">
             <input
               type="search"
@@ -158,7 +158,7 @@
 
       <div class="header__item header__item-cart">
         <a
-          href="/cart"
+          href="{{ routes.cart_url }}"
           class="header__link"
           {% if settings.cart_page == 'drawer' and template != 'cart' %}
             data-action="open-mini-cart"
