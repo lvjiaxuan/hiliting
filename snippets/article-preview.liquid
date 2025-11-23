@@ -3,7 +3,7 @@
     <a
       class="article__image-link"
       href="{{ article.url }}"
-      style="background: url({{ article.image | image_url: width: 50 }})"
+      style="background: url({{ article.image | image_url: width: 1 }})"
     >
       {% include 'image-size', sizes: '200,300,400,600,800', image: article.image %}
 

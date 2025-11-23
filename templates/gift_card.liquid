@@ -23,7 +23,6 @@
       <h2 class="gift-card__issued-text">{{ 'gift_cards.issued.issued_text' | t }}</h2>
 
       {% assign formatted_initial_value = gift_card.initial_value | money_without_trailing_zeros: gift_card.currency %}
-      {% assign formatted_initial_value_stripped = formatted_initial_value | strip_html %}
 
       <span class="gift-card__amount">
         {% if gift_card.balance != gift_card.initial_value %}
