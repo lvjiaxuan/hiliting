@@ -19,6 +19,8 @@
               class="mini-cart__image"
               src="{{ line_item.image | image_url: width: 180 }}"
               alt="{{ line_item.image.alt | escape }}"
+              width="{{ line_item.image.width }}"
+              height="{{ line_item.image.height }}"
             >
           </div>
 
@@ -42,8 +44,10 @@
         <span class="mini-cart__total-price" data-money-convertible>{{ cart.total_price | money }}</span>
       </div>
 
-      <form action="/cart" method="POST">
-        <a href="/cart" class="button button--full button--primary">{{ 'cart.mini_cart.continue_to_checkout' | t }}</a>
+      <form action="{{ routes.cart_url }}" method="POST">
+        <a href="{{ routes.cart_url }}" class="button button--full button--primary">
+          {{- 'cart.mini_cart.continue_to_checkout' | t -}}
+        </a>
       </form>
     </footer>
   </div>

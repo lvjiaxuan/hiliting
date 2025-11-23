@@ -74,6 +74,8 @@
                         class="product__slideshow-image"
                         src="{{ product | image_url: width: 800 }}"
                         alt="{{ product.featured_image.alt | escape }}"
+                        width="{{ product.featured_image.width }}"
+                        height="{{ product.featured_image.height }}"
                       >
                     </noscript>
                   </div>
@@ -133,6 +135,8 @@
                             class="product__slideshow-image"
                             src="{{ image | image_url: width: 800 }}"
                             alt="{{ image | escape }}"
+                            width="{{ image.width }}"
+                            height="{{ image.height }}"
                           >
                         </noscript>
                       </div>
@@ -146,7 +150,12 @@
               <ul class="product__thumbnails">
                 {% for image in product.images %}
                   <li class="product__thumbnail" data-index="{{ forloop.index0 }}">
-                    <img src="{{ image.src | image_url: width: 200 }}" alt="{{ image.alt | escape }}">
+                    <img
+                      src="{{ image.src | image_url: width: 200 }}"
+                      alt="{{ image.alt | escape }}"
+                      width="{{ image.width }}"
+                      height="{{ image.height }}"
+                    >
                   </li>
                 {% endfor %}
               </ul>
@@ -263,6 +272,8 @@
               class="product__slideshow-image"
               src="{{ image | image_url: width: 800 }}"
               alt="{{ image.alt | escape }}"
+              width="{{ image.width }}"
+              height="{{ image.height }}"
             >
           </li>
         {% endfor %}

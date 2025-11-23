@@ -3,87 +3,6 @@
     "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\layout\\theme.liquid",
     "offenses": [
       {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 159,
-        "start_column": 70,
-        "end_row": 159,
-        "end_column": 80,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 160,
-        "start_column": 40,
-        "end_row": 160,
-        "end_column": 50,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 163,
-        "start_column": 59,
-        "end_row": 163,
-        "end_column": 69,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 167,
-        "start_column": 51,
-        "end_row": 167,
-        "end_column": 61,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 168,
-        "start_column": 50,
-        "end_row": 168,
-        "end_column": 60,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 172,
-        "start_column": 51,
-        "end_row": 172,
-        "end_column": 61,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 177,
-        "start_column": 8,
-        "end_row": 177,
-        "end_column": 18,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 179,
-        "start_column": 31,
-        "end_row": 179,
-        "end_column": 41,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 180,
-        "start_column": 33,
-        "end_row": 180,
-        "end_column": 43,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
         "check": "DeprecatedTag",
         "severity": "warning",
         "start_row": 7,
@@ -132,37 +51,19 @@
         "check": "RemoteAsset",
         "severity": "warning",
         "start_row": 159,
-        "start_column": 7,
+        "start_column": 12,
         "end_row": 159,
-        "end_column": 67,
-        "message": "Asset should be served by the Shopify CDN for better performance."
-      },
-      {
-        "check": "RemoteAsset",
-        "severity": "warning",
-        "start_row": 159,
-        "start_column": 7,
-        "end_row": 159,
-        "end_column": 80,
-        "message": "Use one of the asset_url filters to serve assets for better performance."
-      },
-      {
-        "check": "RemoteAsset",
-        "severity": "warning",
-        "start_row": 163,
-        "start_column": 9,
-        "end_row": 163,
-        "end_column": 56,
+        "end_column": 76,
         "message": "Asset should be served by the Shopify CDN for better performance."
       },
       {
         "check": "RemoteAsset",
         "severity": "warning",
         "start_row": 163,
-        "start_column": 9,
+        "start_column": 14,
         "end_row": 163,
-        "end_column": 69,
-        "message": "Use one of the asset_url filters to serve assets for better performance."
+        "end_column": 65,
+        "message": "Asset should be served by the Shopify CDN for better performance."
       },
       {
         "check": "RemoteAsset",
@@ -170,17 +71,8 @@
         "start_row": 176,
         "start_column": 6,
         "end_row": 176,
-        "end_column": 152,
+        "end_column": 156,
         "message": "Asset should be served by the Shopify CDN for better performance."
-      },
-      {
-        "check": "RemoteAsset",
-        "severity": "warning",
-        "start_row": 176,
-        "start_column": 6,
-        "end_row": 177,
-        "end_column": 18,
-        "message": "Use one of the asset_url filters to serve assets for better performance."
       },
       {
         "check": "UndefinedObject",
@@ -192,31 +84,13 @@
         "message": "Unknown object 'use_secondary_background' used."
       }
     ],
-    "errorCount": 9,
-    "warningCount": 12,
+    "errorCount": 0,
+    "warningCount": 9,
     "infoCount": 0
   },
   {
     "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\sections\\article-template.liquid",
     "offenses": [
-      {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 17,
-        "start_column": 4,
-        "end_row": 17,
-        "end_column": 112,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 116,
-        "start_column": 14,
-        "end_row": 120,
-        "end_column": 15,
-        "message": "Missing width and height attributes on img tag"
-      },
       {
         "check": "DeprecatedTag",
         "severity": "warning",
@@ -238,47 +112,38 @@
       {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 57,
+        "start_row": 63,
         "start_column": 20,
-        "end_row": 57,
+        "end_row": 63,
         "end_column": 27,
         "message": "Use the 'render' tag instead of 'include'"
       },
       {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 66,
+        "start_row": 72,
         "start_column": 20,
-        "end_row": 66,
+        "end_row": 72,
         "end_column": 27,
         "message": "Use the 'render' tag instead of 'include'"
       },
       {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 75,
+        "start_row": 81,
         "start_column": 20,
-        "end_row": 75,
+        "end_row": 81,
         "end_column": 27,
         "message": "Use the 'render' tag instead of 'include'"
       },
       {
         "check": "RemoteAsset",
         "severity": "warning",
-        "start_row": 119,
+        "start_row": 125,
         "start_column": 16,
-        "end_row": 119,
+        "end_row": 125,
         "end_column": 176,
         "message": "Asset should be served by the Shopify CDN for better performance."
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 138,
-        "start_column": 21,
-        "end_row": 138,
-        "end_column": 28,
-        "message": "Use the 'render' tag instead of 'include'"
       },
       {
         "check": "DeprecatedTag",
@@ -292,14 +157,23 @@
       {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 177,
+        "start_row": 154,
+        "start_column": 21,
+        "end_row": 154,
+        "end_column": 28,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 185,
         "start_column": 15,
-        "end_row": 177,
+        "end_row": 185,
         "end_column": 22,
         "message": "Use the 'render' tag instead of 'include'"
       }
     ],
-    "errorCount": 2,
+    "errorCount": 0,
     "warningCount": 9,
     "infoCount": 0
   },
@@ -422,24 +296,6 @@
     "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\sections\\cart-template.liquid",
     "offenses": [
       {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 34,
-        "start_column": 16,
-        "end_row": 34,
-        "end_column": 98,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 84,
-        "start_column": 18,
-        "end_row": 84,
-        "end_column": 113,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
         "check": "DeprecatedTag",
         "severity": "warning",
         "start_row": 1,
@@ -451,96 +307,51 @@
       {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 115,
+        "start_row": 125,
         "start_column": 23,
-        "end_row": 115,
+        "end_row": 125,
         "end_column": 30,
         "message": "Use the 'render' tag instead of 'include'"
       },
       {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 118,
+        "start_row": 128,
         "start_column": 23,
-        "end_row": 118,
+        "end_row": 128,
         "end_column": 30,
         "message": "Use the 'render' tag instead of 'include'"
       },
       {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 27,
-        "start_column": 16,
-        "end_row": 27,
-        "end_column": 21,
-        "message": "Use routes object {{ routes.cart_url }} instead of hardcoding /cart"
-      },
-      {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 127,
+        "start_row": 137,
         "start_column": 21,
-        "end_row": 127,
+        "end_row": 137,
         "end_column": 28,
         "message": "Use the 'render' tag instead of 'include'"
       },
       {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 214,
+        "start_row": 224,
         "start_column": 15,
-        "end_row": 214,
+        "end_row": 224,
         "end_column": 22,
         "message": "Use the 'render' tag instead of 'include'"
       },
       {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 231,
+        "start_row": 241,
         "start_column": 15,
-        "end_row": 231,
+        "end_row": 241,
         "end_column": 22,
         "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 57,
-        "start_column": 49,
-        "end_row": 57,
-        "end_column": 61,
-        "message": "Use routes object {{ routes.cart_change_url }} instead of hardcoding /cart/change"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 114,
-        "start_column": 27,
-        "end_row": 114,
-        "end_column": 39,
-        "message": "Use routes object {{ routes.cart_change_url }} instead of hardcoding /cart/change"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 117,
-        "start_column": 27,
-        "end_row": 117,
-        "end_column": 39,
-        "message": "Use routes object {{ routes.cart_change_url }} instead of hardcoding /cart/change"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 126,
-        "start_column": 25,
-        "end_row": 126,
-        "end_column": 37,
-        "message": "Use routes object {{ routes.cart_change_url }} instead of hardcoding /cart/change"
       }
     ],
-    "errorCount": 2,
-    "warningCount": 11,
+    "errorCount": 0,
+    "warningCount": 6,
     "infoCount": 0
   },
   {
@@ -657,239 +468,8 @@
     "infoCount": 0
   },
   {
-    "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\sections\\product-tabs.liquid",
-    "offenses": [
-      {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 134,
-        "start_column": 24,
-        "end_row": 139,
-        "end_column": 25,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
-        "check": "RemoteAsset",
-        "severity": "warning",
-        "start_row": 135,
-        "start_column": 26,
-        "end_row": 135,
-        "end_column": 110,
-        "message": "Use one of the asset_url filters to serve assets for better performance."
-      }
-    ],
-    "errorCount": 1,
-    "warningCount": 1,
-    "infoCount": 0
-  },
-  {
-    "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\sections\\product-template.liquid",
-    "offenses": [
-      {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 72,
-        "start_column": 22,
-        "end_row": 76,
-        "end_column": 23,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 131,
-        "start_column": 26,
-        "end_row": 135,
-        "end_column": 27,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 148,
-        "start_column": 20,
-        "end_row": 148,
-        "end_column": 102,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 261,
-        "start_column": 12,
-        "end_row": 265,
-        "end_column": 13,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 5,
-        "start_column": 5,
-        "end_row": 5,
-        "end_column": 12,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 24,
-        "start_column": 11,
-        "end_row": 24,
-        "end_column": 18,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 53,
-        "start_column": 21,
-        "end_row": 53,
-        "end_column": 28,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 113,
-        "start_column": 25,
-        "end_row": 113,
-        "end_column": 32,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 162,
-        "start_column": 15,
-        "end_row": 162,
-        "end_column": 22,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 165,
-        "start_column": 17,
-        "end_row": 165,
-        "end_column": 24,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 194,
-        "start_column": 26,
-        "end_row": 194,
-        "end_column": 33,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 203,
-        "start_column": 26,
-        "end_row": 203,
-        "end_column": 33,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 212,
-        "start_column": 26,
-        "end_row": 212,
-        "end_column": 33,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 220,
-        "start_column": 17,
-        "end_row": 220,
-        "end_column": 24,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 242,
-        "start_column": 9,
-        "end_row": 242,
-        "end_column": 16,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 272,
-        "start_column": 13,
-        "end_row": 272,
-        "end_column": 20,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 280,
-        "start_column": 15,
-        "end_row": 280,
-        "end_column": 22,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 283,
-        "start_column": 13,
-        "end_row": 283,
-        "end_column": 20,
-        "message": "Use the 'render' tag instead of 'include'"
-      }
-    ],
-    "errorCount": 4,
-    "warningCount": 14,
-    "infoCount": 0
-  },
-  {
-    "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\sections\\slideshow.liquid",
-    "offenses": [
-      {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 42,
-        "start_column": 14,
-        "end_row": 46,
-        "end_column": 15,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 25,
-        "start_column": 13,
-        "end_row": 25,
-        "end_column": 20,
-        "message": "Use the 'render' tag instead of 'include'"
-      }
-    ],
-    "errorCount": 1,
-    "warningCount": 1,
-    "infoCount": 0
-  },
-  {
     "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\snippets\\collection-collage-item.liquid",
     "offenses": [
-      {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 8,
-        "start_column": 4,
-        "end_row": 13,
-        "end_column": 5,
-        "message": "Missing width and height attributes on img tag"
-      },
       {
         "check": "RemoteAsset",
         "severity": "warning",
@@ -900,7 +480,7 @@
         "message": "Use one of the asset_url filters to serve assets for better performance."
       }
     ],
-    "errorCount": 1,
+    "errorCount": 0,
     "warningCount": 1,
     "infoCount": 0
   },
@@ -936,50 +516,6 @@
       }
     ],
     "errorCount": 0,
-    "warningCount": 3,
-    "infoCount": 0
-  },
-  {
-    "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\snippets\\mini-cart-content.liquid",
-    "offenses": [
-      {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 17,
-        "start_column": 12,
-        "end_row": 21,
-        "end_column": 13,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 14,
-        "start_column": 17,
-        "end_row": 14,
-        "end_column": 24,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 44,
-        "start_column": 20,
-        "end_row": 44,
-        "end_column": 25,
-        "message": "Use routes object {{ routes.cart_url }} instead of hardcoding /cart"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 45,
-        "start_column": 17,
-        "end_row": 45,
-        "end_column": 22,
-        "message": "Use routes object {{ routes.cart_url }} instead of hardcoding /cart"
-      }
-    ],
-    "errorCount": 1,
     "warningCount": 3,
     "infoCount": 0
   },
@@ -1031,15 +567,6 @@
     "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\snippets\\navigation-sidebar.liquid",
     "offenses": [
       {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 27,
-        "start_column": 10,
-        "end_row": 31,
-        "end_column": 11,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
         "check": "DeprecatedTag",
         "severity": "warning",
         "start_row": 9,
@@ -1060,80 +587,44 @@
       {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 37,
+        "start_row": 39,
         "start_column": 9,
-        "end_row": 37,
+        "end_row": 39,
         "end_column": 16,
         "message": "Use the 'render' tag instead of 'include'"
       },
       {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 80,
+        "start_row": 82,
         "start_column": 43,
-        "end_row": 80,
+        "end_row": 82,
         "end_column": 50,
         "message": "Use the 'render' tag instead of 'include'"
       },
       {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 39,
-        "start_column": 60,
-        "end_row": 39,
-        "end_column": 67,
-        "message": "Use routes object {{ routes.search_url }} instead of hardcoding /search"
-      },
-      {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 124,
+        "start_row": 128,
         "start_column": 49,
-        "end_row": 124,
+        "end_row": 128,
         "end_column": 56,
         "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 90,
-        "start_column": 21,
-        "end_row": 90,
-        "end_column": 29,
-        "message": "Use routes object {{ routes.account_url }} instead of hardcoding /account"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 94,
-        "start_column": 21,
-        "end_row": 94,
-        "end_column": 35,
-        "message": "Use routes object {{ routes.account_login_url }} instead of hardcoding /account/login"
       }
     ],
-    "errorCount": 1,
-    "warningCount": 8,
+    "errorCount": 0,
+    "warningCount": 5,
     "infoCount": 0
   },
   {
     "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\snippets\\product-collage-item.liquid",
     "offenses": [
       {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 2,
-        "start_column": 4,
-        "end_row": 7,
-        "end_column": 5,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 10,
+        "start_row": 12,
         "start_column": 9,
-        "end_row": 10,
+        "end_row": 12,
         "end_column": 16,
         "message": "Use the 'render' tag instead of 'include'"
       },
@@ -1149,94 +640,15 @@
       {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 18,
+        "start_row": 20,
         "start_column": 13,
-        "end_row": 18,
+        "end_row": 20,
         "end_column": 20,
         "message": "Use the 'render' tag instead of 'include'"
       }
     ],
-    "errorCount": 1,
+    "errorCount": 0,
     "warningCount": 3,
-    "infoCount": 0
-  },
-  {
-    "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\snippets\\product-grid-item-index.liquid",
-    "offenses": [
-      {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 74,
-        "start_column": 14,
-        "end_row": 74,
-        "end_column": 102,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 16,
-        "start_column": 15,
-        "end_row": 16,
-        "end_column": 22,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 46,
-        "start_column": 11,
-        "end_row": 46,
-        "end_column": 18,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 49,
-        "start_column": 13,
-        "end_row": 49,
-        "end_column": 20,
-        "message": "Use the 'render' tag instead of 'include'"
-      }
-    ],
-    "errorCount": 1,
-    "warningCount": 3,
-    "infoCount": 0
-  },
-  {
-    "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\snippets\\product-grid-item.liquid",
-    "offenses": [
-      {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 72,
-        "start_column": 14,
-        "end_row": 72,
-        "end_column": 93,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 18,
-        "start_column": 15,
-        "end_row": 18,
-        "end_column": 22,
-        "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "DeprecatedTag",
-        "severity": "warning",
-        "start_row": 55,
-        "start_column": 13,
-        "end_row": 55,
-        "end_column": 20,
-        "message": "Use the 'render' tag instead of 'include'"
-      }
-    ],
-    "errorCount": 1,
-    "warningCount": 2,
     "infoCount": 0
   },
   {
@@ -1271,42 +683,33 @@
       {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 59,
+        "start_row": 61,
         "start_column": 25,
-        "end_row": 59,
+        "end_row": 61,
         "end_column": 32,
         "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 8,
-        "start_column": 17,
-        "end_row": 8,
-        "end_column": 32,
-        "message": "Use routes object {{ routes.account_logout_url }} instead of hardcoding /account/logout"
       },
       {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 67,
+        "start_row": 69,
         "start_column": 25,
-        "end_row": 67,
+        "end_row": 69,
         "end_column": 32,
         "message": "Use the 'render' tag instead of 'include'"
       },
       {
         "check": "HardcodedRoutes",
         "severity": "warning",
-        "start_row": 80,
+        "start_row": 82,
         "start_column": 19,
-        "end_row": 80,
+        "end_row": 82,
         "end_column": 37,
         "message": "Use routes object {{ routes.account_addresses_url }} instead of hardcoding /account/addresses"
       }
     ],
     "errorCount": 0,
-    "warningCount": 5,
+    "warningCount": 4,
     "infoCount": 0
   },
   {
@@ -1426,19 +829,10 @@
         "end_row": 50,
         "end_column": 22,
         "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 79,
-        "start_column": 11,
-        "end_row": 79,
-        "end_column": 28,
-        "message": "Use routes object {{ routes.account_register_url }} instead of hardcoding /account/register"
       }
     ],
     "errorCount": 0,
-    "warningCount": 4,
+    "warningCount": 3,
     "infoCount": 0
   },
   {
@@ -1452,19 +846,10 @@
         "end_row": 1,
         "end_column": 12,
         "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 8,
-        "start_column": 17,
-        "end_row": 8,
-        "end_column": 32,
-        "message": "Use routes object {{ routes.account_logout_url }} instead of hardcoding /account/logout"
       }
     ],
     "errorCount": 0,
-    "warningCount": 2,
+    "warningCount": 1,
     "infoCount": 0
   },
   {
@@ -1487,19 +872,10 @@
         "end_row": 17,
         "end_column": 22,
         "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 51,
-        "start_column": 11,
-        "end_row": 51,
-        "end_column": 25,
-        "message": "Use routes object {{ routes.account_login_url }} instead of hardcoding /account/login"
       }
     ],
     "errorCount": 0,
-    "warningCount": 3,
+    "warningCount": 2,
     "infoCount": 0
   },
   {
@@ -1532,24 +908,6 @@
     "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\templates\\gift_card.liquid",
     "offenses": [
       {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 14,
-        "start_column": 8,
-        "end_row": 14,
-        "end_column": 112,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 74,
-        "start_column": 44,
-        "end_row": 74,
-        "end_column": 54,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
         "check": "DeprecatedTag",
         "severity": "warning",
         "start_row": 1,
@@ -1561,14 +919,14 @@
       {
         "check": "UnusedAssign",
         "severity": "warning",
-        "start_row": 20,
+        "start_row": 25,
         "start_column": 6,
-        "end_row": 20,
+        "end_row": 25,
         "end_column": 90,
         "message": "The variable 'formatted_initial_value_stripped' is assigned but not used"
       }
     ],
-    "errorCount": 2,
+    "errorCount": 0,
     "warningCount": 2,
     "infoCount": 0
   },
@@ -1764,6 +1122,140 @@
     "infoCount": 0
   },
   {
+    "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\sections\\product-template.liquid",
+    "offenses": [
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 5,
+        "start_column": 5,
+        "end_row": 5,
+        "end_column": 12,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 24,
+        "start_column": 11,
+        "end_row": 24,
+        "end_column": 18,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 53,
+        "start_column": 21,
+        "end_row": 53,
+        "end_column": 28,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 115,
+        "start_column": 25,
+        "end_row": 115,
+        "end_column": 32,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 171,
+        "start_column": 15,
+        "end_row": 171,
+        "end_column": 22,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 174,
+        "start_column": 17,
+        "end_row": 174,
+        "end_column": 24,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 203,
+        "start_column": 26,
+        "end_row": 203,
+        "end_column": 33,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 212,
+        "start_column": 26,
+        "end_row": 212,
+        "end_column": 33,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 221,
+        "start_column": 26,
+        "end_row": 221,
+        "end_column": 33,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 229,
+        "start_column": 17,
+        "end_row": 229,
+        "end_column": 24,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 251,
+        "start_column": 9,
+        "end_row": 251,
+        "end_column": 16,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 283,
+        "start_column": 13,
+        "end_row": 283,
+        "end_column": 20,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 291,
+        "start_column": 15,
+        "end_row": 291,
+        "end_column": 22,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 294,
+        "start_column": 13,
+        "end_row": 294,
+        "end_column": 20,
+        "message": "Use the 'render' tag instead of 'include'"
+      }
+    ],
+    "errorCount": 0,
+    "warningCount": 14,
+    "infoCount": 0
+  },
+  {
     "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\snippets\\article-preview.liquid",
     "offenses": [
       {
@@ -1802,15 +1294,6 @@
     "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\snippets\\map.liquid",
     "offenses": [
       {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 58,
-        "start_column": 2,
-        "end_row": 58,
-        "end_column": 94,
-        "message": "Avoid parser blocking scripts by adding `defer` or `async` on this tag"
-      },
-      {
         "check": "DeprecateBgsizes",
         "severity": "warning",
         "start_row": 10,
@@ -1829,7 +1312,7 @@
         "message": "Asset should be served by the Shopify CDN for better performance."
       }
     ],
-    "errorCount": 1,
+    "errorCount": 0,
     "warningCount": 2,
     "infoCount": 0
   },
@@ -1837,71 +1320,35 @@
     "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\snippets\\th-product-review.liquid",
     "offenses": [
       {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 6,
-        "start_column": 75,
-        "end_row": 6,
-        "end_column": 85,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
         "check": "RemoteAsset",
         "severity": "warning",
-        "start_row": 2,
-        "start_column": 2,
-        "end_row": 2,
-        "end_column": 108,
-        "message": "Asset should be served by the Shopify CDN for better performance."
-      },
-      {
-        "check": "RemoteAsset",
-        "severity": "warning",
-        "start_row": 2,
+        "start_row": 3,
         "start_column": 2,
         "end_row": 3,
-        "end_column": 18,
-        "message": "Use one of the asset_url filters to serve assets for better performance."
-      },
-      {
-        "check": "RemoteAsset",
-        "severity": "warning",
-        "start_row": 5,
-        "start_column": 3,
-        "end_row": 5,
-        "end_column": 65,
+        "end_column": 113,
         "message": "Asset should be served by the Shopify CDN for better performance."
       },
       {
         "check": "RemoteAsset",
         "severity": "warning",
         "start_row": 5,
-        "start_column": 3,
+        "start_column": 23,
         "end_row": 5,
-        "end_column": 82,
-        "message": "Use one of the asset_url filters to serve assets for better performance."
-      },
-      {
-        "check": "RemoteAsset",
-        "severity": "warning",
-        "start_row": 6,
-        "start_column": 3,
-        "end_row": 6,
-        "end_column": 72,
+        "end_column": 90,
         "message": "Asset should be served by the Shopify CDN for better performance."
       },
       {
         "check": "RemoteAsset",
         "severity": "warning",
         "start_row": 6,
-        "start_column": 3,
+        "start_column": 8,
         "end_row": 6,
-        "end_column": 85,
-        "message": "Use one of the asset_url filters to serve assets for better performance."
+        "end_column": 81,
+        "message": "Asset should be served by the Shopify CDN for better performance."
       }
     ],
-    "errorCount": 1,
-    "warningCount": 6,
+    "errorCount": 0,
+    "warningCount": 3,
     "infoCount": 0
   },
   {
@@ -1977,24 +1424,6 @@
     "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\sections\\search-template.liquid",
     "offenses": [
       {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 66,
-        "start_column": 20,
-        "end_row": 66,
-        "end_column": 103,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
-        "check": "ImgWidthAndHeight",
-        "severity": "error",
-        "start_row": 85,
-        "start_column": 20,
-        "end_row": 85,
-        "end_column": 104,
-        "message": "Missing width and height attributes on img tag"
-      },
-      {
         "check": "DeprecatedTag",
         "severity": "warning",
         "start_row": 5,
@@ -2013,26 +1442,34 @@
         "message": "Use the 'render' tag instead of 'include'"
       },
       {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 26,
-        "start_column": 45,
-        "end_row": 26,
-        "end_column": 52,
-        "message": "Use routes object {{ routes.search_url }} instead of hardcoding /search"
-      },
-      {
         "check": "DeprecatedTag",
         "severity": "warning",
-        "start_row": 102,
+        "start_row": 112,
         "start_column": 7,
-        "end_row": 102,
+        "end_row": 112,
         "end_column": 14,
         "message": "Use the 'render' tag instead of 'include'"
       }
     ],
-    "errorCount": 2,
-    "warningCount": 4,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0
+  },
+  {
+    "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\snippets\\mini-cart-content.liquid",
+    "offenses": [
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 14,
+        "start_column": 17,
+        "end_row": 14,
+        "end_column": 24,
+        "message": "Use the 'render' tag instead of 'include'"
+      }
+    ],
+    "errorCount": 0,
+    "warningCount": 1,
     "infoCount": 0
   },
   {
@@ -2581,46 +2018,71 @@
         "end_row": 190,
         "end_column": 18,
         "message": "Use the 'render' tag instead of 'include'"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 103,
-        "start_column": 19,
-        "end_row": 103,
-        "end_column": 27,
-        "message": "Use routes object {{ routes.account_url }} instead of hardcoding /account"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 110,
-        "start_column": 17,
-        "end_row": 110,
-        "end_column": 24,
-        "message": "Use routes object {{ routes.search_url }} instead of hardcoding /search"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 119,
-        "start_column": 52,
-        "end_row": 119,
-        "end_column": 59,
-        "message": "Use routes object {{ routes.search_url }} instead of hardcoding /search"
-      },
-      {
-        "check": "HardcodedRoutes",
-        "severity": "warning",
-        "start_row": 160,
-        "start_column": 16,
-        "end_row": 160,
-        "end_column": 21,
-        "message": "Use routes object {{ routes.cart_url }} instead of hardcoding /cart"
       }
     ],
     "errorCount": 0,
-    "warningCount": 14,
+    "warningCount": 10,
+    "infoCount": 0
+  },
+  {
+    "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\snippets\\product-grid-item-index.liquid",
+    "offenses": [
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 16,
+        "start_column": 15,
+        "end_row": 16,
+        "end_column": 22,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 46,
+        "start_column": 11,
+        "end_row": 46,
+        "end_column": 18,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 49,
+        "start_column": 13,
+        "end_row": 49,
+        "end_column": 20,
+        "message": "Use the 'render' tag instead of 'include'"
+      }
+    ],
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0
+  },
+  {
+    "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\snippets\\product-grid-item.liquid",
+    "offenses": [
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 18,
+        "start_column": 15,
+        "end_row": 18,
+        "end_column": 22,
+        "message": "Use the 'render' tag instead of 'include'"
+      },
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 55,
+        "start_column": 13,
+        "end_row": 55,
+        "end_column": 20,
+        "message": "Use the 'render' tag instead of 'include'"
+      }
+    ],
+    "errorCount": 0,
+    "warningCount": 2,
     "infoCount": 0
   },
   {
@@ -2722,51 +2184,6 @@
     "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\layout\\minimal.liquid",
     "offenses": [
       {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 69,
-        "start_column": 70,
-        "end_row": 69,
-        "end_column": 80,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 70,
-        "start_column": 40,
-        "end_row": 70,
-        "end_column": 50,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 74,
-        "start_column": 8,
-        "end_row": 74,
-        "end_column": 18,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 76,
-        "start_column": 31,
-        "end_row": 76,
-        "end_column": 41,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
-        "check": "ParserBlockingScript",
-        "severity": "error",
-        "start_row": 77,
-        "start_column": 33,
-        "end_row": 77,
-        "end_column": 43,
-        "message": "The script_tag filter is parser-blocking. Use a <script> tag with async or defer for better performance"
-      },
-      {
         "check": "DeprecatedTag",
         "severity": "warning",
         "start_row": 35,
@@ -2788,19 +2205,10 @@
         "check": "RemoteAsset",
         "severity": "warning",
         "start_row": 69,
-        "start_column": 7,
+        "start_column": 12,
         "end_row": 69,
-        "end_column": 67,
+        "end_column": 76,
         "message": "Asset should be served by the Shopify CDN for better performance."
-      },
-      {
-        "check": "RemoteAsset",
-        "severity": "warning",
-        "start_row": 69,
-        "start_column": 7,
-        "end_row": 69,
-        "end_column": 80,
-        "message": "Use one of the asset_url filters to serve assets for better performance."
       },
       {
         "check": "RemoteAsset",
@@ -2808,21 +2216,29 @@
         "start_row": 73,
         "start_column": 6,
         "end_row": 73,
-        "end_column": 161,
+        "end_column": 165,
         "message": "Asset should be served by the Shopify CDN for better performance."
-      },
-      {
-        "check": "RemoteAsset",
-        "severity": "warning",
-        "start_row": 73,
-        "start_column": 6,
-        "end_row": 74,
-        "end_column": 18,
-        "message": "Use one of the asset_url filters to serve assets for better performance."
       }
     ],
-    "errorCount": 5,
-    "warningCount": 6,
+    "errorCount": 0,
+    "warningCount": 4,
+    "infoCount": 0
+  },
+  {
+    "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\sections\\slideshow.liquid",
+    "offenses": [
+      {
+        "check": "DeprecatedTag",
+        "severity": "warning",
+        "start_row": 25,
+        "start_column": 13,
+        "end_row": 25,
+        "end_column": 20,
+        "message": "Use the 'render' tag instead of 'include'"
+      }
+    ],
+    "errorCount": 0,
+    "warningCount": 1,
     "infoCount": 0
   },
   {
@@ -2858,6 +2274,23 @@
     ],
     "errorCount": 0,
     "warningCount": 3,
+    "infoCount": 0
+  },
+  {
+    "path": "c:\\Users\\lvjx\\Documents\\git_repoes\\hilting\\sections\\product-tabs.liquid",
+    "offenses": [
+      {
+        "check": "RemoteAsset",
+        "severity": "warning",
+        "start_row": 135,
+        "start_column": 26,
+        "end_row": 135,
+        "end_column": 110,
+        "message": "Use one of the asset_url filters to serve assets for better performance."
+      }
+    ],
+    "errorCount": 0,
+    "warningCount": 1,
     "infoCount": 0
   },
   {

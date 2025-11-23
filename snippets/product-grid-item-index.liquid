@@ -73,7 +73,12 @@
             }}
 
             <noscript>
-              <img src="{{ product | image_url: width: 600 }}" alt="{{ product.featured_image.alt }}">
+              <img
+                src="{{ product | image_url: width: 600 }}"
+                alt="{{ product.featured_image.alt }}"
+                width="{{ product.featured_image.width }}"
+                height="{{ product.featured_image.height }}"
+              >
             </noscript>
           </div>
         {% endfor %}

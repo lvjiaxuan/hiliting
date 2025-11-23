@@ -137,6 +137,8 @@
                           data-src="{{ image | image_url: width: 1200 }}"
                           class="item"
                           alt="{{ image.alt | escape }}"
+                          width="{{ image.width }}"
+                          height="{{ image.height }}"
                         >
                       </div>
                     {% endfor %}

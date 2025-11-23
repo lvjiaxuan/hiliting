@@ -54,8 +54,6 @@
     </div>
   {% else %}
     <div class="list-collections list-collections--padded list-collections--grid grid grid--middle grid--gallery">
-      {% assign grid_items_per_row = section.settings.grid_items_per_row %}
-
       {% if collections_linklist.links.size > 0 %}
         {% for link in collections_linklist.links %}
           {% if link.type != 'collection_link' %}

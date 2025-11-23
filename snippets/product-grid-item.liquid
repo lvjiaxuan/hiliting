@@ -70,7 +70,12 @@
             }}
 
             <noscript>
-              <img src="{{ main_image | image_url: width: 600 }}" alt="{{ main_image.alt }}">
+              <img
+                src="{{ main_image | image_url: width: 600 }}"
+                alt="{{ main_image.alt }}"
+                width="{{ main_image.width }}"
+                height="{{ main_image.height }}"
+              >
             </noscript>
           </div>
         {% else %}
