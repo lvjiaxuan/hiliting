@@ -22,7 +22,7 @@
     {%- capture product_images -%}
         {%- for image in product.images -%}
           {
-            "id": {{ image.id }},
+            "id": {{ image.id }},
             "object": "product_image",
             "src": {{ image.src | json }},
             "position": {{ image.position }}
@@ -33,7 +33,7 @@
     {%- capture product_variants -%}
         {%- for variant in product.variants -%}
           {
-            "id": {{ variant.id }},
+            "id": {{ variant.id }},
             "object": "variant",
             "title": {{ variant.title | json }},
             "url": {{ shop.secure_url | append: variant.url | json }},
@@ -111,3 +111,16 @@
     } })
   {%- endpaginate -%}
 {%- endif -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{{ image.id }}"
+  to: "{{ image.id }}"
+  position: 974..988
+- from: "{{ variant.id }}"
+  to: "{{ variant.id }}"
+  position: 1336..1352
+{% endcomment %}
